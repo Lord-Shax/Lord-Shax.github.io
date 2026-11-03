@@ -177,11 +177,11 @@ POSES = {
 SKIRTED = {"dance-a-w": "dance-a", "dance-b-w": "dance-b", "stand-w": "stand"}
 
 # The letters "AI" are the robot's hair. Centred on x=50, so a mirrored figure can reuse it unflipped.
-HAIR_AI = ('<g fill="none" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10">'
-           '<path d="M40.6 12 L45.5 1 L50.4 12 M42.4 8 H48.6 M56.5 1.6 V10.4 M53.2 1.6 H59.8 M53.2 10.4 H59.8" '
-           'stroke="#fffaf3" stroke-width="4.6"/>'
-           '<path d="M40.6 12 L45.5 1 L50.4 12 M42.4 8 H48.6 M56.5 1.6 V10.4 M53.2 1.6 H59.8 M53.2 10.4 H59.8" '
-           'stroke="#120b06" stroke-width="2.4"/></g>')
+HAIR_AI = ('<g fill="none" stroke-linecap="round" stroke-linejoin="round">'
+           '<path d="M40.9 6.6 L44.5 -2.6 Q45.5 -5 46.5 -2.6 L50.1 6.6 M42.5 2.6 H48.5 M56.4 -3.6 V6.6 M54 -3.6 H58.8 M54 6.6 H58.8" '
+           'stroke="#fffaf3" stroke-width="5"/>'
+           '<path d="M40.9 6.6 L44.5 -2.6 Q45.5 -5 46.5 -2.6 L50.1 6.6 M42.5 2.6 H48.5 M56.4 -3.6 V6.6 M54 -3.6 H58.8 M54 6.6 H58.8" '
+           'stroke="#120b06" stroke-width="2.5"/></g>')
 
 HEADS = {
     "human": ('<circle cx="50" cy="24.5" r="16" fill="#fffaf3" stroke="currentColor" stroke-width="2"/>'
