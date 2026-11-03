@@ -298,3 +298,52 @@ a.spec:hover .t2::after, a.spec:hover h3::after { opacity: 1; transform: none; }
 }
 a.spec:hover { box-shadow: 6px 8px 0 -1px var(--orange), 0 22px 40px -26px rgba(36,23,13,.5); }
 .specs.one { grid-template-columns: minmax(0, 760px); }
+
+/* ---------- CV pill, top left ---------- */
+.cv-pill { display: inline-flex; align-items: center; gap: 6px; padding: 6px 13px 6px 14px; border-radius: 999px;
+  background: var(--orange); color: #fff; font: 700 14px/1 var(--sans); letter-spacing: .06em; text-decoration: none;
+  border: 1.5px solid var(--ink); box-shadow: 2px 2px 0 var(--ink); transition: transform .15s ease, box-shadow .15s ease; }
+.cv-pill svg { width: 14px; height: 14px; }
+.cv-pill:hover { color: #fff; transform: translate(-1px,-1px); box-shadow: 3px 3px 0 var(--ink); }
+.cv-pill:hover svg { animation: cvdrop .6s ease-in-out infinite alternate; }
+@keyframes cvdrop { to { transform: translateY(2px); } }
+
+/* ---------- hero walk scene ---------- */
+.walkwrap { margin: 4px 0 30px; }
+.walkscene { width: 100%; height: auto; aspect-ratio: 1200 / 300; border-radius: 22px; border: 1.5px solid var(--ink); overflow: hidden; background: #fbf3e6; }
+@media (max-width: 699px) { .walkscene { aspect-ratio: 680 / 280; border-radius: 16px; } }
+.walkscene .walker.human { color: var(--coffee); }
+.walkscene .walker.ai { color: var(--orange); }
+.walkscene .wshadow { fill: #24170d; opacity: .14; }
+.walkscene .msign { font: 800 12.5px var(--sans); letter-spacing: .12em; fill: #24170d; }
+.walkscene .gsign { font: 800 13px var(--sans); letter-spacing: .14em; fill: #fbf6ef; }
+.walkscene .leg-a, .walkscene .leg-b { transform-origin: 50px 90px; animation: stride .55s ease-in-out infinite alternate; }
+.walkscene .leg-b { animation-delay: -.55s; }
+.walkscene .arm-a, .walkscene .arm-b { transform-origin: 50px 46px; animation: swing .55s ease-in-out infinite alternate; }
+.walkscene .arm-b { animation-delay: -.55s; }
+.walkscene .bob { animation: wbob .275s ease-in-out infinite alternate; }
+@keyframes stride { from { transform: rotate(-24deg); } to { transform: rotate(24deg); } }
+@keyframes swing { from { transform: rotate(20deg); } to { transform: rotate(-20deg); } }
+@keyframes wbob { from { transform: translateY(0); } to { transform: translateY(-3px); } }
+.walkscene .drift-near { animation: drift 11s linear infinite; }
+.walkscene .drift-path { animation: drift-path .55s linear infinite; }
+.walkscene .drift-far { animation: drift 70s linear infinite; }
+.walkscene .clouds { animation: drift 90s linear infinite; }
+@keyframes drift { to { transform: translateX(-1200px); } }
+@keyframes drift-path { to { transform: translateX(-60px); } }
+.walkscene .sun { transform-origin: 905px 150px; animation: sunpulse 4s ease-in-out infinite alternate; }
+.walkscene .rays { transform-origin: 905px 150px; animation: rays 30s linear infinite; }
+@keyframes sunpulse { to { transform: scale(1.06); } }
+@keyframes rays { to { transform: rotate(360deg); } }
+.walkscene .sat { animation: orbit 26s linear infinite; }
+@keyframes orbit { from { transform: translate(-40px, 90px) rotate(-8deg); } to { transform: translate(1240px, 28px) rotate(-8deg); } }
+.walkscene .blink { animation: blink 1.2s steps(2) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+.walkscene .heart { transform-origin: 78px 72px; opacity: 0; animation: heart 4.5s ease-out infinite 1s; }
+@keyframes heart { 0% { opacity: 0; transform: translateY(0) scale(.4); } 15% { opacity: 1; transform: translateY(-14px) scale(1); }
+  60% { opacity: 1; transform: translateY(-44px) scale(1); } 80%, 100% { opacity: 0; transform: translateY(-60px) scale(.9); } }
+@media (prefers-reduced-motion: reduce) {
+  .walkscene *, .cv-pill svg { animation: none !important; }
+  .walkscene .heart { opacity: 1; transform: translateY(-20px); }
+}
+.hero.solo .walkwrap { margin: 0 0 -6px; }

@@ -3,6 +3,13 @@
   document.querySelectorAll("[data-year]").forEach(function (el) { el.textContent = new Date().getFullYear(); });
 
 
+  // On narrow screens, frame the walkers and their destination more tightly.
+  var ws = document.querySelector(".walkscene");
+  if (ws) {
+    var frame = function () { ws.setAttribute("viewBox", window.innerWidth < 700 ? "340 20 680 280" : "0 0 1200 300"); };
+    frame(); window.addEventListener("resize", frame);
+  }
+
   // Boxes lean gently toward the pointer, with a soft orange spotlight.
   if (window.matchMedia("(hover: hover) and (pointer: fine)").matches &&
       !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {

@@ -84,6 +84,7 @@ def layout(meta: dict, body: str) -> str:
 <header class="site-head">
   <div class="wrap">
     <a class="brand" href="/">{BRAND}<span>Ishaku</span></a>
+    <a class="cv-pill" href="/cv/Ishaku-CV.pdf" download="Ishaku-Gayus-CV.pdf" aria-label="Download my CV as a PDF">CV <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v8m-3.5-3.5L8 10l3.5-3.5M3 13h10" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
     <nav class="nav" aria-label="Main">{nav}</nav>
   </div>
 </header>
@@ -92,7 +93,7 @@ def layout(meta: dict, body: str) -> str:
 </main>
 <footer class="site-foot">
   <div class="wrap">
-    <span>© <span data-year>2026</span> Ishaku · <a href="/#contact">Contact</a> · <a href="/cv/Ishaku-CV.pdf">CV</a> · <a href="https://github.com/Lord-Shax">GitHub</a></span>
+    <span>© <span data-year>2026</span> Ishaku · <a href="/#contact">Contact</a> · <a href="/cv/Ishaku-CV.pdf" download="Ishaku-Gayus-CV.pdf">CV</a> · <a href="https://github.com/Lord-Shax">GitHub</a></span>
     <span>Original illustrations. Built with help from Claude.</span>
   </div>
 </footer>
