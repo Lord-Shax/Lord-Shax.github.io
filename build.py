@@ -26,8 +26,8 @@ ROOT = Path(__file__).resolve().parent
 SRC = ROOT / "_src"
 SPRITE = (SRC / "partials" / "sprite.svg").read_text(encoding="utf-8")
 
-NAV = [("story", "/#story", "Story"), ("work", "/projects/salecta/", "Work"),
-       ("writing", "/#writing", "Writing"), ("play", "/play/safety-filter/", "Play")]
+NAV = [("ramblings", "/#ramblings", "Ramblings"), ("projects", "/#projects", "Projects"),
+       ("vision", "/#vision", "My vision")]
 HEADS = {"human": "human", "ai": "ai", "bad": "mask"}
 
 BRAND = ('<svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="10.5" fill="none" '
@@ -74,6 +74,7 @@ def layout(meta: dict, body: str) -> str:
 <link rel="stylesheet" href="/assets/style.css">{extra}
 </head>
 <body>
+<div class="kente-strip" aria-hidden="true"></div>
 {SPRITE}
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-head">
