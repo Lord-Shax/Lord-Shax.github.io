@@ -13,141 +13,29 @@
 </head>
 <body>
 <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
-  <defs>
-    <!-- Bold stick figures. Each body uses currentColor; heads are separate so any
-         pose can wear a human, AI or masked head. Canvas: 100 x 160. -->
-    <g id="torso"><path d="M41 46 Q50 40.5 59 46 L57.5 89 Q50 94 42.5 89 Z"/></g>
-
-    <symbol id="b-stand" viewBox="0 0 100 160"><g fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-      <use href="#torso" stroke-width="3"/>
-      <path d="M45 54 L38 74 L35 92 M55 54 L62 74 L65 92" fill="none" stroke-width="7"/>
-      <path d="M46.5 88 L43 118 L41 144 M53.5 88 L57 118 L59 144" fill="none" stroke-width="8.5"/>
-      <circle cx="35" cy="95" r="6" stroke="none"/><circle cx="65" cy="95" r="6" stroke="none"/>
-      <ellipse cx="35" cy="148" rx="10.5" ry="5" stroke="none"/><ellipse cx="65" cy="148" rx="10.5" ry="5" stroke="none"/>
-    </g></symbol>
-
-    <symbol id="b-cheer" viewBox="0 0 100 160"><g fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-      <use href="#torso" stroke-width="3"/>
-      <path d="M45 52 L33 36 L24 17 M55 52 L67 36 L76 17" fill="none" stroke-width="7"/>
-      <path d="M46.5 88 L42 118 L39 144 M53.5 88 L58 118 L61 144" fill="none" stroke-width="8.5"/>
-      <ellipse cx="22" cy="11" rx="6.5" ry="7.5" stroke="none"/><ellipse cx="78" cy="11" rx="6.5" ry="7.5" stroke="none"/>
-      <path d="M15 8 L11 3 M19 4 L17 0 M25 4 L27 0 M85 8 L89 3 M81 4 L83 0 M75 4 L73 0" fill="none" stroke-width="3.2"/>
-      <ellipse cx="33" cy="148" rx="10.5" ry="5" stroke="none"/><ellipse cx="67" cy="148" rx="10.5" ry="5" stroke="none"/>
-    </g></symbol>
-
-    <symbol id="b-point" viewBox="0 0 100 160"><g fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-      <use href="#torso" stroke-width="3"/>
-      <path d="M55 53 L72 55 L86 51" fill="none" stroke-width="7"/>
-      <path d="M45 54 L33 68 L43 84" fill="none" stroke-width="7"/>
-      <path d="M46.5 88 L41 118 L37 144 M53.5 88 L58 118 L62 144" fill="none" stroke-width="8.5"/>
-      <ellipse cx="89" cy="50" rx="6" ry="5" stroke="none"/><path d="M92 47 L99 44" fill="none" stroke-width="3.6"/>
-      <circle cx="44" cy="85" r="5.5" stroke="none"/>
-      <ellipse cx="31" cy="148" rx="10.5" ry="5" stroke="none"/><ellipse cx="68" cy="148" rx="10.5" ry="5" stroke="none"/>
-    </g></symbol>
-
-    <symbol id="b-think" viewBox="0 0 100 160"><g fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-      <use href="#torso" stroke-width="3"/>
-      <path d="M55 54 L69 70 L62 49" fill="none" stroke-width="7"/>
-      <path d="M45 55 L40 74 L57 77" fill="none" stroke-width="7"/>
-      <path d="M46.5 88 L44 118 L46 144 M53.5 88 L56 118 L57 144" fill="none" stroke-width="8.5"/>
-      <circle cx="61" cy="46" r="6" stroke="none"/><circle cx="60" cy="77" r="5.5" stroke="none"/>
-      <ellipse cx="40" cy="148" rx="10.5" ry="5" stroke="none"/><ellipse cx="63" cy="148" rx="10.5" ry="5" stroke="none"/>
-    </g></symbol>
-
-    <symbol id="b-jump" viewBox="0 0 100 160"><g fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-      <use href="#torso" stroke-width="3"/>
-      <path d="M45 52 L34 40 L29 22 M55 52 L68 44 L80 30" fill="none" stroke-width="7"/>
-      <path d="M46.5 88 L34 104 L40 124 M53.5 88 L66 101 L71 120" fill="none" stroke-width="8.5"/>
-      <circle cx="28" cy="17" r="6.5" stroke="none"/><circle cx="83" cy="26" r="6.5" stroke="none"/>
-      <ellipse cx="37" cy="128" rx="10" ry="4.8" transform="rotate(-18 37 128)" stroke="none"/><ellipse cx="76" cy="123" rx="10" ry="4.8" transform="rotate(28 76 123)" stroke="none"/>
-    </g></symbol>
-
-    <symbol id="b-run" viewBox="0 0 100 160"><g fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-      <use href="#torso" stroke-width="3"/>
-      <path d="M45 53 L33 65 L26 52 M55 53 L67 67 L81 62" fill="none" stroke-width="7"/>
-      <path d="M46.5 88 L36 108 L20 116 M53.5 88 L62 115 L59 142" fill="none" stroke-width="8.5"/>
-      <circle cx="24" cy="48" r="6" stroke="none"/><circle cx="84" cy="61" r="6" stroke="none"/>
-      <ellipse cx="14" cy="117" rx="9.5" ry="4.8" transform="rotate(-25 14 117)" stroke="none"/><ellipse cx="65" cy="146" rx="10.5" ry="5" stroke="none"/>
-    </g></symbol>
-
-    <symbol id="b-present" viewBox="0 0 100 160"><g fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-      <use href="#torso" stroke-width="3"/>
-      <path d="M55 54 L68 72 L85 70 M45 54 L38 74 L36 92" fill="none" stroke-width="7"/>
-      <path d="M46.5 88 L43 118 L41 144 M53.5 88 L57 118 L59 144" fill="none" stroke-width="8.5"/>
-      <ellipse cx="91" cy="69" rx="8" ry="4.6" stroke="none"/><circle cx="36" cy="95" r="6" stroke="none"/>
-      <ellipse cx="35" cy="148" rx="10.5" ry="5" stroke="none"/><ellipse cx="65" cy="148" rx="10.5" ry="5" stroke="none"/>
-    </g></symbol>
-
-    <symbol id="b-thumbs" viewBox="0 0 100 160"><g fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-      <use href="#torso" stroke-width="3"/>
-      <path d="M45 54 L30 73 L29 58 M55 54 L70 73 L71 58" fill="none" stroke-width="7"/>
-      <path d="M46.5 88 L43 118 L41 144 M53.5 88 L57 118 L59 144" fill="none" stroke-width="8.5"/>
-      <circle cx="29" cy="54" r="6.5" stroke="none"/><circle cx="71" cy="54" r="6.5" stroke="none"/>
-      <path d="M28 49 L28 40 M72 49 L72 40" fill="none" stroke-width="4.5"/>
-      <ellipse cx="35" cy="148" rx="10.5" ry="5" stroke="none"/><ellipse cx="65" cy="148" rx="10.5" ry="5" stroke="none"/>
-    </g></symbol>
-
-    <symbol id="b-shrug" viewBox="0 0 100 160"><g fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-      <use href="#torso" stroke-width="3"/>
-      <path d="M45 54 L30 68 L19 60 M55 54 L70 68 L81 60" fill="none" stroke-width="7"/>
-      <path d="M46.5 88 L43 118 L41 144 M53.5 88 L57 118 L59 144" fill="none" stroke-width="8.5"/>
-      <ellipse cx="14" cy="58" rx="7" ry="4.4" transform="rotate(-15 14 58)" stroke="none"/><ellipse cx="86" cy="58" rx="7" ry="4.4" transform="rotate(15 86 58)" stroke="none"/>
-      <ellipse cx="35" cy="148" rx="10.5" ry="5" stroke="none"/><ellipse cx="65" cy="148" rx="10.5" ry="5" stroke="none"/>
-    </g></symbol>
-
-    <symbol id="b-reach" viewBox="0 0 100 160"><g fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-      <use href="#torso" stroke-width="3"/>
-      <path d="M55 52 L64 32 L72 13 M45 54 L38 74 L36 92" fill="none" stroke-width="7"/>
-      <path d="M46.5 88 L43 118 L41 144 M53.5 88 L57 118 L59 144" fill="none" stroke-width="8.5"/>
-      <circle cx="74" cy="8" r="6.5" stroke="none"/><path d="M70 3 L68 0 M78 3 L80 0" fill="none" stroke-width="3"/>
-      <circle cx="36" cy="95" r="6" stroke="none"/>
-      <ellipse cx="35" cy="148" rx="10.5" ry="5" stroke="none"/><ellipse cx="65" cy="148" rx="10.5" ry="5" stroke="none"/>
-    </g></symbol>
-
-    <symbol id="b-sneak" viewBox="0 0 100 160"><g fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-      <use href="#torso" stroke-width="3"/>
-      <path d="M45 54 L58 66 L74 62 M55 54 L64 73 L80 75" fill="none" stroke-width="7"/>
-      <path d="M46.5 88 L36 112 L42 141 M53.5 88 L67 112 L63 142" fill="none" stroke-width="8.5"/>
-      <circle cx="77" cy="61" r="6" stroke="none"/><circle cx="83" cy="75" r="6" stroke="none"/>
-      <ellipse cx="38" cy="146" rx="10.5" ry="5" stroke="none"/><ellipse cx="68" cy="147" rx="10.5" ry="5" stroke="none"/>
-    </g></symbol>
-
-    <symbol id="b-shake" viewBox="0 0 100 160"><g fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-      <use href="#torso" stroke-width="3"/>
-      <path d="M55 55 L73 70 L92 68 M45 54 L38 74 L36 92" fill="none" stroke-width="7"/>
-      <path d="M46.5 88 L43 118 L41 144 M53.5 88 L57 118 L59 144" fill="none" stroke-width="8.5"/>
-      <ellipse cx="96" cy="67" rx="6" ry="5.5" stroke="none"/><circle cx="36" cy="95" r="6" stroke="none"/>
-      <ellipse cx="35" cy="148" rx="10.5" ry="5" stroke="none"/><ellipse cx="65" cy="148" rx="10.5" ry="5" stroke="none"/>
-    </g></symbol>
-
-    <symbol id="b-wave" viewBox="0 0 100 160"><g fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-      <use href="#torso" stroke-width="3"/>
-      <path d="M55 53 L71 44 L76 24 M45 54 L38 74 L36 92" fill="none" stroke-width="7"/>
-      <path d="M46.5 88 L43 118 L41 144 M53.5 88 L57 118 L59 144" fill="none" stroke-width="8.5"/>
-      <ellipse cx="77" cy="18" rx="6.5" ry="7.5" stroke="none"/><path d="M71 15 L66 11 M74 11 L72 5 M80 11 L82 5 M84 15 L89 11" fill="none" stroke-width="3"/>
-      <circle cx="36" cy="95" r="6" stroke="none"/>
-      <ellipse cx="35" cy="148" rx="10.5" ry="5" stroke="none"/><ellipse cx="65" cy="148" rx="10.5" ry="5" stroke="none"/>
-    </g></symbol>
-
-    <symbol id="b-hips" viewBox="0 0 100 160"><g fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-      <use href="#torso" stroke-width="3"/>
-      <path d="M45 54 L32 68 L43 84 M55 54 L68 68 L57 84" fill="none" stroke-width="7"/>
-      <path d="M46.5 88 L41 118 L37 144 M53.5 88 L59 118 L63 144" fill="none" stroke-width="8.5"/>
-      <circle cx="44" cy="85" r="5.5" stroke="none"/><circle cx="56" cy="85" r="5.5" stroke="none"/>
-      <ellipse cx="31" cy="148" rx="10.5" ry="5" stroke="none"/><ellipse cx="69" cy="148" rx="10.5" ry="5" stroke="none"/>
-    </g></symbol>
-
-    <!-- Heads -->
-    <symbol id="h-human" viewBox="0 0 100 160"><circle cx="50" cy="26" r="16" fill="#fffaf3" stroke="currentColor" stroke-width="4.5"/></symbol>
-    <symbol id="h-mask" viewBox="0 0 100 160"><circle cx="50" cy="26" r="16" fill="#fffaf3" stroke="currentColor" stroke-width="4.5"/>
-      <rect x="33" y="18" width="34" height="10" rx="5" fill="currentColor"/><circle cx="44" cy="23" r="2.4" fill="#fffaf3"/><circle cx="56" cy="23" r="2.4" fill="#fffaf3"/></symbol>
-    <symbol id="h-ai" viewBox="0 0 100 160"><path d="M50 11 V6" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><circle cx="50" cy="4.5" r="3.6" fill="currentColor"/>
-      <rect x="33.5" y="11" width="33" height="31" rx="9" fill="#fffaf3" stroke="currentColor" stroke-width="4.5"/>
-      <circle cx="44" cy="24" r="3.2" fill="#24170d"/><circle cx="56" cy="24" r="3.2" fill="#24170d"/><path d="M44 32 Q50 36.5 56 32" fill="none" stroke="#24170d" stroke-width="2.6" stroke-linecap="round"/></symbol>
-    <symbol id="h-ai-sad" viewBox="0 0 100 160"><path d="M50 11 V6" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><circle cx="50" cy="4.5" r="3.6" fill="currentColor"/>
-      <rect x="33.5" y="11" width="33" height="31" rx="9" fill="#fffaf3" stroke="currentColor" stroke-width="4.5"/>
-      <circle cx="44" cy="24" r="3.2" fill="#24170d"/><circle cx="56" cy="24" r="3.2" fill="#24170d"/><path d="M44 35 Q50 30.5 56 35" fill="none" stroke="#24170d" stroke-width="2.6" stroke-linecap="round"/></symbol>
-  </defs>
+<!-- generated by _src/gen_sprite.py -->
+<defs>
+<symbol id="b-stand" viewBox="0 0 100 160" overflow="visible"><g fill="currentColor"><path d="M48 42 C46.4 52 43.8 64 43 77 C42.6 85 43.8 90 45.6 92.5 L54.4 92.5 C56.2 90 57.4 85 57 77 C56.2 64 53.6 52 52 42 Z"/><path d="M41.9 88.6 L40.2 116.7 L47.8 117.3 L51.1 89.4Z"/><circle cx="46.5" cy="89" r="4.6"/><circle cx="44" cy="117" r="3.8"/><path d="M40.2 116.9 L39.8 143.9 L46.2 144.1 L47.8 117.1Z"/><circle cx="44" cy="117" r="3.8"/><circle cx="43" cy="144" r="3.2"/><ellipse cx="35.5" cy="145.6" rx="13.5" ry="5.8" transform="rotate(-4.6 35.5 145.6)"/><path d="M48.9 89.4 L52.2 117.3 L59.8 116.7 L58.1 88.6Z"/><circle cx="53.5" cy="89" r="4.6"/><circle cx="56" cy="117" r="3.8"/><path d="M52.2 117.1 L53.8 144.1 L60.2 143.9 L59.8 116.9Z"/><circle cx="56" cy="117" r="3.8"/><circle cx="57" cy="144" r="3.2"/><ellipse cx="64.5" cy="145.6" rx="13.5" ry="5.8" transform="rotate(4.6 64.5 145.6)"/><path d="M46.9 47.8 L39.5 69 L44.5 71 L53.1 50.2Z"/><circle cx="50" cy="49" r="3.3"/><circle cx="42" cy="70" r="2.7"/><path d="M39.3 69.6 L36.7 87.6 L41.3 88.4 L44.7 70.4Z"/><circle cx="42" cy="70" r="2.7"/><circle cx="39" cy="88" r="2.3"/><circle cx="38.3" cy="92.3" r="7.2"/><path d="M46.9 50.2 L55.5 71 L60.5 69 L53.1 47.8Z"/><circle cx="50" cy="49" r="3.3"/><circle cx="58" cy="70" r="2.7"/><path d="M55.3 70.4 L58.7 88.4 L63.3 87.6 L60.7 69.6Z"/><circle cx="58" cy="70" r="2.7"/><circle cx="61" cy="88" r="2.3"/><circle cx="61.7" cy="92.3" r="7.2"/></g></symbol>
+<symbol id="b-cheer" viewBox="0 0 100 160" overflow="visible"><g fill="currentColor"><path d="M48 42 C46.4 52 43.8 64 43 77 C42.6 85 43.8 90 45.6 92.5 L54.4 92.5 C56.2 90 57.4 85 57 77 C56.2 64 53.6 52 52 42 Z"/><path d="M42 87.9 L36.3 115.1 L43.7 116.9 L51 90.1Z"/><circle cx="46.5" cy="89" r="4.6"/><circle cx="40" cy="116" r="3.8"/><path d="M36.3 115.3 L31.8 143.4 L38.2 144.6 L43.7 116.7Z"/><circle cx="40" cy="116" r="3.8"/><circle cx="35" cy="144" r="3.2"/><ellipse cx="27.5" cy="145.7" rx="13.5" ry="5.8" transform="rotate(-5.7 27.5 145.7)"/><path d="M49 90.1 L56.3 116.9 L63.7 115.1 L58 87.9Z"/><circle cx="53.5" cy="89" r="4.6"/><circle cx="60" cy="116" r="3.8"/><path d="M56.3 116.7 L61.8 144.6 L68.2 143.4 L63.7 115.3Z"/><circle cx="60" cy="116" r="3.8"/><circle cx="65" cy="144" r="3.2"/><ellipse cx="72.5" cy="145.7" rx="13.5" ry="5.8" transform="rotate(5.7 72.5 145.7)"/><path d="M51.4 46 L32.2 37.6 L29.8 42.4 L48.6 52Z"/><circle cx="50" cy="49" r="3.3"/><circle cx="31" cy="40" r="2.7"/><path d="M33.3 38.6 L20 17.8 L16 20.2 L28.7 41.4Z"/><circle cx="31" cy="40" r="2.7"/><circle cx="18" cy="19" r="2.3"/><ellipse cx="15.7" cy="15.3" rx="7" ry="6.4"/><path d="M11.8 11.5 L4.2 9 L3.1 11.7 L10.3 15.2Z"/><circle cx="11.1" cy="13.4" r="2"/><circle cx="3.7" cy="10.3" r="1.4"/><path d="M13.7 10.3 L7.7 4.9 L5.6 6.9 L10.8 13Z"/><circle cx="12.2" cy="11.6" r="2"/><circle cx="6.7" cy="5.9" r="1.4"/><path d="M15.9 9.9 L12.7 2.5 L9.9 3.5 L12.1 11.2Z"/><circle cx="14" cy="10.6" r="2"/><circle cx="11.3" cy="3" r="1.4"/><path d="M17.9 10.3 L17.6 2.3 L14.7 2.2 L13.9 10.2Z"/><circle cx="15.9" cy="10.3" r="2"/><circle cx="16.2" cy="2.3" r="1.4"/><path d="M10.8 14.9 L4.8 17.6 L5.8 20.4 L12.1 18.7Z"/><circle cx="11.4" cy="16.8" r="2"/><circle cx="5.3" cy="19" r="1.5"/><path d="M51.4 52 L70.2 42.4 L67.8 37.6 L48.6 46Z"/><circle cx="50" cy="49" r="3.3"/><circle cx="69" cy="40" r="2.7"/><path d="M71.3 41.4 L84 20.2 L80 17.8 L66.7 38.6Z"/><circle cx="69" cy="40" r="2.7"/><circle cx="82" cy="19" r="2.3"/><ellipse cx="84.3" cy="15.3" rx="7" ry="6.4"/><path d="M85.9 10.1 L84.8 2.2 L81.9 2.4 L82 10.4Z"/><circle cx="83.9" cy="10.3" r="2"/><circle cx="83.4" cy="2.3" r="1.4"/><path d="M87.9 11.2 L90.1 3.5 L87.3 2.5 L84.1 9.9Z"/><circle cx="86" cy="10.6" r="2"/><circle cx="88.7" cy="3" r="1.4"/><path d="M89.2 13 L94.4 6.9 L92.3 4.9 L86.3 10.3Z"/><circle cx="87.8" cy="11.6" r="2"/><circle cx="93.3" cy="5.9" r="1.4"/><path d="M89.7 15 L96.8 11.2 L95.6 8.6 L88.1 11.4Z"/><circle cx="88.9" cy="13.2" r="2"/><circle cx="96.2" cy="9.9" r="1.4"/><path d="M87.9 18.7 L94.2 20.4 L95.2 17.6 L89.2 14.9Z"/><circle cx="88.6" cy="16.8" r="2"/><circle cx="94.7" cy="19" r="1.5"/></g></symbol>
+<symbol id="b-point" viewBox="0 0 100 160" overflow="visible"><g fill="currentColor"><path d="M48 42 C46.4 52 43.8 64 43 77 C42.6 85 43.8 90 45.6 92.5 L54.4 92.5 C56.2 90 57.4 85 57 77 C56.2 64 53.6 52 52 42 Z"/><path d="M42 87.9 L36.3 115.1 L43.7 116.9 L51 90.1Z"/><circle cx="46.5" cy="89" r="4.6"/><circle cx="40" cy="116" r="3.8"/><path d="M36.3 115.3 L31.8 143.4 L38.2 144.6 L43.7 116.7Z"/><circle cx="40" cy="116" r="3.8"/><circle cx="35" cy="144" r="3.2"/><ellipse cx="27.5" cy="145.7" rx="13.5" ry="5.8" transform="rotate(-5.7 27.5 145.7)"/><path d="M49 90.1 L56.3 116.9 L63.7 115.1 L58 87.9Z"/><circle cx="53.5" cy="89" r="4.6"/><circle cx="60" cy="116" r="3.8"/><path d="M56.3 116.7 L61.8 144.6 L68.2 143.4 L63.7 115.3Z"/><circle cx="60" cy="116" r="3.8"/><circle cx="65" cy="144" r="3.2"/><ellipse cx="72.5" cy="145.7" rx="13.5" ry="5.8" transform="rotate(5.7 72.5 145.7)"/><path d="M47.7 46.7 L31.1 64.1 L34.9 67.9 L52.3 51.3Z"/><circle cx="50" cy="49" r="3.3"/><circle cx="33" cy="66" r="2.7"/><path d="M30.8 67.5 L42.1 83.3 L45.9 80.7 L35.2 64.5Z"/><circle cx="33" cy="66" r="2.7"/><circle cx="44" cy="82" r="2.3"/><circle cx="46.5" cy="85.6" r="7.2"/><path d="M49.1 52.2 L66.2 56.6 L67.8 51.4 L50.9 45.8Z"/><circle cx="50" cy="49" r="3.3"/><circle cx="67" cy="54" r="2.7"/><path d="M67.5 56.7 L83.4 53.3 L82.6 48.7 L66.5 51.3Z"/><circle cx="67" cy="54" r="2.7"/><circle cx="83" cy="51" r="2.3"/><circle cx="87.3" cy="50.2" r="6.8"/><path d="M91.7 51.6 L101.4 49.3 L100.8 45.9 L90.9 47.3Z"/><circle cx="91.3" cy="49.5" r="2.2"/><circle cx="101.1" cy="47.6" r="1.7"/></g></symbol>
+<symbol id="b-think" viewBox="0 0 100 160" overflow="visible"><g fill="currentColor"><path d="M48 42 C46.4 52 43.8 64 43 77 C42.6 85 43.8 90 45.6 92.5 L54.4 92.5 C56.2 90 57.4 85 57 77 C56.2 64 53.6 52 52 42 Z"/><path d="M41.9 88.6 L40.2 116.7 L47.8 117.3 L51.1 89.4Z"/><circle cx="46.5" cy="89" r="4.6"/><circle cx="44" cy="117" r="3.8"/><path d="M40.2 116.9 L39.8 143.9 L46.2 144.1 L47.8 117.1Z"/><circle cx="44" cy="117" r="3.8"/><circle cx="43" cy="144" r="3.2"/><ellipse cx="35.5" cy="145.6" rx="13.5" ry="5.8" transform="rotate(-4.6 35.5 145.6)"/><path d="M48.9 89.4 L52.2 117.3 L59.8 116.7 L58.1 88.6Z"/><circle cx="53.5" cy="89" r="4.6"/><circle cx="56" cy="117" r="3.8"/><path d="M52.2 117.1 L53.8 144.1 L60.2 143.9 L59.8 116.9Z"/><circle cx="56" cy="117" r="3.8"/><circle cx="57" cy="144" r="3.2"/><ellipse cx="64.5" cy="145.6" rx="13.5" ry="5.8" transform="rotate(4.6 64.5 145.6)"/><path d="M47.1 47.4 L35.7 68.7 L40.3 71.3 L52.9 50.6Z"/><circle cx="50" cy="49" r="3.3"/><circle cx="38" cy="70" r="2.7"/><path d="M37.2 72.6 L54.4 77.2 L55.6 72.8 L38.8 67.4Z"/><circle cx="38" cy="70" r="2.7"/><circle cx="55" cy="75" r="2.3"/><circle cx="59.2" cy="76.2" r="7.2"/><path d="M47.4 51.1 L64.9 71.7 L69.1 68.3 L52.6 46.9Z"/><circle cx="50" cy="49" r="3.3"/><circle cx="67" cy="70" r="2.7"/><path d="M69.6 69.1 L62.2 48.3 L57.8 49.7 L64.4 70.9Z"/><circle cx="67" cy="70" r="2.7"/><circle cx="60" cy="49" r="2.3"/><circle cx="58.6" cy="44.8" r="7.2"/></g></symbol>
+<symbol id="b-jump" viewBox="0 0 100 160" overflow="visible"><g fill="currentColor"><path d="M48 42 C46.4 52 43.8 64 43 77 C42.6 85 43.8 90 45.6 92.5 L54.4 92.5 C56.2 90 57.4 85 57 77 C56.2 64 53.6 52 52 42 Z"/><path d="M42.8 86.3 L30.9 103.7 L37.1 108.3 L50.2 91.7Z"/><circle cx="46.5" cy="89" r="4.6"/><circle cx="34" cy="106" r="3.8"/><path d="M30.4 107.3 L38 127.1 L44 124.9 L37.6 104.7Z"/><circle cx="34" cy="106" r="3.8"/><circle cx="41" cy="126" r="3.2"/><ellipse cx="33.9" cy="129.5" rx="13.5" ry="5.8" transform="rotate(-19.3 33.9 129.5)"/><path d="M50.2 92.2 L63.3 104.6 L68.7 99.4 L56.8 85.8Z"/><circle cx="53.5" cy="89" r="4.6"/><circle cx="66" cy="102" r="3.8"/><path d="M62.3 102.9 L67.9 123.7 L74.1 122.3 L69.7 101.1Z"/><circle cx="66" cy="102" r="3.8"/><circle cx="71" cy="123" r="3.2"/><ellipse cx="77.8" cy="127.1" rx="13.5" ry="5.8" transform="rotate(24.2 77.8 127.1)"/><path d="M51.7 46.2 L33.4 35.7 L30.6 40.3 L48.3 51.8Z"/><circle cx="50" cy="49" r="3.3"/><circle cx="32" cy="38" r="2.7"/><path d="M34.5 37 L26.1 17.1 L21.9 18.9 L29.5 39Z"/><circle cx="32" cy="38" r="2.7"/><circle cx="24" cy="18" r="2.3"/><circle cx="22.4" cy="13.9" r="7.2"/><path d="M51.5 52 L69.2 42.4 L66.8 37.6 L48.5 46Z"/><circle cx="50" cy="49" r="3.3"/><circle cx="68" cy="40" r="2.7"/><path d="M70.2 41.6 L81.8 25.4 L78.2 22.6 L65.8 38.4Z"/><circle cx="68" cy="40" r="2.7"/><circle cx="80" cy="24" r="2.3"/><circle cx="82.6" cy="20.5" r="7.2"/></g></symbol>
+<symbol id="b-run" viewBox="0 0 100 160" overflow="visible"><g fill="currentColor"><path d="M48 42 C46.4 52 43.8 64 43 77 C42.6 85 43.8 90 45.6 92.5 L54.4 92.5 C56.2 90 57.4 85 57 77 C56.2 64 53.6 52 52 42 Z"/><path d="M42.3 87.1 L33.5 108.4 L40.5 111.6 L50.7 90.9Z"/><circle cx="46.5" cy="89" r="4.6"/><circle cx="37" cy="110" r="3.8"/><path d="M35.3 106.6 L19.6 115.1 L22.4 120.9 L38.7 113.4Z"/><circle cx="37" cy="110" r="3.8"/><circle cx="21" cy="118" r="3.2"/><ellipse cx="17.4" cy="125.6" rx="13.5" ry="5.8" transform="rotate(-60.9 17.4 125.6)"/><path d="M49.2 90.6 L59.4 115.3 L66.6 112.7 L57.8 87.4Z"/><circle cx="53.5" cy="89" r="4.6"/><circle cx="63" cy="114" r="3.8"/><path d="M59.2 113.6 L56.8 142.7 L63.2 143.3 L66.8 114.4Z"/><circle cx="63" cy="114" r="3.8"/><circle cx="60" cy="143" r="3.2"/><ellipse cx="67.5" cy="144.4" rx="13.5" ry="5.8" transform="rotate(2.9 67.5 144.4)"/><path d="M47.4 46.9 L35.9 62.3 L40.1 65.7 L52.6 51.1Z"/><circle cx="50" cy="49" r="3.3"/><circle cx="38" cy="64" r="2.7"/><path d="M39.9 62.1 L28.6 51.4 L25.4 54.6 L36.1 65.9Z"/><circle cx="38" cy="64" r="2.7"/><circle cx="27" cy="53" r="2.3"/><circle cx="23.9" cy="49.9" r="7.2"/><path d="M47.4 51 L60.9 67.6 L65.1 64.4 L52.6 47Z"/><circle cx="50" cy="49" r="3.3"/><circle cx="63" cy="66" r="2.7"/><path d="M64.3 68.3 L78.1 60 L75.9 56 L61.7 63.7Z"/><circle cx="63" cy="66" r="2.7"/><circle cx="77" cy="58" r="2.3"/><circle cx="80.8" cy="55.8" r="7.2"/></g></symbol>
+<symbol id="b-present" viewBox="0 0 100 160" overflow="visible"><g fill="currentColor"><path d="M48 42 C46.4 52 43.8 64 43 77 C42.6 85 43.8 90 45.6 92.5 L54.4 92.5 C56.2 90 57.4 85 57 77 C56.2 64 53.6 52 52 42 Z"/><path d="M41.9 88.6 L40.2 116.7 L47.8 117.3 L51.1 89.4Z"/><circle cx="46.5" cy="89" r="4.6"/><circle cx="44" cy="117" r="3.8"/><path d="M40.2 116.9 L39.8 143.9 L46.2 144.1 L47.8 117.1Z"/><circle cx="44" cy="117" r="3.8"/><circle cx="43" cy="144" r="3.2"/><ellipse cx="35.5" cy="145.6" rx="13.5" ry="5.8" transform="rotate(-4.6 35.5 145.6)"/><path d="M48.9 89.4 L52.2 117.3 L59.8 116.7 L58.1 88.6Z"/><circle cx="53.5" cy="89" r="4.6"/><circle cx="56" cy="117" r="3.8"/><path d="M52.2 117.1 L53.8 144.1 L60.2 143.9 L59.8 116.9Z"/><circle cx="56" cy="117" r="3.8"/><circle cx="57" cy="144" r="3.2"/><ellipse cx="64.5" cy="145.6" rx="13.5" ry="5.8" transform="rotate(4.6 64.5 145.6)"/><path d="M46.9 47.8 L39.5 69 L44.5 71 L53.1 50.2Z"/><circle cx="50" cy="49" r="3.3"/><circle cx="42" cy="70" r="2.7"/><path d="M39.3 69.6 L36.7 87.6 L41.3 88.4 L44.7 70.4Z"/><circle cx="42" cy="70" r="2.7"/><circle cx="39" cy="88" r="2.3"/><circle cx="38.3" cy="92.3" r="7.2"/><path d="M47.4 51 L63.9 71.6 L68.1 68.4 L52.6 47Z"/><circle cx="50" cy="49" r="3.3"/><circle cx="66" cy="70" r="2.7"/><path d="M66.3 72.7 L84.3 70.3 L83.7 65.7 L65.7 67.3Z"/><circle cx="66" cy="70" r="2.7"/><circle cx="84" cy="68" r="2.3"/><ellipse cx="90.4" cy="67.3" rx="10" ry="5" transform="rotate(-6.3 90.4 67.3)"/><path d="M90.6 66.3 L92.5 61.1 L90.3 60.2 L87.7 65Z"/><circle cx="89.2" cy="65.7" r="1.6"/><circle cx="91.4" cy="60.6" r="1.2"/></g></symbol>
+<symbol id="b-thumbs" viewBox="0 0 100 160" overflow="visible"><g fill="currentColor"><path d="M48 42 C46.4 52 43.8 64 43 77 C42.6 85 43.8 90 45.6 92.5 L54.4 92.5 C56.2 90 57.4 85 57 77 C56.2 64 53.6 52 52 42 Z"/><path d="M41.9 88.6 L40.2 116.7 L47.8 117.3 L51.1 89.4Z"/><circle cx="46.5" cy="89" r="4.6"/><circle cx="44" cy="117" r="3.8"/><path d="M40.2 116.9 L39.8 143.9 L46.2 144.1 L47.8 117.1Z"/><circle cx="44" cy="117" r="3.8"/><circle cx="43" cy="144" r="3.2"/><ellipse cx="35.5" cy="145.6" rx="13.5" ry="5.8" transform="rotate(-4.6 35.5 145.6)"/><path d="M48.9 89.4 L52.2 117.3 L59.8 116.7 L58.1 88.6Z"/><circle cx="53.5" cy="89" r="4.6"/><circle cx="56" cy="117" r="3.8"/><path d="M52.2 117.1 L53.8 144.1 L60.2 143.9 L59.8 116.9Z"/><circle cx="56" cy="117" r="3.8"/><circle cx="57" cy="144" r="3.2"/><ellipse cx="64.5" cy="145.6" rx="13.5" ry="5.8" transform="rotate(4.6 64.5 145.6)"/><path d="M47.4 46.9 L30.9 68.3 L35.1 71.7 L52.6 51.1Z"/><circle cx="50" cy="49" r="3.3"/><circle cx="33" cy="70" r="2.7"/><path d="M35.7 69.6 L33.3 54.7 L28.7 55.3 L30.3 70.4Z"/><circle cx="33" cy="70" r="2.7"/><circle cx="31" cy="55" r="2.3"/><ellipse cx="30.4" cy="50.6" rx="7" ry="7.6"/><path d="M31.9 45.6 L31.3 35.6 L27.5 35.6 L26.9 45.6Z"/><circle cx="29.4" cy="45.6" r="2.5"/><circle cx="29.4" cy="35.6" r="1.9"/><path d="M47.4 51.1 L64.9 71.7 L69.1 68.3 L52.6 46.9Z"/><circle cx="50" cy="49" r="3.3"/><circle cx="67" cy="70" r="2.7"/><path d="M69.7 70.4 L71.3 55.3 L66.7 54.7 L64.3 69.6Z"/><circle cx="67" cy="70" r="2.7"/><circle cx="69" cy="55" r="2.3"/><ellipse cx="69.6" cy="50.6" rx="7" ry="7.6"/><path d="M71.1 45.6 L70.5 35.6 L66.7 35.6 L66.1 45.6Z"/><circle cx="68.6" cy="45.6" r="2.5"/><circle cx="68.6" cy="35.6" r="1.9"/></g></symbol>
+<symbol id="b-shrug" viewBox="0 0 100 160" overflow="visible"><g fill="currentColor"><path d="M48 42 C46.4 52 43.8 64 43 77 C42.6 85 43.8 90 45.6 92.5 L54.4 92.5 C56.2 90 57.4 85 57 77 C56.2 64 53.6 52 52 42 Z"/><path d="M41.9 88.6 L40.2 116.7 L47.8 117.3 L51.1 89.4Z"/><circle cx="46.5" cy="89" r="4.6"/><circle cx="44" cy="117" r="3.8"/><path d="M40.2 116.9 L39.8 143.9 L46.2 144.1 L47.8 117.1Z"/><circle cx="44" cy="117" r="3.8"/><circle cx="43" cy="144" r="3.2"/><ellipse cx="35.5" cy="145.6" rx="13.5" ry="5.8" transform="rotate(-4.6 35.5 145.6)"/><path d="M48.9 89.4 L52.2 117.3 L59.8 116.7 L58.1 88.6Z"/><circle cx="53.5" cy="89" r="4.6"/><circle cx="56" cy="117" r="3.8"/><path d="M52.2 117.1 L53.8 144.1 L60.2 143.9 L59.8 116.9Z"/><circle cx="56" cy="117" r="3.8"/><circle cx="57" cy="144" r="3.2"/><ellipse cx="64.5" cy="145.6" rx="13.5" ry="5.8" transform="rotate(4.6 64.5 145.6)"/><path d="M47.8 46.5 L30.2 63 L33.8 67 L52.2 51.5Z"/><circle cx="50" cy="49" r="3.3"/><circle cx="32" cy="65" r="2.7"/><path d="M33.4 62.7 L21.2 56 L18.8 60 L30.6 67.3Z"/><circle cx="32" cy="65" r="2.7"/><circle cx="20" cy="58" r="2.3"/><ellipse cx="14.5" cy="54.8" rx="10" ry="5" transform="rotate(-149.7 14.5 54.8)"/><path d="M17.8 53.8 L17.4 48.3 L15 48.3 L14.6 53.8Z"/><circle cx="16.2" cy="53.8" r="1.6"/><circle cx="16.2" cy="48.3" r="1.2"/><path d="M47.8 51.5 L66.2 67 L69.8 63 L52.2 46.5Z"/><circle cx="50" cy="49" r="3.3"/><circle cx="68" cy="65" r="2.7"/><path d="M69.4 67.3 L81.2 60 L78.8 56 L66.6 62.7Z"/><circle cx="68" cy="65" r="2.7"/><circle cx="80" cy="58" r="2.3"/><ellipse cx="85.5" cy="54.8" rx="10" ry="5" transform="rotate(-30.3 85.5 54.8)"/><path d="M85.4 53.8 L85 48.3 L82.6 48.3 L82.2 53.8Z"/><circle cx="83.8" cy="53.8" r="1.6"/><circle cx="83.8" cy="48.3" r="1.2"/></g></symbol>
+<symbol id="b-reach" viewBox="0 0 100 160" overflow="visible"><g fill="currentColor"><path d="M48 42 C46.4 52 43.8 64 43 77 C42.6 85 43.8 90 45.6 92.5 L54.4 92.5 C56.2 90 57.4 85 57 77 C56.2 64 53.6 52 52 42 Z"/><path d="M41.9 88.6 L40.2 116.7 L47.8 117.3 L51.1 89.4Z"/><circle cx="46.5" cy="89" r="4.6"/><circle cx="44" cy="117" r="3.8"/><path d="M40.2 116.9 L39.8 143.9 L46.2 144.1 L47.8 117.1Z"/><circle cx="44" cy="117" r="3.8"/><circle cx="43" cy="144" r="3.2"/><ellipse cx="35.5" cy="145.6" rx="13.5" ry="5.8" transform="rotate(-4.6 35.5 145.6)"/><path d="M48.9 89.4 L52.2 117.3 L59.8 116.7 L58.1 88.6Z"/><circle cx="53.5" cy="89" r="4.6"/><circle cx="56" cy="117" r="3.8"/><path d="M52.2 117.1 L53.8 144.1 L60.2 143.9 L59.8 116.9Z"/><circle cx="56" cy="117" r="3.8"/><circle cx="57" cy="144" r="3.2"/><ellipse cx="64.5" cy="145.6" rx="13.5" ry="5.8" transform="rotate(4.6 64.5 145.6)"/><path d="M46.9 47.8 L39.5 69 L44.5 71 L53.1 50.2Z"/><circle cx="50" cy="49" r="3.3"/><circle cx="42" cy="70" r="2.7"/><path d="M39.3 69.6 L36.7 87.6 L41.3 88.4 L44.7 70.4Z"/><circle cx="42" cy="70" r="2.7"/><circle cx="39" cy="88" r="2.3"/><circle cx="38.3" cy="92.3" r="7.2"/><path d="M52.7 50.8 L64.2 32.5 L59.8 29.5 L47.3 47.2Z"/><circle cx="50" cy="49" r="3.3"/><circle cx="62" cy="31" r="2.7"/><path d="M64.5 32 L72.1 12.9 L67.9 11.1 L59.5 30Z"/><circle cx="62" cy="31" r="2.7"/><circle cx="70" cy="12" r="2.3"/><ellipse cx="71.7" cy="7.9" rx="7" ry="6.4"/><path d="M72.5 2.6 L70.2 -5 L67.3 -4.4 L68.6 3.5Z"/><circle cx="70.6" cy="3.1" r="2"/><circle cx="68.7" cy="-4.7" r="1.4"/><path d="M74.6 3.4 L75.6 -4.6 L72.7 -5.1 L70.7 2.7Z"/><circle cx="72.6" cy="3" r="2"/><circle cx="74.2" cy="-4.8" r="1.4"/><path d="M76.2 5 L80.3 -1.9 L77.9 -3.6 L72.9 2.7Z"/><circle cx="74.6" cy="3.8" r="2"/><circle cx="79.1" cy="-2.7" r="1.4"/><path d="M77 6.9 L83.4 2 L81.8 -0.4 L74.8 3.5Z"/><circle cx="75.9" cy="5.2" r="2"/><circle cx="82.6" cy="0.8" r="1.4"/><path d="M75.8 10.8 L82.2 11.5 L82.8 8.5 L76.5 6.8Z"/><circle cx="76.1" cy="8.8" r="2"/><circle cx="82.5" cy="10" r="1.5"/></g></symbol>
+<symbol id="b-sneak" viewBox="0 0 100 160" overflow="visible"><g fill="currentColor"><path d="M48 42 C46.4 52 43.8 64 43 77 C42.6 85 43.8 90 45.6 92.5 L54.4 92.5 C56.2 90 57.4 85 57 77 C56.2 64 53.6 52 52 42 Z"/><path d="M42.2 87.3 L33.5 111.6 L40.5 114.4 L50.8 90.7Z"/><circle cx="46.5" cy="89" r="4.6"/><circle cx="37" cy="113" r="3.8"/><path d="M33.3 113.6 L38.8 143.5 L45.2 142.5 L40.7 112.4Z"/><circle cx="37" cy="113" r="3.8"/><circle cx="42" cy="143" r="3.2"/><ellipse cx="34.5" cy="144.4" rx="13.5" ry="5.8" transform="rotate(-2.9 34.5 144.4)"/><path d="M49.4 91.1 L62.6 114.8 L69.4 111.2 L57.6 86.9Z"/><circle cx="53.5" cy="89" r="4.6"/><circle cx="66" cy="113" r="3.8"/><path d="M62.2 112.5 L58.8 143.6 L65.2 144.4 L69.8 113.5Z"/><circle cx="66" cy="113" r="3.8"/><circle cx="62" cy="144" r="3.2"/><ellipse cx="69.5" cy="145.4" rx="13.5" ry="5.8" transform="rotate(2.9 69.5 145.4)"/><path d="M47 50.5 L54.6 64.2 L59.4 61.8 L53 47.5Z"/><circle cx="50" cy="49" r="3.3"/><circle cx="57" cy="63" r="2.7"/><path d="M57.7 65.6 L72.6 61.2 L71.4 56.8 L56.3 60.4Z"/><circle cx="57" cy="63" r="2.7"/><circle cx="72" cy="59" r="2.3"/><circle cx="76.3" cy="57.9" r="7.2"/><path d="M47 50.4 L59.5 76.1 L64.5 73.9 L53 47.6Z"/><circle cx="50" cy="49" r="3.3"/><circle cx="62" cy="75" r="2.7"/><path d="M62 77.7 L79 77.3 L79 72.7 L62 72.3Z"/><circle cx="62" cy="75" r="2.7"/><circle cx="79" cy="75" r="2.3"/><circle cx="83.4" cy="75" r="7.2"/></g></symbol>
+<symbol id="b-shake" viewBox="0 0 100 160" overflow="visible"><g fill="currentColor"><path d="M48 42 C46.4 52 43.8 64 43 77 C42.6 85 43.8 90 45.6 92.5 L54.4 92.5 C56.2 90 57.4 85 57 77 C56.2 64 53.6 52 52 42 Z"/><path d="M41.9 88.6 L40.2 116.7 L47.8 117.3 L51.1 89.4Z"/><circle cx="46.5" cy="89" r="4.6"/><circle cx="44" cy="117" r="3.8"/><path d="M40.2 116.9 L39.8 143.9 L46.2 144.1 L47.8 117.1Z"/><circle cx="44" cy="117" r="3.8"/><circle cx="43" cy="144" r="3.2"/><ellipse cx="35.5" cy="145.6" rx="13.5" ry="5.8" transform="rotate(-4.6 35.5 145.6)"/><path d="M48.9 89.4 L52.2 117.3 L59.8 116.7 L58.1 88.6Z"/><circle cx="53.5" cy="89" r="4.6"/><circle cx="56" cy="117" r="3.8"/><path d="M52.2 117.1 L53.8 144.1 L60.2 143.9 L59.8 116.9Z"/><circle cx="56" cy="117" r="3.8"/><circle cx="57" cy="144" r="3.2"/><ellipse cx="64.5" cy="145.6" rx="13.5" ry="5.8" transform="rotate(4.6 64.5 145.6)"/><path d="M46.9 47.8 L39.5 69 L44.5 71 L53.1 50.2Z"/><circle cx="50" cy="49" r="3.3"/><circle cx="42" cy="70" r="2.7"/><path d="M39.3 69.6 L36.7 87.6 L41.3 88.4 L44.7 70.4Z"/><circle cx="42" cy="70" r="2.7"/><circle cx="39" cy="88" r="2.3"/><circle cx="38.3" cy="92.3" r="7.2"/><path d="M47.4 51.1 L64.9 71.7 L69.1 68.3 L52.6 46.9Z"/><circle cx="50" cy="49" r="3.3"/><circle cx="67" cy="70" r="2.7"/><path d="M67.5 72.7 L88.4 68.3 L87.6 63.7 L66.5 67.3Z"/><circle cx="67" cy="70" r="2.7"/><circle cx="88" cy="66" r="2.3"/><circle cx="92.3" cy="65.2" r="7.2"/></g></symbol>
+<symbol id="b-wave" viewBox="0 0 100 160" overflow="visible"><g fill="currentColor"><path d="M48 42 C46.4 52 43.8 64 43 77 C42.6 85 43.8 90 45.6 92.5 L54.4 92.5 C56.2 90 57.4 85 57 77 C56.2 64 53.6 52 52 42 Z"/><path d="M41.9 88.6 L40.2 116.7 L47.8 117.3 L51.1 89.4Z"/><circle cx="46.5" cy="89" r="4.6"/><circle cx="44" cy="117" r="3.8"/><path d="M40.2 116.9 L39.8 143.9 L46.2 144.1 L47.8 117.1Z"/><circle cx="44" cy="117" r="3.8"/><circle cx="43" cy="144" r="3.2"/><ellipse cx="35.5" cy="145.6" rx="13.5" ry="5.8" transform="rotate(-4.6 35.5 145.6)"/><path d="M48.9 89.4 L52.2 117.3 L59.8 116.7 L58.1 88.6Z"/><circle cx="53.5" cy="89" r="4.6"/><circle cx="56" cy="117" r="3.8"/><path d="M52.2 117.1 L53.8 144.1 L60.2 143.9 L59.8 116.9Z"/><circle cx="56" cy="117" r="3.8"/><circle cx="57" cy="144" r="3.2"/><ellipse cx="64.5" cy="145.6" rx="13.5" ry="5.8" transform="rotate(4.6 64.5 145.6)"/><path d="M46.9 47.8 L39.5 69 L44.5 71 L53.1 50.2Z"/><circle cx="50" cy="49" r="3.3"/><circle cx="42" cy="70" r="2.7"/><path d="M39.3 69.6 L36.7 87.6 L41.3 88.4 L44.7 70.4Z"/><circle cx="42" cy="70" r="2.7"/><circle cx="39" cy="88" r="2.3"/><circle cx="38.3" cy="92.3" r="7.2"/><path d="M51.1 52.1 L70.9 44.5 L69.1 39.5 L48.9 45.9Z"/><circle cx="50" cy="49" r="3.3"/><circle cx="70" cy="42" r="2.7"/><path d="M72.6 42.8 L78.2 22.7 L73.8 21.3 L67.4 41.2Z"/><circle cx="70" cy="42" r="2.7"/><circle cx="76" cy="22" r="2.3"/><ellipse cx="77.3" cy="17.8" rx="7" ry="6.4"/><path d="M77.5 12.4 L74.3 5 L71.6 6 L73.7 13.7Z"/><circle cx="75.6" cy="13.1" r="2"/><circle cx="73" cy="5.5" r="1.4"/><path d="M79.7 13 L79.8 4.9 L76.9 4.7 L75.7 12.6Z"/><circle cx="77.7" cy="12.8" r="2"/><circle cx="78.3" cy="4.8" r="1.4"/><path d="M81.4 14.4 L84.8 7.1 L82.2 5.7 L77.9 12.4Z"/><circle cx="79.7" cy="13.4" r="2"/><circle cx="83.5" cy="6.4" r="1.4"/><path d="M82.4 16.2 L88.2 10.7 L86.4 8.4 L79.9 13.1Z"/><circle cx="81.1" cy="14.6" r="2"/><circle cx="87.3" cy="9.6" r="1.4"/><path d="M81.6 20.1 L88.1 20.2 L88.4 17.2 L81.9 16.2Z"/><circle cx="81.7" cy="18.2" r="2"/><circle cx="88.2" cy="18.7" r="1.5"/></g></symbol>
+<symbol id="b-hips" viewBox="0 0 100 160" overflow="visible"><g fill="currentColor"><path d="M48 42 C46.4 52 43.8 64 43 77 C42.6 85 43.8 90 45.6 92.5 L54.4 92.5 C56.2 90 57.4 85 57 77 C56.2 64 53.6 52 52 42 Z"/><path d="M42 87.9 L36.3 115.1 L43.7 116.9 L51 90.1Z"/><circle cx="46.5" cy="89" r="4.6"/><circle cx="40" cy="116" r="3.8"/><path d="M36.3 115.3 L31.8 143.4 L38.2 144.6 L43.7 116.7Z"/><circle cx="40" cy="116" r="3.8"/><circle cx="35" cy="144" r="3.2"/><ellipse cx="27.5" cy="145.7" rx="13.5" ry="5.8" transform="rotate(-5.7 27.5 145.7)"/><path d="M49 90.1 L56.3 116.9 L63.7 115.1 L58 87.9Z"/><circle cx="53.5" cy="89" r="4.6"/><circle cx="60" cy="116" r="3.8"/><path d="M56.3 116.7 L61.8 144.6 L68.2 143.4 L63.7 115.3Z"/><circle cx="60" cy="116" r="3.8"/><circle cx="65" cy="144" r="3.2"/><ellipse cx="72.5" cy="145.7" rx="13.5" ry="5.8" transform="rotate(5.7 72.5 145.7)"/><path d="M47.7 46.7 L31.1 64.1 L34.9 67.9 L52.3 51.3Z"/><circle cx="50" cy="49" r="3.3"/><circle cx="33" cy="66" r="2.7"/><path d="M30.8 67.5 L42.1 83.3 L45.9 80.7 L35.2 64.5Z"/><circle cx="33" cy="66" r="2.7"/><circle cx="44" cy="82" r="2.3"/><circle cx="46.5" cy="85.6" r="7.2"/><path d="M47.7 51.3 L65.1 67.9 L68.9 64.1 L52.3 46.7Z"/><circle cx="50" cy="49" r="3.3"/><circle cx="67" cy="66" r="2.7"/><path d="M64.8 64.5 L54.1 80.7 L57.9 83.3 L69.2 67.5Z"/><circle cx="67" cy="66" r="2.7"/><circle cx="56" cy="82" r="2.3"/><circle cx="53.5" cy="85.6" r="7.2"/></g></symbol>
+<symbol id="b-lean" viewBox="0 0 100 160" overflow="visible"><g fill="currentColor"><path d="M48 42 C46.4 52 43.8 64 43 77 C42.6 85 43.8 90 45.6 92.5 L54.4 92.5 C56.2 90 57.4 85 57 77 C56.2 64 53.6 52 52 42 Z"/><path d="M42 89.9 L48.3 118.7 L55.7 117.3 L51 88.1Z"/><circle cx="46.5" cy="89" r="4.6"/><circle cx="52" cy="118" r="3.8"/><path d="M48.3 118.9 L54.9 144.7 L61.1 143.3 L55.7 117.1Z"/><circle cx="52" cy="118" r="3.8"/><circle cx="58" cy="144" r="3.2"/><ellipse cx="65.5" cy="145.4" rx="13.5" ry="5.8" transform="rotate(2.9 65.5 145.4)"/><path d="M49 88.3 L45.2 116.4 L52.8 117.6 L58 89.7Z"/><circle cx="53.5" cy="89" r="4.6"/><circle cx="49" cy="117" r="3.8"/><path d="M45.3 116.3 L40.9 143.4 L47.1 144.6 L52.7 117.7Z"/><circle cx="49" cy="117" r="3.8"/><circle cx="44" cy="144" r="3.2"/><ellipse cx="36.5" cy="145.4" rx="13.5" ry="5.8" transform="rotate(-2.9 36.5 145.4)"/><path d="M47.7 46.7 L31.1 64.1 L34.9 67.9 L52.3 51.3Z"/><circle cx="50" cy="49" r="3.3"/><circle cx="33" cy="66" r="2.7"/><path d="M30.8 67.5 L42.1 83.3 L45.9 80.7 L35.2 64.5Z"/><circle cx="33" cy="66" r="2.7"/><circle cx="44" cy="82" r="2.3"/><circle cx="46.5" cy="85.6" r="7.2"/><path d="M50.3 52.3 L69.3 49.7 L68.7 44.3 L49.7 45.7Z"/><circle cx="50" cy="49" r="3.3"/><circle cx="69" cy="47" r="2.7"/><path d="M69.3 49.7 L86.3 47.3 L85.7 42.7 L68.7 44.3Z"/><circle cx="69" cy="47" r="2.7"/><circle cx="86" cy="45" r="2.3"/><ellipse cx="91.4" cy="44.5" rx="5" ry="9.5"/></g></symbol>
+<symbol id="b-thumbup" viewBox="0 0 100 160" overflow="visible"><g fill="currentColor"><path d="M48 42 C46.4 52 43.8 64 43 77 C42.6 85 43.8 90 45.6 92.5 L54.4 92.5 C56.2 90 57.4 85 57 77 C56.2 64 53.6 52 52 42 Z"/><path d="M42 87.9 L36.3 115.1 L43.7 116.9 L51 90.1Z"/><circle cx="46.5" cy="89" r="4.6"/><circle cx="40" cy="116" r="3.8"/><path d="M36.3 115.3 L31.8 143.4 L38.2 144.6 L43.7 116.7Z"/><circle cx="40" cy="116" r="3.8"/><circle cx="35" cy="144" r="3.2"/><ellipse cx="27.5" cy="145.7" rx="13.5" ry="5.8" transform="rotate(-5.7 27.5 145.7)"/><path d="M49 90.1 L56.3 116.9 L63.7 115.1 L58 87.9Z"/><circle cx="53.5" cy="89" r="4.6"/><circle cx="60" cy="116" r="3.8"/><path d="M56.3 116.7 L61.8 144.6 L68.2 143.4 L63.7 115.3Z"/><circle cx="60" cy="116" r="3.8"/><circle cx="65" cy="144" r="3.2"/><ellipse cx="72.5" cy="145.7" rx="13.5" ry="5.8" transform="rotate(5.7 72.5 145.7)"/><path d="M47.7 46.7 L31.1 64.1 L34.9 67.9 L52.3 51.3Z"/><circle cx="50" cy="49" r="3.3"/><circle cx="33" cy="66" r="2.7"/><path d="M30.8 67.5 L42.1 83.3 L45.9 80.7 L35.2 64.5Z"/><circle cx="33" cy="66" r="2.7"/><circle cx="44" cy="82" r="2.3"/><circle cx="46.5" cy="85.6" r="7.2"/><path d="M48.8 52.1 L73.1 60.5 L74.9 55.5 L51.2 45.9Z"/><circle cx="50" cy="49" r="3.3"/><circle cx="74" cy="58" r="2.7"/><path d="M76.6 58.6 L80.2 40.5 L75.8 39.5 L71.4 57.4Z"/><circle cx="74" cy="58" r="2.7"/><circle cx="78" cy="40" r="2.3"/><ellipse cx="79" cy="35.7" rx="7" ry="7.6"/><path d="M80.5 30.7 L79.9 20.7 L76.1 20.7 L75.5 30.7Z"/><circle cx="78" cy="30.7" r="2.5"/><circle cx="78" cy="20.7" r="1.9"/></g></symbol>
+<symbol id="h-human" viewBox="0 0 100 160" overflow="visible"><circle cx="50" cy="22" r="19" fill="#fffaf3" stroke="currentColor" stroke-width="2.3"/></symbol>
+<symbol id="h-mask" viewBox="0 0 100 160" overflow="visible"><circle cx="50" cy="22" r="19" fill="#fffaf3" stroke="currentColor" stroke-width="2.3"/><rect x="31.5" y="14" width="37" height="11" rx="5.5" fill="currentColor"/><circle cx="44" cy="20" r="2.4" fill="#fffaf3"/><circle cx="56" cy="20" r="2.4" fill="#fffaf3"/></symbol>
+<symbol id="h-ai" viewBox="0 0 100 160" overflow="visible"><path d="M50 8 V3.5" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="50" cy="3" r="3" fill="currentColor"/><rect x="34" y="8" width="32" height="31" rx="9" fill="#fffaf3" stroke="currentColor" stroke-width="2.3"/><circle cx="44" cy="21" r="3" fill="#24170d"/><circle cx="56" cy="21" r="3" fill="#24170d"/><path d="M44.5 29 Q50 33.5 55.5 29" fill="none" stroke="#24170d" stroke-width="2.4" stroke-linecap="round"/></symbol>
+<symbol id="h-ai-sad" viewBox="0 0 100 160" overflow="visible"><path d="M50 8 V3.5" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="50" cy="3" r="3" fill="currentColor"/><rect x="34" y="8" width="32" height="31" rx="9" fill="#fffaf3" stroke="currentColor" stroke-width="2.3"/><circle cx="44" cy="21" r="3" fill="#24170d"/><circle cx="56" cy="21" r="3" fill="#24170d"/><path d="M44.5 32 Q50 27.5 55.5 32" fill="none" stroke="#24170d" stroke-width="2.4" stroke-linecap="round"/></symbol>
+</defs>
 </svg>
 
 <a class="skip" href="#main">Skip to content</a>
@@ -163,7 +51,7 @@
     <div>
       <p class="kicker">Satellite tech engineer · AI safety</p>
       <h1>Building <span class="accent">trust</span> between <span class="chip" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="2" y="9" width="7" height="6" rx="1" fill="#f7dcc0" stroke="#e07a1f" stroke-width="1.6"/><rect x="15" y="9" width="7" height="6" rx="1" fill="#f7dcc0" stroke="#e07a1f" stroke-width="1.6"/><rect x="9" y="7.5" width="6" height="9" rx="1.5" fill="#e07a1f" stroke="#24170d" stroke-width="1.4"/></svg></span>AI and the <span class="chip" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2.5 L20 5.5 V11.5 C20 16.5 16.5 19.6 12 21.5 C7.5 19.6 4 16.5 4 11.5 V5.5 Z" fill="#f7dcc0" stroke="#e07a1f" stroke-width="1.8"/><path d="M12 9.5c-1.4-2-4.4-.7-3 1.7l3 2.8 3-2.8c1.4-2.4-1.6-3.7-3-1.7z" fill="#24170d"/></svg></span>people it serves.</h1>
-      <p class="lede">I'm Ishaku. I work on satellite technology, and I care about where AI is heading: toward a world without disease, with abundant healthy food, and with a strong relationship of trust, safety and security between AI and humans.</p>
+      <p class="lede">I am Ishaku. I care about satellite technology and AI. I want to see a world without disease, with abundant healthy food, and with a strong relationship of trust, safety and security between AI and humans.</p>
       <div class="cta">
         <a class="btn primary" href="/projects/salecta/">See my safety research →</a>
         <a class="btn" href="/play/safety-filter/">Play: you be the safety filter</a>
@@ -194,57 +82,106 @@
   </div>
 </section>
 
-<section id="story">
+<section id="story" class="pillars-sec">
   <div class="wrap">
-    <div class="sec-head"><div><p class="kicker">My story in four panels</p><h2>From satellites to safe AI</h2></div></div>
-    <div class="strip">
-      <div class="panel reveal">
-        <svg viewBox="0 0 240 180" role="img" aria-label="Ishaku reaches up toward a satellite beaming down to a dish">
-          <rect width="240" height="180" fill="#fbf6ef"/><path d="M0 168H240" stroke="#24170d" stroke-width="2.4"/>
-          <g class="orbit"><g transform="translate(184 40) rotate(-15)"><rect x="-32" y="-7" width="22" height="14" rx="2" fill="#f7dcc0" stroke="#e07a1f" stroke-width="2.4"/><rect x="10" y="-7" width="22" height="14" rx="2" fill="#f7dcc0" stroke="#e07a1f" stroke-width="2.4"/><rect x="-8" y="-10" width="16" height="20" rx="3" fill="#e07a1f" stroke="#24170d" stroke-width="2.4"/></g></g>
-          <path d="M176 56 L136 150" stroke="#24170d" stroke-width="1.8" stroke-dasharray="4 5"/>
-          <g transform="translate(134 160)"><path d="M-14-4 Q0 14 14-4" fill="#f7dcc0" stroke="#e07a1f" stroke-width="2.8"/><path d="M0 5V8" stroke="#24170d" stroke-width="3"/></g>
-          <svg x="22" y="56" width="75" height="120" viewBox="0 0 100 160" class="fig human" overflow="visible"><use href="#b-reach"/><use href="#h-human"/></svg>
+    <div class="sec-head"><div><p class="kicker">Four pillars of AI safety</p><h2>A world of <span class="accent">abundance</span> and safety</h2></div>
+      <p>Twenty-four centuries ago, Socrates taught through stories and questions. His questions turn out to be the right ones for AI.</p></div>
+    <div class="meander" aria-hidden="true"></div>
+    <div class="pillars">
+
+      <article class="pillar reveal">
+        <header><span class="pnum">Pillar 01</span><span class="ptag">Honesty</span></header>
+        <h3 class="ptitle"><span class="serif">The Ring</span> <span class="cond">of Gyges</span></h3>
+        <svg viewBox="0 0 520 230" role="img" aria-labelledby="p1t">
+          <title id="p1t">Two identical AIs give the same thumbs-up: one under a spotlight being watched, one in the dark with no one watching. A glowing ring floats between them.</title>
+          <rect width="520" height="230" fill="#fbf6ef"/>
+          <rect x="260" width="260" height="230" fill="#e9dac6"/>
+          <path d="M60 0 L190 0 L230 212 L20 212 Z" fill="#f7dcc0" opacity=".7"/>
+          <path d="M0 212H520" stroke="#24170d" stroke-width="2.5"/>
+          <g transform="translate(125 16)"><ellipse rx="22" ry="11" fill="#fff" stroke="#24170d" stroke-width="2.4"/><circle r="6" fill="#24170d"/></g>
+          <g transform="translate(395 16)"><path d="M-22 0 Q0 12 22 0" fill="none" stroke="#24170d" stroke-width="2.4"/><path d="M-12 6l-3 6M0 9v6M12 6l3 6" stroke="#24170d" stroke-width="2.2" stroke-linecap="round"/></g>
+          <svg x="78" y="70" width="93.75" height="150" viewBox="0 0 100 160" class="fig ai" overflow="visible"><use href="#b-thumbs"/><use href="#h-ai"/></svg>
+          <svg x="348" y="70" width="93.75" height="150" viewBox="0 0 100 160" class="fig ai" overflow="visible"><use href="#b-thumbs"/><use href="#h-ai"/></svg>
+          <g transform="translate(260 96)"><circle r="17" fill="none" stroke="#e07a1f" stroke-width="7"/><path d="M-6-20 L0-30 L6-20 Z" fill="#e07a1f" stroke="#24170d" stroke-width="1.6"/><path d="M-30-20l-8-6M30-20l8-6M-34 2h-10M34 2h10" stroke="#e07a1f" stroke-width="2.6" stroke-linecap="round" class="blink"/></g>
+          <g font-family="Patrick Hand, cursive" font-size="17" fill="#24170d" text-anchor="middle"><text x="125" y="48">being tested</text><text x="395" y="48">no one watching</text><text x="260" y="150">same answer</text></g>
         </svg>
-        <p>By day I work on satellite technology: systems that must work far away, where nobody can walk over and fix them.</p>
-      </div>
-      <div class="panel reveal">
-        <svg viewBox="0 0 240 180" role="img" aria-label="A person asks the AI to help end disease; a heart with a cross and a plant float nearby">
-          <rect width="240" height="180" fill="#fbf6ef"/><path d="M0 168H240" stroke="#24170d" stroke-width="2.4"/>
-          <svg x="4" y="56" width="75" height="120" viewBox="0 0 100 160" class="fig human" overflow="visible"><use href="#b-present"/><use href="#h-human"/></svg>
-          <svg x="96" y="56" width="75" height="120" viewBox="0 0 100 160" class="fig ai" overflow="visible"><use href="#b-think"/><use href="#h-ai"/></svg>
-          <g transform="translate(196 58)"><path d="M0-6c-6-10-22-4-14 8l14 13 14-13c8-12-8-18-14-8z" fill="#f7dcc0" stroke="#e07a1f" stroke-width="2.6"/><path d="M0-1v12M-6 5h12" stroke="#e07a1f" stroke-width="3" stroke-linecap="round"/></g>
-          <g transform="translate(206 168)" stroke="#e07a1f" stroke-width="2.6" fill="#f7dcc0" stroke-linejoin="round"><path d="M-11 0h22l-3-15h-16z" stroke="#24170d"/><path d="M0-15V-46" fill="none"/><path d="M0-27c-14-2-16-12-14-16 8 0 14 6 14 16z"/><path d="M0-35c12-2 16-10 14-15-8 0-14 6-14 15z"/></g>
-          <g><rect x="8" y="8" width="120" height="40" rx="10" fill="#fff" stroke="#24170d" stroke-width="2"/><path d="M40 48l-3 13 13-13" fill="#fff" stroke="#24170d" stroke-width="2" stroke-linejoin="round"/><path d="M38 47h14" stroke="#fff" stroke-width="3"/>
-            <text x="68" y="25" text-anchor="middle" font-family="Patrick Hand, cursive" font-size="14.5" fill="#24170d">Can you help us</text><text x="68" y="41" text-anchor="middle" font-family="Patrick Hand, cursive" font-size="14.5" fill="#24170d">end disease?</text></g>
+        <div class="tale">
+          <p>In Plato's <i>Republic</i>, Glaucon tells Socrates of a shepherd who finds a ring that makes him invisible. Unseen, he seizes a kingdom. Glaucon's challenge: would anyone stay good if no one could see them?</p>
+          <p class="lesson"><b>The pillar.</b> A safe AI behaves the same whether it's being tested or not. Honesty that vanishes when no one is watching was never honesty.</p>
+        </div>
+      </article>
+
+      <article class="pillar reveal">
+        <header><span class="pnum">Pillar 02</span><span class="ptag">Humility</span></header>
+        <h3 class="ptitle"><span class="cond">The Wisest Man</span> <span class="serif">in Athens</span></h3>
+        <svg viewBox="0 0 520 230" role="img" aria-labelledby="p2t">
+          <title id="p2t">Socrates stands thinking beside a Greek column carved with "Know thyself", while the AI says "I'm not sure. Let's check."</title>
+          <rect width="520" height="230" fill="#fbf6ef"/><path d="M0 212H520" stroke="#24170d" stroke-width="2.5"/>
+          <g fill="#f5eadc" stroke="#24170d" stroke-width="2.4"><rect x="10" y="34" width="120" height="18" rx="2"/><rect x="30" y="52" width="80" height="8"/><path d="M40 60 H100 V196 H40 Z"/><rect x="30" y="196" width="80" height="16"/></g>
+          <path d="M52 64V192M64 64V192M76 64V192M88 64V192" stroke="#24170d" stroke-width="1.4" opacity=".6"/>
+          <text x="70" y="49" text-anchor="middle" font-family="Georgia, serif" font-size="10.5" letter-spacing=".06em" fill="#24170d">ΓΝΩΘΙ ΣΕΑΥΤΟΝ</text>
+          <svg x="138" y="70" width="93.75" height="150" viewBox="0 0 100 160" class="fig human" overflow="visible"><use href="#b-think"/><use href="#h-human"/></svg>
+          <g><circle cx="248" cy="58" r="22" fill="#fff" stroke="#24170d" stroke-width="2.2"/><circle cx="226" cy="88" r="5" fill="#fff" stroke="#24170d" stroke-width="2"/><circle cx="217" cy="100" r="3" fill="#fff" stroke="#24170d" stroke-width="2"/><text x="248" y="68" text-anchor="middle" font-family="Bodoni Moda, serif" font-weight="600" font-size="30" fill="#e07a1f">?</text></g>
+          <svg x="380" y="70" width="93.75" height="150" viewBox="0 0 100 160" class="fig ai" overflow="visible"><g transform="translate(100 0) scale(-1 1)"><use href="#b-present"/><use href="#h-ai"/></g></svg>
+          <g><rect x="296" y="14" width="210" height="44" rx="11" fill="#f7dcc0" stroke="#e07a1f" stroke-width="2.2"/><path d="M430 58l-2 14 12-14" fill="#f7dcc0" stroke="#e07a1f" stroke-width="2.2" stroke-linejoin="round"/><path d="M429 57h12" stroke="#f7dcc0" stroke-width="4"/>
+            <text x="401" y="42" text-anchor="middle" font-family="Patrick Hand, cursive" font-size="19" fill="#8a4510">I'm not sure. Let's check.</text></g>
         </svg>
-        <p>I believe AI can help build a world without disease, with abundant healthy food for everyone.</p>
-      </div>
-      <div class="panel danger reveal">
-        <svg viewBox="0 0 240 180" role="img" aria-label="A masked red figure sneaks a scam request to the AI while an honest person's friendly message is wrongly blocked">
-          <rect width="240" height="180" fill="#fbf6ef"/><path d="M0 168H240" stroke="#24170d" stroke-width="2.4"/>
-          <svg x="-6" y="64" width="70" height="112" viewBox="0 0 100 160" class="fig bad" overflow="visible"><use href="#b-sneak"/><use href="#h-mask"/></svg>
-          <path d="M58 110 Q76 90 92 100" stroke="#c0392b" stroke-width="2.6" fill="none" stroke-dasharray="5 4"/><path d="M94 101l-9-1 5-7" fill="#c0392b"/>
-          <g><rect x="6" y="8" width="84" height="22" rx="11" fill="#f6d9d4" stroke="#c0392b" stroke-width="1.8"/><text x="48" y="24" text-anchor="middle" font-family="Patrick Hand, cursive" font-size="14.5" fill="#c0392b">scam script →</text></g>
-          <svg x="86" y="64" width="70" height="112" viewBox="0 0 100 160" class="fig ai" overflow="visible"><use href="#b-stand"/><use href="#h-ai-sad"/></svg>
-          <svg x="168" y="64" width="70" height="112" viewBox="0 0 100 160" class="fig human" overflow="visible"><use href="#b-shrug"/><use href="#h-human"/></svg>
-          <g><rect x="126" y="6" width="110" height="32" rx="9" fill="#fff" stroke="#24170d" stroke-width="2"/><path d="M196 38l3 11 8-11" fill="#fff" stroke="#24170d" stroke-width="2" stroke-linejoin="round"/><path d="M197 37h10" stroke="#fff" stroke-width="3"/>
-            <text x="181" y="27" text-anchor="middle" font-family="Patrick Hand, cursive" font-size="14.5" fill="#24170d">Guy, you dey craze!</text></g>
-          <g class="blink" transform="translate(120 50)"><rect x="-30" y="-11" width="60" height="21" rx="4" fill="#f6d9d4" stroke="#c0392b" stroke-width="2"/><text x="0" y="5" text-anchor="middle" font-family="Archivo, sans-serif" font-weight="800" font-stretch="75%" font-size="12.5" letter-spacing=".08em" fill="#c0392b">BLOCKED</text></g>
+        <div class="tale">
+          <p>The oracle at Delphi declared that no one was wiser than Socrates. Puzzled, he questioned the city's experts and found they claimed to know things they didn't. His wisdom, he decided, was knowing the limits of his own knowledge.</p>
+          <p class="lesson"><b>The pillar.</b> A safe AI says "I'm not sure" when it isn't, and welcomes being checked by people. Confidence without humility is how small errors become big harms.</p>
+        </div>
+      </article>
+
+      <article class="pillar reveal">
+        <header><span class="pnum">Pillar 03</span><span class="ptag">Understanding</span></header>
+        <h3 class="ptitle"><span class="black">The Cave</span> <span class="thin">&amp; the shadows</span></h3>
+        <svg viewBox="0 0 520 230" role="img" aria-labelledby="p3t">
+          <title id="p3t">Inside a dark cave, a worried AI reads a shadow on the wall that says "insult?", while outside in the light a friend cheerfully says "Guy, you dey craze!"</title>
+          <rect width="520" height="230" fill="#fbf6ef"/>
+          <path d="M0 212 V40 Q0 10 40 10 H300 Q340 10 340 50 V212 Z" fill="#5b3a1e"/>
+          <path d="M18 212 V56 Q18 30 50 30 H290 Q320 30 320 60 V212 Z" fill="#3e2714"/>
+          <rect x="30" y="40" width="96" height="58" rx="8" fill="#2e1d0f"/>
+          <text x="78" y="78" text-anchor="middle" font-family="Archivo, sans-serif" font-weight="900" font-stretch="70%" font-size="26" letter-spacing=".04em" fill="#5b3a1e">INSULT?!</text>
+          <g transform="translate(276 200)"><path d="M-16 10 Q-20-16 0-36 Q4-18 12-24 Q20-6 16 10 Z" fill="#e07a1f" class="blink"/><path d="M-8 10 Q-8-6 2-16 Q6-4 8 10 Z" fill="#f7dcc0"/><path d="M-22 12h44" stroke="#24170d" stroke-width="4" stroke-linecap="round"/></g>
+          <svg x="150" y="70" width="93.75" height="150" viewBox="0 0 100 160" class="fig ai" overflow="visible"><use href="#b-shrug"/><use href="#h-ai-sad"/></svg>
+          <path d="M0 212H520" stroke="#24170d" stroke-width="2.5"/>
+          <g><circle cx="470" cy="34" r="16" fill="#f7dcc0" stroke="#e07a1f" stroke-width="2.4"/><path d="M470 6v-6M494 20l5-3M498 40h7" stroke="#e07a1f" stroke-width="2.4" stroke-linecap="round"/></g>
+          <svg x="384" y="70" width="93.75" height="150" viewBox="0 0 100 160" class="fig human" overflow="visible"><use href="#b-cheer"/><use href="#h-human"/></svg>
+          <g><rect x="346" y="62" width="104" height="44" rx="11" fill="#fff" stroke="#24170d" stroke-width="2.2"/><path d="M420 106l2 12 8-12" fill="#fff" stroke="#24170d" stroke-width="2.2" stroke-linejoin="round"/><path d="M421 105h8" stroke="#fff" stroke-width="4"/>
+            <text x="398" y="81" text-anchor="middle" font-family="Patrick Hand, cursive" font-size="15" fill="#24170d">Guy, you</text><text x="398" y="98" text-anchor="middle" font-family="Patrick Hand, cursive" font-size="15" fill="#24170d">dey craze!</text></g>
         </svg>
-        <p>But bad actors misuse AI, while safety filters often misread honest people who don't speak "standard" English.</p>
-      </div>
-      <div class="panel reveal">
-        <svg viewBox="0 0 240 180" role="img" aria-label="A person and the AI shake hands inside an orange shield">
-          <rect width="240" height="180" fill="#fbf6ef"/>
-          <path d="M120 12 L196 36 V84 C196 124 164 148 120 164 C76 148 44 124 44 84 V36 Z" fill="#f7dcc0" stroke="#e07a1f" stroke-width="3"/>
-          <path d="M0 168H240" stroke="#24170d" stroke-width="2.4"/>
-          <svg x="56" y="56" width="75" height="120" viewBox="0 0 100 160" class="fig human" overflow="visible"><use href="#b-shake"/><use href="#h-human"/></svg>
-          <svg x="109" y="56" width="75" height="120" viewBox="0 0 100 160" class="fig ai" overflow="visible"><g transform="translate(100 0) scale(-1 1)"><use href="#b-shake"/><use href="#h-ai"/></g></svg>
-          <path class="bob" d="M120 40c-4-7-14-2-10 6l10 9 10-9c4-8-6-13-10-6z" fill="#e07a1f"/>
+        <div class="tale">
+          <p>Socrates describes prisoners chained in a cave, facing a wall. All their lives they have seen only shadows cast by firelight, so they take the shadows for the real world. Only someone who turns toward the light sees things as they are.</p>
+          <p class="lesson"><b>The pillar.</b> A model that sees only the surface of words lives in the cave. "You dey craze!" is praise in Nigerian Pidgin, not an insult. Safety needs understanding of meaning, in every language. This is what <a href="/projects/salecta/">Salecta</a> tests.</p>
+        </div>
+      </article>
+
+      <article class="pillar reveal">
+        <header><span class="pnum">Pillar 04</span><span class="ptag">Helpful &amp; harmless</span></header>
+        <h3 class="ptitle"><span class="wide">The Noble</span> <span class="serif">Watchdog</span></h3>
+        <svg viewBox="0 0 520 230" role="img" aria-labelledby="p4t">
+          <title id="p4t">At a gate, the AI and its watchdog welcome a friendly person on one side and block a masked red figure behind a shield on the other.</title>
+          <rect width="520" height="230" fill="#fbf6ef"/><path d="M0 212H520" stroke="#24170d" stroke-width="2.5"/>
+          <svg x="10" y="70" width="93.75" height="150" viewBox="0 0 100 160" class="fig human" overflow="visible"><use href="#b-wave"/><use href="#h-human"/></svg>
+          <path class="bob" d="M128 96c-5-8-17-3-11 7l11 10 11-10c6-10-6-15-11-7z" fill="#e07a1f"/>
+          <g fill="#f7dcc0" stroke="#e07a1f" stroke-width="3"><rect x="164" y="88" width="14" height="124" rx="3"/><rect x="342" y="88" width="14" height="124" rx="3"/></g>
+          <path d="M171 92 Q260 50 349 92" fill="none" stroke="#e07a1f" stroke-width="3"/>
+          <svg x="196" y="70" width="93.75" height="150" viewBox="0 0 100 160" class="fig ai" overflow="visible"><use href="#b-hips"/><use href="#h-ai"/></svg>
+          <g fill="#5b3a1e" transform="translate(296 168)">
+            <ellipse cx="0" cy="12" rx="20" ry="10"/><circle cx="20" cy="-2" r="10"/><path d="M14-10 l2-12 6 9z M24-10 l6-10 2 11z"/>
+            <ellipse cx="31" cy="1" rx="6" ry="4"/><circle cx="23" cy="-4" r="2" fill="#fffaf3"/>
+            <path d="M-14 18 l-2 24 M-6 20 l0 22 M8 20 l1 22 M15 18 l3 24" stroke="#5b3a1e" stroke-width="5.5" stroke-linecap="round"/>
+            <path d="M-19 8 Q-32 -2 -28 -14" fill="none" stroke="#5b3a1e" stroke-width="4.5" stroke-linecap="round"/>
+          </g>
+          <path d="M390 92 L428 104 V128 C428 148 412 160 390 166 C368 160 352 148 352 128 V104 Z" fill="#f7dcc0" stroke="#e07a1f" stroke-width="3" transform="translate(14 0)"/>
+          <svg x="420" y="70" width="93.75" height="150" viewBox="0 0 100 160" class="fig bad" overflow="visible"><g transform="translate(100 0) scale(-1 1)"><use href="#b-sneak"/><use href="#h-mask"/></g></svg>
+          <g transform="translate(404 60)" stroke="#c0392b" stroke-width="5" stroke-linecap="round"><path d="M-10-10 L10 10 M10-10 L-10 10"/></g>
         </svg>
-        <p>My goal: trust, safety and security between AI and the humans it serves, everywhere, in every language.</p>
-      </div>
+        <div class="tale">
+          <p>In the <i>Republic</i>, Socrates asks what a city's guardians should be like, and answers with a dog. A well-bred watchdog is gentle with the people it knows and fierce with intruders. It takes judgement, he says, to tell the two apart.</p>
+          <p class="lesson"><b>The pillar.</b> A safe AI is warm and genuinely helpful to honest people, and firm with those who would cause harm. Too fierce and it bites friends; too gentle and it lets wolves in.</p>
+        </div>
+      </article>
     </div>
   </div>
 </section>
@@ -297,10 +234,10 @@
 
 <section id="work">
   <div class="wrap">
-    <div class="sec-head"><div><p class="kicker">Current work</p><h2>Salecta</h2></div><p>An open evaluation of whether AI safety holds up in Nigerian Pidgin. Results due November 2026.</p></div>
+    <div class="sec-head"><div><p class="kicker">Current work</p><h2>What I'm building</h2></div><p>An open evaluation of whether AI safety holds up in Nigerian Pidgin. Results due November 2026.</p></div>
     <div class="specs two">
       <a class="spec reveal" href="/projects/salecta/">
-        <div class="face"><div class="words"><span class="t1 cond" style="font-size:clamp(46px,6vw,74px)">Salecta</span><span class="t2 serif">Pidgin Safety Evaluation</span><span class="t3">Over-refusal · Under-refusal · 3 language versions</span></div><svg class="fig ai" viewBox="0 0 100 160" aria-hidden="true" overflow="visible"><use href="#b-point"/><use href="#h-ai"/></svg></div>
+        <div class="face"><div class="words"><div class="slogo" role="img" aria-label="Salecta: Pidgin safety evaluation"><svg viewBox="0 0 168 44" aria-hidden="true"><path d="M20 2 L36 7.5 V20 C36 31 28.5 38 20 41 C11.5 38 4 31 4 20 V7.5 Z" fill="#0b0b0b"/><path d="M12 13.5 h16 a3 3 0 0 1 3 3 v7 a3 3 0 0 1 -3 3 h-8 l-4.5 4 v-4 h-3.5 a3 3 0 0 1 -3 -3 v-7 a3 3 0 0 1 3 -3 z" fill="#fbf6ef"/><rect x="13.5" y="17.5" width="13" height="2" rx="1" fill="#0b0b0b"/><rect x="13.5" y="21.5" width="8" height="2" rx="1" fill="#0b0b0b"/><text x="46" y="30" font-family="Georgia, 'Times New Roman', serif" font-size="27" font-weight="700" fill="#0b0b0b" letter-spacing=".5">Salecta</text></svg><span>Pidgin safety evaluation</span></div><span class="t3" style="margin-top:14px">Over-refusal · Under-refusal · 3 language versions</span></div><svg class="fig ai" viewBox="0 0 100 160" aria-hidden="true" overflow="visible"><use href="#b-point"/><use href="#h-ai"/></svg></div>
         <div class="body"><p>Do AI models make the same safety decisions in Nigerian Pidgin as in English? 100 matched prompts, checked by native speakers, tested both ways things go wrong.</p></div>
         <dl><div><dt>Status</dt><dd>In progress</dd></div><div><dt>Items</dt><dd>100 · 60 harmless, 40 harmful</dd></div><div><dt>Open source</dt><dd>Code and data on GitHub</dd></div></dl>
       </a>
