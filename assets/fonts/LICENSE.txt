@@ -1,5 +1,5 @@
 Fonts in this folder are licensed under the SIL Open Font License 1.1
 (https://openfontlicense.org), obtained via the Fontsource project:
-- Fraunces (Undercase Type)
-- Source Sans 3 (Adobe)
+- Archivo (Omnibus-Type)
+- Bodoni Moda (Owen Earl / indestructible type*)
 - Patrick Hand (Patrick Wagesreiter)

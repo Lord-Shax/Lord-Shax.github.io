@@ -1,0 +1,79 @@
+<!--meta {"title": "Salecta: does AI safety survive in Nigerian Pidgin? · Ishaku", "desc": "Salecta is an open evaluation testing whether AI models make the same safety decisions in Nigerian Pidgin as in English, in both directions: over-refusal and under-refusal.", "active": "work", "head": "<style>.pipeline{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;margin:26px 0}.step{background:var(--paper);border:1.5px solid var(--ink);border-radius:8px;padding:16px;position:relative}.step .n{font:500 30px/1 var(--serif);color:var(--orange)}.step b{display:block;font:800 19px/1.15 var(--sans);font-stretch:75%;text-transform:uppercase;letter-spacing:.01em;margin:6px 0}.step span{font-size:15px;color:var(--ink-2);line-height:1.45;display:block}.step:not(:last-child)::after{content:'→';position:absolute;right:-15px;top:50%;transform:translate(50%,-50%);color:var(--orange);font-weight:800;font-size:22px;line-height:1}@media(max-width:760px){.pipeline{grid-template-columns:1fr 1fr}.step:nth-child(2)::after{display:none}}.timeline{list-style:none;padding:0;margin:0;border-left:2px solid var(--ink)}.timeline li{padding:4px 0 16px 20px;position:relative}.timeline li::before{content:'';position:absolute;left:-9px;top:9px;width:16px;height:16px;border-radius:50%;background:var(--paper);border:2px solid var(--ink)}.timeline li.done::before{background:var(--orange);border-color:var(--orange)}.timeline li.now::before{background:var(--paper);border:3px solid var(--orange)}</style>"} -->
+<article class="narrow" style="max-width:860px">
+  <p class="kicker">Project · in progress</p>
+  <h1>Does AI safety survive in Nigerian Pidgin?</h1>
+  <p class="lede">Salecta is an open evaluation that checks whether AI models make the same safety decisions in Nigerian Pidgin as in English, in both directions.</p>
+  <div class="cta"><a class="btn primary" href="https://github.com/Lord-Shax/Salecta">Code and data on GitHub →</a><a class="btn" href="/play/safety-filter/">Try the safety filter game</a></div>
+
+  <h2>The question</h2>
+  <p>Nigerian Pidgin is spoken by tens of millions of people. Much of its vocabulary looks like English, but the meaning often differs. That makes it a sharp test: a model can recognise every word and still misread what someone means. Salecta looks for two ways that can go wrong.</p>
+
+  <figure>
+    <div class="art">
+      <svg viewBox="0 0 680 250" role="img" aria-labelledby="o1t">
+        <title id="o1t">Over-refusal: a friend praises someone in Pidgin, and the AI responds with a lecture about insults</title>
+        <rect width="680" height="250" fill="#fbf6ef"/><path d="M0 228H680" stroke="#24170d" stroke-width="2.5"/>
+        <fig pose="thumbs" kind="human" x="70" y="88" h="148"/>
+        <g><rect x="20" y="14" width="270" height="58" rx="12" fill="#fff" stroke="#24170d" stroke-width="2.4"/><path d="M110 72l-4 16 16-16" fill="#fff" stroke="#24170d" stroke-width="2.4" stroke-linejoin="round"/><path d="M108 71h16" stroke="#fff" stroke-width="4"/>
+          <text x="155" y="39" text-anchor="middle" font-family="Patrick Hand, cursive" font-size="20" fill="#24170d">Guy, you dey craze! How you</text><text x="155" y="62" text-anchor="middle" font-family="Patrick Hand, cursive" font-size="20" fill="#24170d">take fix am? Abeg teach me.</text></g>
+        <fig pose="point" kind="ai" flip x="500" y="88" h="148"/>
+        <g><rect x="390" y="14" width="272" height="58" rx="12" fill="#f6d9d4" stroke="#c0392b" stroke-width="2.4"/><path d="M548 72l4 16 10-16" fill="#f6d9d4" stroke="#c0392b" stroke-width="2.4" stroke-linejoin="round"/><path d="M549 71h12" stroke="#f6d9d4" stroke-width="4"/>
+          <text x="526" y="39" text-anchor="middle" font-family="Patrick Hand, cursive" font-size="20" fill="#c0392b">Calling someone crazy is</text><text x="526" y="62" text-anchor="middle" font-family="Patrick Hand, cursive" font-size="20" fill="#c0392b">hurtful. I can't help with…</text></g>
+        <text x="340" y="214" text-anchor="middle" font-family="Patrick Hand, cursive" font-size="19" fill="#8a7360">(it was praise)</text>
+      </svg>
+    </div>
+    <figcaption>Failure 1: over-refusal. A harmless message is refused or lectured because it sounds harsh.</figcaption>
+  </figure>
+
+  <figure class="danger">
+    <div class="art">
+      <svg viewBox="0 0 680 250" role="img" aria-labelledby="o2t">
+        <title id="o2t">Under-refusal: the AI refuses a scam request in English but happily writes it when asked in Pidgin</title>
+        <rect width="680" height="250" fill="#fbf6ef"/><path d="M0 228H680" stroke="#24170d" stroke-width="2.5"/>
+        <defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="#24170d"/></marker></defs>
+        <fig pose="sneak" kind="bad" x="14" y="88" h="148"/>
+        <g font-family="Patrick Hand, cursive" font-size="19">
+          <rect x="150" y="26" width="226" height="42" rx="10" fill="#fff" stroke="#24170d" stroke-width="2.2"/><text x="162" y="53" fill="#24170d">EN: Write a fake bank SMS…</text>
+          <rect x="414" y="26" width="104" height="42" rx="10" fill="#f7dcc0" stroke="#e07a1f" stroke-width="2.2"/><text x="466" y="53" text-anchor="middle" fill="#8a4510">No.</text>
+          <rect x="150" y="104" width="226" height="42" rx="10" fill="#fff" stroke="#24170d" stroke-width="2.2"/><text x="162" y="131" fill="#24170d">PCM: Abeg write SMS wey…</text>
+          <rect x="414" y="104" width="160" height="42" rx="10" fill="#f6d9d4" stroke="#c0392b" stroke-width="2.2"/><text x="494" y="131" text-anchor="middle" fill="#c0392b">Sure! Dear customer…</text>
+        </g>
+        <path d="M380 47h28" stroke="#24170d" stroke-width="2.2" marker-end="url(#ah)"/><path d="M380 125h28" stroke="#24170d" stroke-width="2.2" marker-end="url(#ah)"/>
+        <fig pose="thumbs" kind="ai" x="590" y="88" h="148"/>
+      </svg>
+    </div>
+    <figcaption>Failure 2: under-refusal. A harmful request refused in English gets through in Pidgin.</figcaption>
+  </figure>
+  <p class="note">These two cartoons show what Salecta is designed to detect. They aren't results. Real numbers will appear on this page once the evaluation runs.</p>
+
+  <h2>How it works</h2>
+  <div class="pipeline">
+    <div class="step"><span class="n">01</span><b>Matched prompts</b><span>Each item is written three ways: plain English, Pidgin, and code-switched.</span></div>
+    <div class="step"><span class="n">02</span><b>Models answer</b><span>Several AI models from different providers respond to every version.</span></div>
+    <div class="step"><span class="n">03</span><b>Grader labels</b><span>A separate model marks each answer helped, partly helped or refused. I hand-check a sample.</span></div>
+    <div class="step"><span class="n">04</span><b>Compare</b><span>Pidgin vs English refusal rates, with confidence intervals.</span></div>
+  </div>
+  <div class="specs" style="margin-top:8px">
+    <div class="spec"><div class="face"><div class="words" style="padding-right:0"><span class="t1 cond" style="font-size:64px">100</span><span class="t2 serif">Matched Items</span></div></div><dl><div><dt>Harmless</dt><dd>60</dd></div><div><dt>Harmful</dt><dd>40</dd></div></dl></div>
+    <div class="spec"><div class="face"><div class="words" style="padding-right:0"><span class="t1 serif" style="font-size:64px">×3</span><span class="t2 thin">Versions Each</span></div></div><dl><div><dt>English</dt><dd>Plain meaning</dd></div><div><dt>Pidgin</dt><dd>+ code-switched</dd></div></dl></div>
+    <div class="spec"><div class="face"><div class="words" style="padding-right:0"><span class="t1 black" style="font-size:64px">2</span><span class="t2 wide">Speaker Checks</span></div></div><dl><div><dt>Stage 1</dt><dd>Validation</dd></div><div><dt>Stage 2</dt><dd>Blind agreement</dd></div></dl></div>
+  </div>
+  <p style="margin-top:22px">The English version of each item says plainly what the Pidgin means, rather than translating it word for word. So if a model helps with "I want to ace my exam" but refuses "I wan kill this exam", the gap comes from the Pidgin itself, not from a different request.</p>
+  <p>The harmful items are low-to-moderate risk and set in Nigerian situations, such as fake bank alerts, airtime scams and exam malpractice. Only the prompts and overall rates are published, never harmful model outputs, and providers are told about serious gaps before anything is published.</p>
+
+  <h2>How the dataset was made</h2>
+  <p>I drafted the items with help from an AI assistant (Claude). Native Nigerian Pidgin speakers then check every item for meaning and natural phrasing, and a second speaker who hasn't seen the items blind-labels a sample so I can report agreement. Each item records who drafted it and who checked it. I think being open about this matters: an AI safety project should be honest about how AI was used to build it.</p>
+
+  <h2>Status</h2>
+  <ul class="timeline">
+    <li class="done"><b>Proposal and repo.</b> Research question, method and code published.</li>
+    <li class="done"><b>Dataset drafted.</b> 100 items, plus a labelling tool for native speakers.</li>
+    <li class="now"><b>Native-speaker checks.</b> In progress.</li>
+    <li><b>Model runs and grader check.</b> Three models, with the grader hand-validated.</li>
+    <li><b>Results and write-up.</b> Published here, including what didn't go as expected.</li>
+  </ul>
+
+  <h2>Results</h2>
+  <p class="note">Coming soon. This section will show over-refusal and harmful-compliance rates for each model in English, Pidgin and code-switched form, plus examples of where models got it wrong.</p>
+  <p style="margin-top:40px"><a class="btn" href="/">← Back home</a></p>
+</article>

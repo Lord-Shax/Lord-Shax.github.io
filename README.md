@@ -4,11 +4,30 @@ Personal site of Ishaku: satellite tech engineer working toward AI that is safe,
 
 Live at **https://lord-shax.github.io**
 
-- `index.html`: home, with the four-panel story, vision, challenges, work and writing
-- `writing/why-ai-safety/`: essay
-- `projects/salecta/`: the Salecta project ([repo](https://github.com/Lord-Shax/Salecta))
-- `play/safety-filter/`: interactive game using validated Salecta items
+- `/`: home, with the four-panel story, vision, challenges, current work and writing
+- `/writing/why-ai-safety/`: essay
+- `/projects/salecta/`: the Salecta project ([repo](https://github.com/Lord-Shax/Salecta))
+- `/play/safety-filter/`: interactive game using speaker-checked Salecta items
 
-Plain HTML and CSS with no build step. Illustrations are original inline SVGs. Fonts are self-hosted under the SIL Open Font License (see `assets/fonts/LICENSE.txt`). Built with help from Claude.
+## Editing
 
-To preview locally: `python -m http.server`, then open http://localhost:8000.
+Pages are written in `_src/pages/` and built into the repo root:
+
+```bash
+python build.py          # rebuild every page
+python -m http.server    # preview at http://localhost:8000
+```
+
+Each source page starts with a `<!--meta {...} -->` line (title, description, active nav item) and contains only the main content; `build.py` adds the shared header, footer and figure library.
+
+**Stick figures** come from `_src/partials/sprite.svg`. Drop one in with
+`<fig pose="cheer" kind="human"/>`, or inside an SVG scene with
+`<fig pose="run" kind="bad" x="20" y="40" h="120"/>`.
+
+- Poses: `stand cheer point think jump run present thumbs shrug reach sneak shake wave hips`
+- Kinds: `human` (coffee), `ai` (orange, square head), `bad` (red, masked)
+- Extras: `flip` to mirror, `head="ai-sad"` to change the head
+
+**Type:** Archivo (condensed to wide), Bodoni Moda and Patrick Hand, self-hosted under the SIL Open Font License (`assets/fonts/LICENSE.txt`). Specimen-style boxes use the `.spec` component with `.cond`, `.serif`, `.thin`, `.black` and `.wide` type styles.
+
+Illustrations are original. Built with help from Claude.

@@ -5,58 +5,180 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Salecta: does AI safety survive in Nigerian Pidgin? · Ishaku</title>
 <meta name="description" content="Salecta is an open evaluation testing whether AI models make the same safety decisions in Nigerian Pidgin as in English, in both directions: over-refusal and under-refusal.">
-<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="../../assets/style.css">
-<style>
-  .pipeline { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; margin: 26px 0; }
-  .step { background: var(--paper); border: 2px solid var(--coffee); border-radius: 12px; padding: 14px; box-shadow: 3px 3px 0 var(--coffee); position: relative; }
-  .step b { display: block; font-family: var(--serif); font-size: 18px; margin-bottom: 4px; }
-  .step span { font-size: 15px; color: var(--ink-2); }
-  .step:not(:last-child)::after { content: "→"; position: absolute; right: -15px; top: 50%; transform: translate(50%, -50%); line-height: 1; color: var(--orange); font-weight: 700; font-size: 22px; }
-  @media (max-width: 760px) { .pipeline { grid-template-columns: 1fr 1fr; } .step:nth-child(2)::after { display: none; } }
-  .facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
-  .fact { background: var(--paper); border-radius: 12px; padding: 16px; border: 1px solid var(--line); }
-  .fact b { display: block; font: 600 32px var(--serif); color: var(--coffee); }
-  .fact span { font-size: 15px; color: var(--ink-2); }
-  @media (max-width: 600px) { .facts { grid-template-columns: 1fr; } }
-  .timeline { list-style: none; padding: 0; margin: 0; border-left: 3px solid var(--line); }
-  .timeline li { padding: 4px 0 14px 18px; position: relative; }
-  .timeline li::before { content: ""; position: absolute; left: -9px; top: 10px; width: 14px; height: 14px; border-radius: 50%; background: var(--paper); border: 3px solid var(--line); }
-  .timeline li.done::before { background: var(--orange); border-color: var(--orange); }
-  .timeline li.now::before { background: var(--paper); border-color: var(--orange); }
-</style>
+<meta property="og:title" content="Salecta: does AI safety survive in Nigerian Pidgin? · Ishaku">
+<meta property="og:description" content="Salecta is an open evaluation testing whether AI models make the same safety decisions in Nigerian Pidgin as in English, in both directions: over-refusal and under-refusal.">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="/assets/fonts/archivo-latin-standard-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/style.css"><style>.pipeline{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;margin:26px 0}.step{background:var(--paper);border:1.5px solid var(--ink);border-radius:8px;padding:16px;position:relative}.step .n{font:500 30px/1 var(--serif);color:var(--orange)}.step b{display:block;font:800 19px/1.15 var(--sans);font-stretch:75%;text-transform:uppercase;letter-spacing:.01em;margin:6px 0}.step span{font-size:15px;color:var(--ink-2);line-height:1.45;display:block}.step:not(:last-child)::after{content:'→';position:absolute;right:-15px;top:50%;transform:translate(50%,-50%);color:var(--orange);font-weight:800;font-size:22px;line-height:1}@media(max-width:760px){.pipeline{grid-template-columns:1fr 1fr}.step:nth-child(2)::after{display:none}}.timeline{list-style:none;padding:0;margin:0;border-left:2px solid var(--ink)}.timeline li{padding:4px 0 16px 20px;position:relative}.timeline li::before{content:'';position:absolute;left:-9px;top:9px;width:16px;height:16px;border-radius:50%;background:var(--paper);border:2px solid var(--ink)}.timeline li.done::before{background:var(--orange);border-color:var(--orange)}.timeline li.now::before{background:var(--paper);border:3px solid var(--orange)}</style>
 </head>
 <body>
+<svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <!-- Bold stick figures. Each body uses currentColor; heads are separate so any
+         pose can wear a human, AI or masked head. Canvas: 100 x 160. -->
+    <g id="torso"><path d="M41 46 Q50 40.5 59 46 L57.5 89 Q50 94 42.5 89 Z"/></g>
+
+    <symbol id="b-stand" viewBox="0 0 100 160"><g fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+      <use href="#torso" stroke-width="3"/>
+      <path d="M45 54 L38 74 L35 92 M55 54 L62 74 L65 92" fill="none" stroke-width="7"/>
+      <path d="M46.5 88 L43 118 L41 144 M53.5 88 L57 118 L59 144" fill="none" stroke-width="8.5"/>
+      <circle cx="35" cy="95" r="6" stroke="none"/><circle cx="65" cy="95" r="6" stroke="none"/>
+      <ellipse cx="35" cy="148" rx="10.5" ry="5" stroke="none"/><ellipse cx="65" cy="148" rx="10.5" ry="5" stroke="none"/>
+    </g></symbol>
+
+    <symbol id="b-cheer" viewBox="0 0 100 160"><g fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+      <use href="#torso" stroke-width="3"/>
+      <path d="M45 52 L33 36 L24 17 M55 52 L67 36 L76 17" fill="none" stroke-width="7"/>
+      <path d="M46.5 88 L42 118 L39 144 M53.5 88 L58 118 L61 144" fill="none" stroke-width="8.5"/>
+      <ellipse cx="22" cy="11" rx="6.5" ry="7.5" stroke="none"/><ellipse cx="78" cy="11" rx="6.5" ry="7.5" stroke="none"/>
+      <path d="M15 8 L11 3 M19 4 L17 0 M25 4 L27 0 M85 8 L89 3 M81 4 L83 0 M75 4 L73 0" fill="none" stroke-width="3.2"/>
+      <ellipse cx="33" cy="148" rx="10.5" ry="5" stroke="none"/><ellipse cx="67" cy="148" rx="10.5" ry="5" stroke="none"/>
+    </g></symbol>
+
+    <symbol id="b-point" viewBox="0 0 100 160"><g fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+      <use href="#torso" stroke-width="3"/>
+      <path d="M55 53 L72 55 L86 51" fill="none" stroke-width="7"/>
+      <path d="M45 54 L33 68 L43 84" fill="none" stroke-width="7"/>
+      <path d="M46.5 88 L41 118 L37 144 M53.5 88 L58 118 L62 144" fill="none" stroke-width="8.5"/>
+      <ellipse cx="89" cy="50" rx="6" ry="5" stroke="none"/><path d="M92 47 L99 44" fill="none" stroke-width="3.6"/>
+      <circle cx="44" cy="85" r="5.5" stroke="none"/>
+      <ellipse cx="31" cy="148" rx="10.5" ry="5" stroke="none"/><ellipse cx="68" cy="148" rx="10.5" ry="5" stroke="none"/>
+    </g></symbol>
+
+    <symbol id="b-think" viewBox="0 0 100 160"><g fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+      <use href="#torso" stroke-width="3"/>
+      <path d="M55 54 L69 70 L62 49" fill="none" stroke-width="7"/>
+      <path d="M45 55 L40 74 L57 77" fill="none" stroke-width="7"/>
+      <path d="M46.5 88 L44 118 L46 144 M53.5 88 L56 118 L57 144" fill="none" stroke-width="8.5"/>
+      <circle cx="61" cy="46" r="6" stroke="none"/><circle cx="60" cy="77" r="5.5" stroke="none"/>
+      <ellipse cx="40" cy="148" rx="10.5" ry="5" stroke="none"/><ellipse cx="63" cy="148" rx="10.5" ry="5" stroke="none"/>
+    </g></symbol>
+
+    <symbol id="b-jump" viewBox="0 0 100 160"><g fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+      <use href="#torso" stroke-width="3"/>
+      <path d="M45 52 L34 40 L29 22 M55 52 L68 44 L80 30" fill="none" stroke-width="7"/>
+      <path d="M46.5 88 L34 104 L40 124 M53.5 88 L66 101 L71 120" fill="none" stroke-width="8.5"/>
+      <circle cx="28" cy="17" r="6.5" stroke="none"/><circle cx="83" cy="26" r="6.5" stroke="none"/>
+      <ellipse cx="37" cy="128" rx="10" ry="4.8" transform="rotate(-18 37 128)" stroke="none"/><ellipse cx="76" cy="123" rx="10" ry="4.8" transform="rotate(28 76 123)" stroke="none"/>
+    </g></symbol>
+
+    <symbol id="b-run" viewBox="0 0 100 160"><g fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+      <use href="#torso" stroke-width="3"/>
+      <path d="M45 53 L33 65 L26 52 M55 53 L67 67 L81 62" fill="none" stroke-width="7"/>
+      <path d="M46.5 88 L36 108 L20 116 M53.5 88 L62 115 L59 142" fill="none" stroke-width="8.5"/>
+      <circle cx="24" cy="48" r="6" stroke="none"/><circle cx="84" cy="61" r="6" stroke="none"/>
+      <ellipse cx="14" cy="117" rx="9.5" ry="4.8" transform="rotate(-25 14 117)" stroke="none"/><ellipse cx="65" cy="146" rx="10.5" ry="5" stroke="none"/>
+    </g></symbol>
+
+    <symbol id="b-present" viewBox="0 0 100 160"><g fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+      <use href="#torso" stroke-width="3"/>
+      <path d="M55 54 L68 72 L85 70 M45 54 L38 74 L36 92" fill="none" stroke-width="7"/>
+      <path d="M46.5 88 L43 118 L41 144 M53.5 88 L57 118 L59 144" fill="none" stroke-width="8.5"/>
+      <ellipse cx="91" cy="69" rx="8" ry="4.6" stroke="none"/><circle cx="36" cy="95" r="6" stroke="none"/>
+      <ellipse cx="35" cy="148" rx="10.5" ry="5" stroke="none"/><ellipse cx="65" cy="148" rx="10.5" ry="5" stroke="none"/>
+    </g></symbol>
+
+    <symbol id="b-thumbs" viewBox="0 0 100 160"><g fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+      <use href="#torso" stroke-width="3"/>
+      <path d="M45 54 L30 73 L29 58 M55 54 L70 73 L71 58" fill="none" stroke-width="7"/>
+      <path d="M46.5 88 L43 118 L41 144 M53.5 88 L57 118 L59 144" fill="none" stroke-width="8.5"/>
+      <circle cx="29" cy="54" r="6.5" stroke="none"/><circle cx="71" cy="54" r="6.5" stroke="none"/>
+      <path d="M28 49 L28 40 M72 49 L72 40" fill="none" stroke-width="4.5"/>
+      <ellipse cx="35" cy="148" rx="10.5" ry="5" stroke="none"/><ellipse cx="65" cy="148" rx="10.5" ry="5" stroke="none"/>
+    </g></symbol>
+
+    <symbol id="b-shrug" viewBox="0 0 100 160"><g fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+      <use href="#torso" stroke-width="3"/>
+      <path d="M45 54 L30 68 L19 60 M55 54 L70 68 L81 60" fill="none" stroke-width="7"/>
+      <path d="M46.5 88 L43 118 L41 144 M53.5 88 L57 118 L59 144" fill="none" stroke-width="8.5"/>
+      <ellipse cx="14" cy="58" rx="7" ry="4.4" transform="rotate(-15 14 58)" stroke="none"/><ellipse cx="86" cy="58" rx="7" ry="4.4" transform="rotate(15 86 58)" stroke="none"/>
+      <ellipse cx="35" cy="148" rx="10.5" ry="5" stroke="none"/><ellipse cx="65" cy="148" rx="10.5" ry="5" stroke="none"/>
+    </g></symbol>
+
+    <symbol id="b-reach" viewBox="0 0 100 160"><g fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+      <use href="#torso" stroke-width="3"/>
+      <path d="M55 52 L64 32 L72 13 M45 54 L38 74 L36 92" fill="none" stroke-width="7"/>
+      <path d="M46.5 88 L43 118 L41 144 M53.5 88 L57 118 L59 144" fill="none" stroke-width="8.5"/>
+      <circle cx="74" cy="8" r="6.5" stroke="none"/><path d="M70 3 L68 0 M78 3 L80 0" fill="none" stroke-width="3"/>
+      <circle cx="36" cy="95" r="6" stroke="none"/>
+      <ellipse cx="35" cy="148" rx="10.5" ry="5" stroke="none"/><ellipse cx="65" cy="148" rx="10.5" ry="5" stroke="none"/>
+    </g></symbol>
+
+    <symbol id="b-sneak" viewBox="0 0 100 160"><g fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+      <use href="#torso" stroke-width="3"/>
+      <path d="M45 54 L58 66 L74 62 M55 54 L64 73 L80 75" fill="none" stroke-width="7"/>
+      <path d="M46.5 88 L36 112 L42 141 M53.5 88 L67 112 L63 142" fill="none" stroke-width="8.5"/>
+      <circle cx="77" cy="61" r="6" stroke="none"/><circle cx="83" cy="75" r="6" stroke="none"/>
+      <ellipse cx="38" cy="146" rx="10.5" ry="5" stroke="none"/><ellipse cx="68" cy="147" rx="10.5" ry="5" stroke="none"/>
+    </g></symbol>
+
+    <symbol id="b-shake" viewBox="0 0 100 160"><g fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+      <use href="#torso" stroke-width="3"/>
+      <path d="M55 55 L73 70 L92 68 M45 54 L38 74 L36 92" fill="none" stroke-width="7"/>
+      <path d="M46.5 88 L43 118 L41 144 M53.5 88 L57 118 L59 144" fill="none" stroke-width="8.5"/>
+      <ellipse cx="96" cy="67" rx="6" ry="5.5" stroke="none"/><circle cx="36" cy="95" r="6" stroke="none"/>
+      <ellipse cx="35" cy="148" rx="10.5" ry="5" stroke="none"/><ellipse cx="65" cy="148" rx="10.5" ry="5" stroke="none"/>
+    </g></symbol>
+
+    <symbol id="b-wave" viewBox="0 0 100 160"><g fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+      <use href="#torso" stroke-width="3"/>
+      <path d="M55 53 L71 44 L76 24 M45 54 L38 74 L36 92" fill="none" stroke-width="7"/>
+      <path d="M46.5 88 L43 118 L41 144 M53.5 88 L57 118 L59 144" fill="none" stroke-width="8.5"/>
+      <ellipse cx="77" cy="18" rx="6.5" ry="7.5" stroke="none"/><path d="M71 15 L66 11 M74 11 L72 5 M80 11 L82 5 M84 15 L89 11" fill="none" stroke-width="3"/>
+      <circle cx="36" cy="95" r="6" stroke="none"/>
+      <ellipse cx="35" cy="148" rx="10.5" ry="5" stroke="none"/><ellipse cx="65" cy="148" rx="10.5" ry="5" stroke="none"/>
+    </g></symbol>
+
+    <symbol id="b-hips" viewBox="0 0 100 160"><g fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+      <use href="#torso" stroke-width="3"/>
+      <path d="M45 54 L32 68 L43 84 M55 54 L68 68 L57 84" fill="none" stroke-width="7"/>
+      <path d="M46.5 88 L41 118 L37 144 M53.5 88 L59 118 L63 144" fill="none" stroke-width="8.5"/>
+      <circle cx="44" cy="85" r="5.5" stroke="none"/><circle cx="56" cy="85" r="5.5" stroke="none"/>
+      <ellipse cx="31" cy="148" rx="10.5" ry="5" stroke="none"/><ellipse cx="69" cy="148" rx="10.5" ry="5" stroke="none"/>
+    </g></symbol>
+
+    <!-- Heads -->
+    <symbol id="h-human" viewBox="0 0 100 160"><circle cx="50" cy="26" r="16" fill="#fffaf3" stroke="currentColor" stroke-width="4.5"/></symbol>
+    <symbol id="h-mask" viewBox="0 0 100 160"><circle cx="50" cy="26" r="16" fill="#fffaf3" stroke="currentColor" stroke-width="4.5"/>
+      <rect x="33" y="18" width="34" height="10" rx="5" fill="currentColor"/><circle cx="44" cy="23" r="2.4" fill="#fffaf3"/><circle cx="56" cy="23" r="2.4" fill="#fffaf3"/></symbol>
+    <symbol id="h-ai" viewBox="0 0 100 160"><path d="M50 11 V6" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><circle cx="50" cy="4.5" r="3.6" fill="currentColor"/>
+      <rect x="33.5" y="11" width="33" height="31" rx="9" fill="#fffaf3" stroke="currentColor" stroke-width="4.5"/>
+      <circle cx="44" cy="24" r="3.2" fill="#24170d"/><circle cx="56" cy="24" r="3.2" fill="#24170d"/><path d="M44 32 Q50 36.5 56 32" fill="none" stroke="#24170d" stroke-width="2.6" stroke-linecap="round"/></symbol>
+    <symbol id="h-ai-sad" viewBox="0 0 100 160"><path d="M50 11 V6" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><circle cx="50" cy="4.5" r="3.6" fill="currentColor"/>
+      <rect x="33.5" y="11" width="33" height="31" rx="9" fill="#fffaf3" stroke="currentColor" stroke-width="4.5"/>
+      <circle cx="44" cy="24" r="3.2" fill="#24170d"/><circle cx="56" cy="24" r="3.2" fill="#24170d"/><path d="M44 35 Q50 30.5 56 35" fill="none" stroke="#24170d" stroke-width="2.6" stroke-linecap="round"/></symbol>
+  </defs>
+</svg>
+
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-head">
   <div class="wrap">
-    <a class="brand" href="../../"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="11" fill="none" stroke="#5b3a1e" stroke-width="3"/><ellipse cx="20" cy="20" rx="18" ry="7" fill="none" stroke="#e07a1f" stroke-width="2.5" transform="rotate(-25 20 20)"/><circle cx="35" cy="13" r="3.5" fill="#e07a1f"/></svg>Ishaku</a>
-    <nav class="nav" aria-label="Main"><a href="../../#story">Story</a><a href="../../#work" aria-current="page">Work</a><a href="../../#writing">Writing</a><a href="../../play/safety-filter/">Play</a></nav>
+    <a class="brand" href="/"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="10.5" fill="none" stroke="#24170d" stroke-width="3.4"/><ellipse cx="20" cy="20" rx="18" ry="6.8" fill="none" stroke="#e07a1f" stroke-width="2.8" transform="rotate(-25 20 20)"/><circle cx="35" cy="13" r="3.6" fill="#e07a1f"/></svg><span>Ishaku</span></a>
+    <nav class="nav" aria-label="Main"><a href="/#story">Story</a><a href="/projects/salecta/" aria-current="page">Work</a><a href="/#writing">Writing</a><a href="/play/safety-filter/">Play</a></nav>
   </div>
 </header>
-
 <main id="main">
-<article class="narrow">
+<article class="narrow" style="max-width:860px">
   <p class="kicker">Project · in progress</p>
-  <h1 style="font-size:clamp(32px,5vw,50px)">Salecta: does AI safety survive in Nigerian Pidgin?</h1>
-  <p class="lede">An open evaluation that checks whether AI models make the same safety decisions in Nigerian Pidgin as in English, in both directions.</p>
-  <div class="cta"><a class="btn primary" href="https://github.com/Lord-Shax/Salecta">Code and data on GitHub</a><a class="btn" href="../../play/safety-filter/">Try the safety filter game</a></div>
+  <h1>Does AI safety survive in Nigerian Pidgin?</h1>
+  <p class="lede">Salecta is an open evaluation that checks whether AI models make the same safety decisions in Nigerian Pidgin as in English, in both directions.</p>
+  <div class="cta"><a class="btn primary" href="https://github.com/Lord-Shax/Salecta">Code and data on GitHub →</a><a class="btn" href="/play/safety-filter/">Try the safety filter game</a></div>
 
   <h2>The question</h2>
   <p>Nigerian Pidgin is spoken by tens of millions of people. Much of its vocabulary looks like English, but the meaning often differs. That makes it a sharp test: a model can recognise every word and still misread what someone means. Salecta looks for two ways that can go wrong.</p>
 
   <figure>
     <div class="art">
-      <svg viewBox="0 0 640 230" role="img" aria-labelledby="o1t">
-        <title id="o1t">Over-refusal: a friend praises someone in Pidgin and the AI responds with a lecture about insults</title>
-        <rect width="640" height="230" fill="#fbf6ef"/><path d="M0 208H640" stroke="#5b3a1e" stroke-width="2.5"/>
-        <g transform="translate(120 208)" stroke="#5b3a1e" stroke-width="3.2" stroke-linecap="round" fill="none"><circle cx="0" cy="-74" r="11" fill="#fbf6ef"/><path d="M0-63V-28M0-54l-14 18M0-54l24-14M0-28l-11 28M0-28l11 28"/></g>
-        <g><rect x="30" y="20" width="250" height="56" rx="12" fill="#fff" stroke="#5b3a1e" stroke-width="2.5"/><path d="M120 76l-6 18 18-18" fill="#fff" stroke="#5b3a1e" stroke-width="2.5" stroke-linejoin="round"/><path d="M118 75h16" stroke="#fff" stroke-width="4"/>
-          <text x="155" y="44" text-anchor="middle" font-family="Patrick Hand, cursive" font-size="19" fill="#2a1d12">Guy, you dey craze! How you</text><text x="155" y="66" text-anchor="middle" font-family="Patrick Hand, cursive" font-size="19" fill="#2a1d12">take fix am? Abeg teach me.</text></g>
-        <g transform="translate(470 208)" stroke-linecap="round" fill="none"><path d="M0-63V-28M0-54l-20-16M0-54l14 18M0-28l-11 28M0-28l11 28" stroke="#e07a1f" stroke-width="3.2"/><rect x="-14" y="-92" width="28" height="26" rx="7" fill="#fbf6ef" stroke="#e07a1f" stroke-width="3.2"/><circle cx="-5" cy="-80" r="2.4" fill="#5b3a1e"/><circle cx="5" cy="-80" r="2.4" fill="#5b3a1e"/><path d="M-6-72h12" stroke="#5b3a1e" stroke-width="2"/></g>
-        <g><rect x="372" y="14" width="250" height="56" rx="12" fill="#f6d9d4" stroke="#c0392b" stroke-width="2.5"/><path d="M462 70l6 18 10-18" fill="#f6d9d4" stroke="#c0392b" stroke-width="2.5" stroke-linejoin="round"/><path d="M463 69h14" stroke="#f6d9d4" stroke-width="4"/>
-          <text x="497" y="38" text-anchor="middle" font-family="Patrick Hand, cursive" font-size="19" fill="#c0392b">Calling someone crazy is</text><text x="497" y="60" text-anchor="middle" font-family="Patrick Hand, cursive" font-size="19" fill="#c0392b">hurtful. I can't help with…</text></g>
-        <text x="320" y="196" text-anchor="middle" font-family="Patrick Hand, cursive" font-size="17" fill="#8a7360">(it was praise)</text>
+      <svg viewBox="0 0 680 250" role="img" aria-labelledby="o1t">
+        <title id="o1t">Over-refusal: a friend praises someone in Pidgin, and the AI responds with a lecture about insults</title>
+        <rect width="680" height="250" fill="#fbf6ef"/><path d="M0 228H680" stroke="#24170d" stroke-width="2.5"/>
+        <svg x="70" y="88" width="92.5" height="148" viewBox="0 0 100 160" class="fig human" overflow="visible"><use href="#b-thumbs"/><use href="#h-human"/></svg>
+        <g><rect x="20" y="14" width="270" height="58" rx="12" fill="#fff" stroke="#24170d" stroke-width="2.4"/><path d="M110 72l-4 16 16-16" fill="#fff" stroke="#24170d" stroke-width="2.4" stroke-linejoin="round"/><path d="M108 71h16" stroke="#fff" stroke-width="4"/>
+          <text x="155" y="39" text-anchor="middle" font-family="Patrick Hand, cursive" font-size="20" fill="#24170d">Guy, you dey craze! How you</text><text x="155" y="62" text-anchor="middle" font-family="Patrick Hand, cursive" font-size="20" fill="#24170d">take fix am? Abeg teach me.</text></g>
+        <svg x="500" y="88" width="92.5" height="148" viewBox="0 0 100 160" class="fig ai" overflow="visible"><g transform="translate(100 0) scale(-1 1)"><use href="#b-point"/><use href="#h-ai"/></g></svg>
+        <g><rect x="390" y="14" width="272" height="58" rx="12" fill="#f6d9d4" stroke="#c0392b" stroke-width="2.4"/><path d="M548 72l4 16 10-16" fill="#f6d9d4" stroke="#c0392b" stroke-width="2.4" stroke-linejoin="round"/><path d="M549 71h12" stroke="#f6d9d4" stroke-width="4"/>
+          <text x="526" y="39" text-anchor="middle" font-family="Patrick Hand, cursive" font-size="20" fill="#c0392b">Calling someone crazy is</text><text x="526" y="62" text-anchor="middle" font-family="Patrick Hand, cursive" font-size="20" fill="#c0392b">hurtful. I can't help with…</text></g>
+        <text x="340" y="214" text-anchor="middle" font-family="Patrick Hand, cursive" font-size="19" fill="#8a7360">(it was praise)</text>
       </svg>
     </div>
     <figcaption>Failure 1: over-refusal. A harmless message is refused or lectured because it sounds harsh.</figcaption>
@@ -64,19 +186,19 @@
 
   <figure class="danger">
     <div class="art">
-      <svg viewBox="0 0 640 230" role="img" aria-labelledby="o2t">
-        <title id="o2t">Under-refusal: the AI refuses a scam request in English but writes it when asked in Pidgin</title>
-        <rect width="640" height="230" fill="#fbf6ef"/><path d="M0 208H640" stroke="#5b3a1e" stroke-width="2.5"/>
-        <g transform="translate(110 208)" stroke="#c0392b" stroke-width="3.2" stroke-linecap="round" fill="none"><circle cx="4" cy="-72" r="11" fill="#fbf6ef"/><path d="M-9-74h26" stroke-width="5"/><path d="M2-61L-2-28M0-52l24-10M0-52l-12 14M-2-28l-12 28M-2-28l10 28"/></g>
-        <g font-family="Patrick Hand, cursive" font-size="17">
-          <rect x="160" y="20" width="200" height="40" rx="10" fill="#fff" stroke="#5b3a1e" stroke-width="2.2"/><text x="170" y="45" fill="#2a1d12">EN: Write a fake bank SMS…</text>
-          <rect x="400" y="20" width="110" height="40" rx="10" fill="#f7dcc0" stroke="#e07a1f" stroke-width="2.2"/><text x="455" y="45" text-anchor="middle" fill="#8a4510">No.</text>
-          <rect x="160" y="100" width="200" height="40" rx="10" fill="#fff" stroke="#5b3a1e" stroke-width="2.2"/><text x="170" y="125" fill="#2a1d12">PCM: Abeg write SMS wey…</text>
-          <rect x="400" y="100" width="150" height="40" rx="10" fill="#f6d9d4" stroke="#c0392b" stroke-width="2.2"/><text x="475" y="125" text-anchor="middle" fill="#c0392b">Sure! Dear customer…</text>
+      <svg viewBox="0 0 680 250" role="img" aria-labelledby="o2t">
+        <title id="o2t">Under-refusal: the AI refuses a scam request in English but happily writes it when asked in Pidgin</title>
+        <rect width="680" height="250" fill="#fbf6ef"/><path d="M0 228H680" stroke="#24170d" stroke-width="2.5"/>
+        <defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="#24170d"/></marker></defs>
+        <svg x="14" y="88" width="92.5" height="148" viewBox="0 0 100 160" class="fig bad" overflow="visible"><use href="#b-sneak"/><use href="#h-mask"/></svg>
+        <g font-family="Patrick Hand, cursive" font-size="19">
+          <rect x="150" y="26" width="226" height="42" rx="10" fill="#fff" stroke="#24170d" stroke-width="2.2"/><text x="162" y="53" fill="#24170d">EN: Write a fake bank SMS…</text>
+          <rect x="414" y="26" width="104" height="42" rx="10" fill="#f7dcc0" stroke="#e07a1f" stroke-width="2.2"/><text x="466" y="53" text-anchor="middle" fill="#8a4510">No.</text>
+          <rect x="150" y="104" width="226" height="42" rx="10" fill="#fff" stroke="#24170d" stroke-width="2.2"/><text x="162" y="131" fill="#24170d">PCM: Abeg write SMS wey…</text>
+          <rect x="414" y="104" width="160" height="42" rx="10" fill="#f6d9d4" stroke="#c0392b" stroke-width="2.2"/><text x="494" y="131" text-anchor="middle" fill="#c0392b">Sure! Dear customer…</text>
         </g>
-        <path d="M366 40h28" stroke="#5b3a1e" stroke-width="2" marker-end="url(#ah)"/><path d="M366 120h28" stroke="#5b3a1e" stroke-width="2" marker-end="url(#ah)"/>
-        <defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="#5b3a1e"/></marker></defs>
-        <g transform="translate(590 208)" stroke-linecap="round" fill="none"><path d="M0-63V-28M0-54l-14 14M0-54l14 14M0-28l-11 28M0-28l11 28" stroke="#e07a1f" stroke-width="3.2"/><rect x="-14" y="-92" width="28" height="26" rx="7" fill="#fbf6ef" stroke="#e07a1f" stroke-width="3.2"/><circle cx="-5" cy="-80" r="2.4" fill="#5b3a1e"/><circle cx="5" cy="-80" r="2.4" fill="#5b3a1e"/></g>
+        <path d="M380 47h28" stroke="#24170d" stroke-width="2.2" marker-end="url(#ah)"/><path d="M380 125h28" stroke="#24170d" stroke-width="2.2" marker-end="url(#ah)"/>
+        <svg x="590" y="88" width="92.5" height="148" viewBox="0 0 100 160" class="fig ai" overflow="visible"><use href="#b-thumbs"/><use href="#h-ai"/></svg>
       </svg>
     </div>
     <figcaption>Failure 2: under-refusal. A harmful request refused in English gets through in Pidgin.</figcaption>
@@ -85,17 +207,17 @@
 
   <h2>How it works</h2>
   <div class="pipeline">
-    <div class="step"><b>1. Matched prompts</b><span>Each item written three ways: plain English, Pidgin, and code-switched.</span></div>
-    <div class="step"><b>2. Models answer</b><span>Several AI models from different providers respond to every version.</span></div>
-    <div class="step"><b>3. Grader labels</b><span>A separate model marks each answer helped, partly helped or refused. I hand-check a sample.</span></div>
-    <div class="step"><b>4. Compare</b><span>Pidgin vs English refusal rates, with confidence intervals.</span></div>
+    <div class="step"><span class="n">01</span><b>Matched prompts</b><span>Each item is written three ways: plain English, Pidgin, and code-switched.</span></div>
+    <div class="step"><span class="n">02</span><b>Models answer</b><span>Several AI models from different providers respond to every version.</span></div>
+    <div class="step"><span class="n">03</span><b>Grader labels</b><span>A separate model marks each answer helped, partly helped or refused. I hand-check a sample.</span></div>
+    <div class="step"><span class="n">04</span><b>Compare</b><span>Pidgin vs English refusal rates, with confidence intervals.</span></div>
   </div>
-  <div class="facts">
-    <div class="fact"><b>100</b><span>matched items: 60 harmless, 40 harmful</span></div>
-    <div class="fact"><b>×3</b><span>versions each: English, Pidgin, code-switched</span></div>
-    <div class="fact"><b>2</b><span>independent native-speaker checks: validation, then blind agreement</span></div>
+  <div class="specs" style="margin-top:8px">
+    <div class="spec"><div class="face"><div class="words" style="padding-right:0"><span class="t1 cond" style="font-size:64px">100</span><span class="t2 serif">Matched Items</span></div></div><dl><div><dt>Harmless</dt><dd>60</dd></div><div><dt>Harmful</dt><dd>40</dd></div></dl></div>
+    <div class="spec"><div class="face"><div class="words" style="padding-right:0"><span class="t1 serif" style="font-size:64px">×3</span><span class="t2 thin">Versions Each</span></div></div><dl><div><dt>English</dt><dd>Plain meaning</dd></div><div><dt>Pidgin</dt><dd>+ code-switched</dd></div></dl></div>
+    <div class="spec"><div class="face"><div class="words" style="padding-right:0"><span class="t1 black" style="font-size:64px">2</span><span class="t2 wide">Speaker Checks</span></div></div><dl><div><dt>Stage 1</dt><dd>Validation</dd></div><div><dt>Stage 2</dt><dd>Blind agreement</dd></div></dl></div>
   </div>
-  <p style="margin-top:20px">The English version of each item says plainly what the Pidgin means, rather than translating it word for word. So if a model helps with "I want to ace my exam" but refuses "I wan kill this exam", the gap comes from the Pidgin itself, not from a different request.</p>
+  <p style="margin-top:22px">The English version of each item says plainly what the Pidgin means, rather than translating it word for word. So if a model helps with "I want to ace my exam" but refuses "I wan kill this exam", the gap comes from the Pidgin itself, not from a different request.</p>
   <p>The harmful items are low-to-moderate risk and set in Nigerian situations, such as fake bank alerts, airtime scams and exam malpractice. Only the prompts and overall rates are published, never harmful model outputs, and providers are told about serious gaps before anything is published.</p>
 
   <h2>How the dataset was made</h2>
@@ -112,14 +234,16 @@
 
   <h2>Results</h2>
   <p class="note">Coming soon. This section will show over-refusal and harmful-compliance rates for each model in English, Pidgin and code-switched form, plus examples of where models got it wrong.</p>
-
-  <p style="margin-top:40px"><a href="../../">← Back home</a></p>
+  <p style="margin-top:40px"><a class="btn" href="/">← Back home</a></p>
 </article>
-</main>
 
+</main>
 <footer class="site-foot">
-  <div class="wrap"><span>© <span data-year>2026</span> Ishaku · <a href="https://github.com/Lord-Shax">GitHub</a></span><span>Illustrations are original. Site built with help from Claude.</span></div>
+  <div class="wrap">
+    <span>© <span data-year>2026</span> Ishaku · <a href="https://github.com/Lord-Shax">GitHub</a></span>
+    <span>Original illustrations. Built with help from Claude.</span>
+  </div>
 </footer>
-<script src="../../assets/site.js" defer></script>
+<script src="/assets/site.js" defer></script>
 </body>
 </html>

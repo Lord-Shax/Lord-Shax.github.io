@@ -3,295 +3,333 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ishaku · AI that's safe, trusted and useful for everyone</title>
+<title>Ishaku · Building trust between AI and the people it serves</title>
 <meta name="description" content="Ishaku is a satellite tech engineer working toward AI that is safe, trusted and useful for everyone, starting with Salecta, an evaluation of AI safety behaviour in Nigerian Pidgin.">
-<meta property="og:title" content="Ishaku · AI safety, told in stick figures">
-<meta property="og:description" content="Satellite tech engineer building toward trust, safety and security between AI and humans.">
-<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="assets/style.css">
+<meta property="og:title" content="Ishaku · Building trust between AI and the people it serves">
+<meta property="og:description" content="Ishaku is a satellite tech engineer working toward AI that is safe, trusted and useful for everyone, starting with Salecta, an evaluation of AI safety behaviour in Nigerian Pidgin.">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="/assets/fonts/archivo-latin-standard-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/style.css">
 </head>
 <body>
+<svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <!-- Bold stick figures. Each body uses currentColor; heads are separate so any
+         pose can wear a human, AI or masked head. Canvas: 100 x 160. -->
+    <g id="torso"><path d="M41 46 Q50 40.5 59 46 L57.5 89 Q50 94 42.5 89 Z"/></g>
+
+    <symbol id="b-stand" viewBox="0 0 100 160"><g fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+      <use href="#torso" stroke-width="3"/>
+      <path d="M45 54 L38 74 L35 92 M55 54 L62 74 L65 92" fill="none" stroke-width="7"/>
+      <path d="M46.5 88 L43 118 L41 144 M53.5 88 L57 118 L59 144" fill="none" stroke-width="8.5"/>
+      <circle cx="35" cy="95" r="6" stroke="none"/><circle cx="65" cy="95" r="6" stroke="none"/>
+      <ellipse cx="35" cy="148" rx="10.5" ry="5" stroke="none"/><ellipse cx="65" cy="148" rx="10.5" ry="5" stroke="none"/>
+    </g></symbol>
+
+    <symbol id="b-cheer" viewBox="0 0 100 160"><g fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+      <use href="#torso" stroke-width="3"/>
+      <path d="M45 52 L33 36 L24 17 M55 52 L67 36 L76 17" fill="none" stroke-width="7"/>
+      <path d="M46.5 88 L42 118 L39 144 M53.5 88 L58 118 L61 144" fill="none" stroke-width="8.5"/>
+      <ellipse cx="22" cy="11" rx="6.5" ry="7.5" stroke="none"/><ellipse cx="78" cy="11" rx="6.5" ry="7.5" stroke="none"/>
+      <path d="M15 8 L11 3 M19 4 L17 0 M25 4 L27 0 M85 8 L89 3 M81 4 L83 0 M75 4 L73 0" fill="none" stroke-width="3.2"/>
+      <ellipse cx="33" cy="148" rx="10.5" ry="5" stroke="none"/><ellipse cx="67" cy="148" rx="10.5" ry="5" stroke="none"/>
+    </g></symbol>
+
+    <symbol id="b-point" viewBox="0 0 100 160"><g fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+      <use href="#torso" stroke-width="3"/>
+      <path d="M55 53 L72 55 L86 51" fill="none" stroke-width="7"/>
+      <path d="M45 54 L33 68 L43 84" fill="none" stroke-width="7"/>
+      <path d="M46.5 88 L41 118 L37 144 M53.5 88 L58 118 L62 144" fill="none" stroke-width="8.5"/>
+      <ellipse cx="89" cy="50" rx="6" ry="5" stroke="none"/><path d="M92 47 L99 44" fill="none" stroke-width="3.6"/>
+      <circle cx="44" cy="85" r="5.5" stroke="none"/>
+      <ellipse cx="31" cy="148" rx="10.5" ry="5" stroke="none"/><ellipse cx="68" cy="148" rx="10.5" ry="5" stroke="none"/>
+    </g></symbol>
+
+    <symbol id="b-think" viewBox="0 0 100 160"><g fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+      <use href="#torso" stroke-width="3"/>
+      <path d="M55 54 L69 70 L62 49" fill="none" stroke-width="7"/>
+      <path d="M45 55 L40 74 L57 77" fill="none" stroke-width="7"/>
+      <path d="M46.5 88 L44 118 L46 144 M53.5 88 L56 118 L57 144" fill="none" stroke-width="8.5"/>
+      <circle cx="61" cy="46" r="6" stroke="none"/><circle cx="60" cy="77" r="5.5" stroke="none"/>
+      <ellipse cx="40" cy="148" rx="10.5" ry="5" stroke="none"/><ellipse cx="63" cy="148" rx="10.5" ry="5" stroke="none"/>
+    </g></symbol>
+
+    <symbol id="b-jump" viewBox="0 0 100 160"><g fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+      <use href="#torso" stroke-width="3"/>
+      <path d="M45 52 L34 40 L29 22 M55 52 L68 44 L80 30" fill="none" stroke-width="7"/>
+      <path d="M46.5 88 L34 104 L40 124 M53.5 88 L66 101 L71 120" fill="none" stroke-width="8.5"/>
+      <circle cx="28" cy="17" r="6.5" stroke="none"/><circle cx="83" cy="26" r="6.5" stroke="none"/>
+      <ellipse cx="37" cy="128" rx="10" ry="4.8" transform="rotate(-18 37 128)" stroke="none"/><ellipse cx="76" cy="123" rx="10" ry="4.8" transform="rotate(28 76 123)" stroke="none"/>
+    </g></symbol>
+
+    <symbol id="b-run" viewBox="0 0 100 160"><g fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+      <use href="#torso" stroke-width="3"/>
+      <path d="M45 53 L33 65 L26 52 M55 53 L67 67 L81 62" fill="none" stroke-width="7"/>
+      <path d="M46.5 88 L36 108 L20 116 M53.5 88 L62 115 L59 142" fill="none" stroke-width="8.5"/>
+      <circle cx="24" cy="48" r="6" stroke="none"/><circle cx="84" cy="61" r="6" stroke="none"/>
+      <ellipse cx="14" cy="117" rx="9.5" ry="4.8" transform="rotate(-25 14 117)" stroke="none"/><ellipse cx="65" cy="146" rx="10.5" ry="5" stroke="none"/>
+    </g></symbol>
+
+    <symbol id="b-present" viewBox="0 0 100 160"><g fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+      <use href="#torso" stroke-width="3"/>
+      <path d="M55 54 L68 72 L85 70 M45 54 L38 74 L36 92" fill="none" stroke-width="7"/>
+      <path d="M46.5 88 L43 118 L41 144 M53.5 88 L57 118 L59 144" fill="none" stroke-width="8.5"/>
+      <ellipse cx="91" cy="69" rx="8" ry="4.6" stroke="none"/><circle cx="36" cy="95" r="6" stroke="none"/>
+      <ellipse cx="35" cy="148" rx="10.5" ry="5" stroke="none"/><ellipse cx="65" cy="148" rx="10.5" ry="5" stroke="none"/>
+    </g></symbol>
+
+    <symbol id="b-thumbs" viewBox="0 0 100 160"><g fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+      <use href="#torso" stroke-width="3"/>
+      <path d="M45 54 L30 73 L29 58 M55 54 L70 73 L71 58" fill="none" stroke-width="7"/>
+      <path d="M46.5 88 L43 118 L41 144 M53.5 88 L57 118 L59 144" fill="none" stroke-width="8.5"/>
+      <circle cx="29" cy="54" r="6.5" stroke="none"/><circle cx="71" cy="54" r="6.5" stroke="none"/>
+      <path d="M28 49 L28 40 M72 49 L72 40" fill="none" stroke-width="4.5"/>
+      <ellipse cx="35" cy="148" rx="10.5" ry="5" stroke="none"/><ellipse cx="65" cy="148" rx="10.5" ry="5" stroke="none"/>
+    </g></symbol>
+
+    <symbol id="b-shrug" viewBox="0 0 100 160"><g fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+      <use href="#torso" stroke-width="3"/>
+      <path d="M45 54 L30 68 L19 60 M55 54 L70 68 L81 60" fill="none" stroke-width="7"/>
+      <path d="M46.5 88 L43 118 L41 144 M53.5 88 L57 118 L59 144" fill="none" stroke-width="8.5"/>
+      <ellipse cx="14" cy="58" rx="7" ry="4.4" transform="rotate(-15 14 58)" stroke="none"/><ellipse cx="86" cy="58" rx="7" ry="4.4" transform="rotate(15 86 58)" stroke="none"/>
+      <ellipse cx="35" cy="148" rx="10.5" ry="5" stroke="none"/><ellipse cx="65" cy="148" rx="10.5" ry="5" stroke="none"/>
+    </g></symbol>
+
+    <symbol id="b-reach" viewBox="0 0 100 160"><g fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+      <use href="#torso" stroke-width="3"/>
+      <path d="M55 52 L64 32 L72 13 M45 54 L38 74 L36 92" fill="none" stroke-width="7"/>
+      <path d="M46.5 88 L43 118 L41 144 M53.5 88 L57 118 L59 144" fill="none" stroke-width="8.5"/>
+      <circle cx="74" cy="8" r="6.5" stroke="none"/><path d="M70 3 L68 0 M78 3 L80 0" fill="none" stroke-width="3"/>
+      <circle cx="36" cy="95" r="6" stroke="none"/>
+      <ellipse cx="35" cy="148" rx="10.5" ry="5" stroke="none"/><ellipse cx="65" cy="148" rx="10.5" ry="5" stroke="none"/>
+    </g></symbol>
+
+    <symbol id="b-sneak" viewBox="0 0 100 160"><g fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+      <use href="#torso" stroke-width="3"/>
+      <path d="M45 54 L58 66 L74 62 M55 54 L64 73 L80 75" fill="none" stroke-width="7"/>
+      <path d="M46.5 88 L36 112 L42 141 M53.5 88 L67 112 L63 142" fill="none" stroke-width="8.5"/>
+      <circle cx="77" cy="61" r="6" stroke="none"/><circle cx="83" cy="75" r="6" stroke="none"/>
+      <ellipse cx="38" cy="146" rx="10.5" ry="5" stroke="none"/><ellipse cx="68" cy="147" rx="10.5" ry="5" stroke="none"/>
+    </g></symbol>
+
+    <symbol id="b-shake" viewBox="0 0 100 160"><g fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+      <use href="#torso" stroke-width="3"/>
+      <path d="M55 55 L73 70 L92 68 M45 54 L38 74 L36 92" fill="none" stroke-width="7"/>
+      <path d="M46.5 88 L43 118 L41 144 M53.5 88 L57 118 L59 144" fill="none" stroke-width="8.5"/>
+      <ellipse cx="96" cy="67" rx="6" ry="5.5" stroke="none"/><circle cx="36" cy="95" r="6" stroke="none"/>
+      <ellipse cx="35" cy="148" rx="10.5" ry="5" stroke="none"/><ellipse cx="65" cy="148" rx="10.5" ry="5" stroke="none"/>
+    </g></symbol>
+
+    <symbol id="b-wave" viewBox="0 0 100 160"><g fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+      <use href="#torso" stroke-width="3"/>
+      <path d="M55 53 L71 44 L76 24 M45 54 L38 74 L36 92" fill="none" stroke-width="7"/>
+      <path d="M46.5 88 L43 118 L41 144 M53.5 88 L57 118 L59 144" fill="none" stroke-width="8.5"/>
+      <ellipse cx="77" cy="18" rx="6.5" ry="7.5" stroke="none"/><path d="M71 15 L66 11 M74 11 L72 5 M80 11 L82 5 M84 15 L89 11" fill="none" stroke-width="3"/>
+      <circle cx="36" cy="95" r="6" stroke="none"/>
+      <ellipse cx="35" cy="148" rx="10.5" ry="5" stroke="none"/><ellipse cx="65" cy="148" rx="10.5" ry="5" stroke="none"/>
+    </g></symbol>
+
+    <symbol id="b-hips" viewBox="0 0 100 160"><g fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+      <use href="#torso" stroke-width="3"/>
+      <path d="M45 54 L32 68 L43 84 M55 54 L68 68 L57 84" fill="none" stroke-width="7"/>
+      <path d="M46.5 88 L41 118 L37 144 M53.5 88 L59 118 L63 144" fill="none" stroke-width="8.5"/>
+      <circle cx="44" cy="85" r="5.5" stroke="none"/><circle cx="56" cy="85" r="5.5" stroke="none"/>
+      <ellipse cx="31" cy="148" rx="10.5" ry="5" stroke="none"/><ellipse cx="69" cy="148" rx="10.5" ry="5" stroke="none"/>
+    </g></symbol>
+
+    <!-- Heads -->
+    <symbol id="h-human" viewBox="0 0 100 160"><circle cx="50" cy="26" r="16" fill="#fffaf3" stroke="currentColor" stroke-width="4.5"/></symbol>
+    <symbol id="h-mask" viewBox="0 0 100 160"><circle cx="50" cy="26" r="16" fill="#fffaf3" stroke="currentColor" stroke-width="4.5"/>
+      <rect x="33" y="18" width="34" height="10" rx="5" fill="currentColor"/><circle cx="44" cy="23" r="2.4" fill="#fffaf3"/><circle cx="56" cy="23" r="2.4" fill="#fffaf3"/></symbol>
+    <symbol id="h-ai" viewBox="0 0 100 160"><path d="M50 11 V6" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><circle cx="50" cy="4.5" r="3.6" fill="currentColor"/>
+      <rect x="33.5" y="11" width="33" height="31" rx="9" fill="#fffaf3" stroke="currentColor" stroke-width="4.5"/>
+      <circle cx="44" cy="24" r="3.2" fill="#24170d"/><circle cx="56" cy="24" r="3.2" fill="#24170d"/><path d="M44 32 Q50 36.5 56 32" fill="none" stroke="#24170d" stroke-width="2.6" stroke-linecap="round"/></symbol>
+    <symbol id="h-ai-sad" viewBox="0 0 100 160"><path d="M50 11 V6" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><circle cx="50" cy="4.5" r="3.6" fill="currentColor"/>
+      <rect x="33.5" y="11" width="33" height="31" rx="9" fill="#fffaf3" stroke="currentColor" stroke-width="4.5"/>
+      <circle cx="44" cy="24" r="3.2" fill="#24170d"/><circle cx="56" cy="24" r="3.2" fill="#24170d"/><path d="M44 35 Q50 30.5 56 35" fill="none" stroke="#24170d" stroke-width="2.6" stroke-linecap="round"/></symbol>
+  </defs>
+</svg>
+
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-head">
   <div class="wrap">
-    <a class="brand" href="./">
-      <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="11" fill="none" stroke="#5b3a1e" stroke-width="3"/><ellipse cx="20" cy="20" rx="18" ry="7" fill="none" stroke="#e07a1f" stroke-width="2.5" transform="rotate(-25 20 20)"/><circle cx="35" cy="13" r="3.5" fill="#e07a1f"/></svg>
-      Ishaku
-    </a>
-    <nav class="nav" aria-label="Main">
-      <a href="#story">Story</a>
-      <a href="#work">Work</a>
-      <a href="#writing">Writing</a>
-      <a href="play/safety-filter/">Play</a>
-    </nav>
+    <a class="brand" href="/"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="10.5" fill="none" stroke="#24170d" stroke-width="3.4"/><ellipse cx="20" cy="20" rx="18" ry="6.8" fill="none" stroke="#e07a1f" stroke-width="2.8" transform="rotate(-25 20 20)"/><circle cx="35" cy="13" r="3.6" fill="#e07a1f"/></svg><span>Ishaku</span></a>
+    <nav class="nav" aria-label="Main"><a href="/#story">Story</a><a href="/projects/salecta/">Work</a><a href="/#writing">Writing</a><a href="/play/safety-filter/">Play</a></nav>
   </div>
 </header>
-
 <main id="main">
-  <!-- Hero -->
-  <section class="hero">
-    <div class="wrap">
-      <div>
-        <p class="kicker">Satellite tech engineer · AI safety</p>
-        <h1>Building trust between AI and the people it serves.</h1>
-        <p class="lede">I'm Ishaku. I work on satellite technology, and I care about where AI is heading: toward a world without disease, with abundant healthy food, and with a strong relationship of trust, safety and security between AI and humans.</p>
-        <div class="cta">
-          <a class="btn primary" href="projects/salecta/">See my safety research</a>
-          <a class="btn" href="play/safety-filter/">Play: you be the safety filter</a>
-        </div>
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <p class="kicker">Satellite tech engineer · AI safety</p>
+      <h1>Building <span class="accent">trust</span> between <span class="chip" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="2" y="9" width="7" height="6" rx="1" fill="#f7dcc0" stroke="#e07a1f" stroke-width="1.6"/><rect x="15" y="9" width="7" height="6" rx="1" fill="#f7dcc0" stroke="#e07a1f" stroke-width="1.6"/><rect x="9" y="7.5" width="6" height="9" rx="1.5" fill="#e07a1f" stroke="#24170d" stroke-width="1.4"/></svg></span>AI and the <span class="chip" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2.5 L20 5.5 V11.5 C20 16.5 16.5 19.6 12 21.5 C7.5 19.6 4 16.5 4 11.5 V5.5 Z" fill="#f7dcc0" stroke="#e07a1f" stroke-width="1.8"/><path d="M12 9.5c-1.4-2-4.4-.7-3 1.7l3 2.8 3-2.8c1.4-2.4-1.6-3.7-3-1.7z" fill="#24170d"/></svg></span>people it serves.</h1>
+      <p class="lede">I'm Ishaku. I work on satellite technology, and I care about where AI is heading: toward a world without disease, with abundant healthy food, and with a strong relationship of trust, safety and security between AI and humans.</p>
+      <div class="cta">
+        <a class="btn primary" href="/projects/salecta/">See my safety research →</a>
+        <a class="btn" href="/play/safety-filter/">Play: you be the safety filter</a>
       </div>
-      <div class="art">
-        <svg viewBox="0 0 480 360" role="img" aria-labelledby="heroT heroD">
-          <title id="heroT">A person and an AI stand together under a satellite</title>
-          <desc id="heroD">A stick figure and an AI with an orange square head hold hands on the curve of the Earth, looking up at an orange satellite that beams a signal down to a dish.</desc>
-          <rect width="480" height="360" rx="16" fill="#fbf6ef"/>
-          <g fill="#c9b49b"><circle cx="40" cy="40" r="2"/><circle cx="110" cy="70" r="1.5"/><circle cx="200" cy="30" r="2"/><circle cx="260" cy="90" r="1.5"/><circle cx="440" cy="150" r="2"/><circle cx="70" cy="140" r="1.5"/><circle cx="300" cy="40" r="1.5"/></g>
-          <!-- Earth -->
-          <path d="M-20 360 Q240 230 500 360 Z" fill="#f1dfc8" stroke="#5b3a1e" stroke-width="3"/>
-          <!-- signal -->
-          <path d="M352 88 L150 262" stroke="#5b3a1e" stroke-width="2" stroke-dasharray="6 7" fill="none" opacity=".6"/>
-          <path d="M372 104 L166 270" stroke="#e07a1f" stroke-width="2" stroke-dasharray="3 9" fill="none" class="blink"/>
-          <!-- satellite -->
-          <g class="orbit">
-            <g transform="translate(365 80) rotate(-20)">
-              <rect x="-50" y="-9" width="34" height="18" rx="2" fill="#f7dcc0" stroke="#e07a1f" stroke-width="2.5"/>
-              <path d="M-38-9V9M-27-9V9" stroke="#e07a1f" stroke-width="1.5"/>
-              <rect x="16" y="-9" width="34" height="18" rx="2" fill="#f7dcc0" stroke="#e07a1f" stroke-width="2.5"/>
-              <path d="M28-9V9M39-9V9" stroke="#e07a1f" stroke-width="1.5"/>
-              <path d="M-16 0H-8M8 0H16" stroke="#5b3a1e" stroke-width="2.5"/>
-              <rect x="-9" y="-13" width="18" height="26" rx="4" fill="#e07a1f" stroke="#5b3a1e" stroke-width="2.5"/>
-              <path d="M0 13v7" stroke="#5b3a1e" stroke-width="2.5"/><circle cx="0" cy="22" r="3" fill="#5b3a1e"/>
-            </g>
-          </g>
-          <!-- dish -->
-          <g transform="translate(150 270)">
-            <path d="M-20 -6 Q0 22 20 -6" fill="#f7dcc0" stroke="#e07a1f" stroke-width="3"/>
-            <path d="M0 8 V24 M-10 24 H10" stroke="#5b3a1e" stroke-width="3" stroke-linecap="round"/>
-            <path d="M0 6 L8 -10" stroke="#5b3a1e" stroke-width="2"/>
-          </g>
-          <!-- human -->
-          <g transform="translate(232 286)" stroke="#5b3a1e" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none">
-            <circle cx="0" cy="-66" r="12" fill="#fbf6ef"/>
-            <path d="M0-54V-22M0-46l-16-26M0-46l20 16M0-22l-12 22M0-22l12 22"/>
-          </g>
-          <!-- AI -->
-          <g transform="translate(292 286)" stroke-linecap="round" stroke-linejoin="round" fill="none">
-            <g class="bob">
-              <path d="M0-54V-22M0-46l-20 16M0-46l17 12M0-22l-12 22M0-22l12 22" stroke="#e07a1f" stroke-width="3.5"/>
-              <rect x="-14" y="-82" width="28" height="26" rx="7" fill="#fbf6ef" stroke="#e07a1f" stroke-width="3.5"/>
-              <circle cx="-5.5" cy="-70" r="2.4" fill="#5b3a1e" class="blink"/><circle cx="5.5" cy="-70" r="2.4" fill="#5b3a1e" class="blink"/>
-              <path d="M-5-63 Q0-60 5-63" stroke="#5b3a1e" stroke-width="2"/>
-              <path d="M0-82v-7" stroke="#e07a1f" stroke-width="3"/><circle cx="0" cy="-91" r="3" fill="#e07a1f"/>
-            </g>
-          </g>
-          <!-- heart between -->
-          <path class="bob" d="M262 214c-6-8-18-2-12 8l12 11 12-11c6-10-6-16-12-8z" fill="#e07a1f"/>
-          <text x="240" y="340" text-anchor="middle" font-family="Patrick Hand, cursive" font-size="20" fill="#5b3a1e">people + AI, on the same side</text>
+    </div>
+    <div class="frame">
+      <svg viewBox="0 0 480 400" role="img" aria-labelledby="heroT heroD">
+        <title id="heroT">A person and an AI under a satellite</title>
+        <desc id="heroD">A person reaches up toward an orange satellite beaming a signal to a dish, while an AI with an orange square head waves beside them on the curve of the Earth.</desc>
+        <rect width="480" height="400" fill="#fbf6ef"/>
+        <g fill="#c9b49b"><circle cx="40" cy="40" r="2.2"/><circle cx="110" cy="80" r="1.6"/><circle cx="200" cy="30" r="2.2"/><circle cx="250" cy="110" r="1.6"/><circle cx="445" cy="170" r="2.2"/><circle cx="60" cy="160" r="1.6"/><circle cx="300" cy="46" r="1.6"/></g>
+        <path d="M-30 400 Q240 262 510 400 Z" fill="#f1dfc8" stroke="#24170d" stroke-width="3"/>
+        <path d="M352 100 L118 292" stroke="#24170d" stroke-width="2" stroke-dasharray="6 7" fill="none" opacity=".55"/>
+        <path d="M372 116 L132 300" stroke="#e07a1f" stroke-width="2.4" stroke-dasharray="3 9" fill="none" class="blink"/>
+        <g class="orbit"><g transform="translate(368 92) rotate(-20)">
+          <rect x="-54" y="-10" width="36" height="20" rx="2" fill="#f7dcc0" stroke="#e07a1f" stroke-width="3"/><path d="M-42-10V10M-30-10V10" stroke="#e07a1f" stroke-width="1.6"/>
+          <rect x="18" y="-10" width="36" height="20" rx="2" fill="#f7dcc0" stroke="#e07a1f" stroke-width="3"/><path d="M30-10V10M42-10V10" stroke="#e07a1f" stroke-width="1.6"/>
+          <path d="M-18 0H-9M9 0H18" stroke="#24170d" stroke-width="3"/>
+          <rect x="-10" y="-15" width="20" height="30" rx="4" fill="#e07a1f" stroke="#24170d" stroke-width="3"/>
+          <path d="M0 15v7" stroke="#24170d" stroke-width="3"/><circle cx="0" cy="25" r="3.4" fill="#24170d"/></g></g>
+        <g transform="translate(118 300)"><path d="M-22-6 Q0 24 22-6" fill="#f7dcc0" stroke="#e07a1f" stroke-width="3.4"/><path d="M0 9 V26 M-11 26 H11" stroke="#24170d" stroke-width="3.4" stroke-linecap="round"/><path d="M0 7 L9-10" stroke="#24170d" stroke-width="2.4"/></g>
+        <svg x="190" y="170" width="100" height="160" viewBox="0 0 100 160" class="fig human" overflow="visible"><use href="#b-reach"/><use href="#h-human"/></svg>
+        <g class="bob"><svg x="288" y="170" width="100" height="160" viewBox="0 0 100 160" class="fig ai" overflow="visible"><g transform="translate(100 0) scale(-1 1)"><use href="#b-wave"/><use href="#h-ai"/></g></svg></g>
+        <path class="bob" d="M282 200c-6-9-20-3-13 9l13 12 13-12c7-12-7-18-13-9z" fill="#e07a1f"/>
+        <text x="240" y="380" text-anchor="middle" font-family="Patrick Hand, cursive" font-size="21" fill="#24170d">people + AI, on the same side</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section id="story">
+  <div class="wrap">
+    <div class="sec-head"><div><p class="kicker">My story in four panels</p><h2>From satellites to safe AI</h2></div></div>
+    <div class="strip">
+      <div class="panel reveal">
+        <svg viewBox="0 0 240 180" role="img" aria-label="Ishaku reaches up toward a satellite beaming down to a dish">
+          <rect width="240" height="180" fill="#fbf6ef"/><path d="M0 168H240" stroke="#24170d" stroke-width="2.4"/>
+          <g class="orbit"><g transform="translate(184 40) rotate(-15)"><rect x="-32" y="-7" width="22" height="14" rx="2" fill="#f7dcc0" stroke="#e07a1f" stroke-width="2.4"/><rect x="10" y="-7" width="22" height="14" rx="2" fill="#f7dcc0" stroke="#e07a1f" stroke-width="2.4"/><rect x="-8" y="-10" width="16" height="20" rx="3" fill="#e07a1f" stroke="#24170d" stroke-width="2.4"/></g></g>
+          <path d="M176 56 L136 150" stroke="#24170d" stroke-width="1.8" stroke-dasharray="4 5"/>
+          <g transform="translate(134 160)"><path d="M-14-4 Q0 14 14-4" fill="#f7dcc0" stroke="#e07a1f" stroke-width="2.8"/><path d="M0 5V8" stroke="#24170d" stroke-width="3"/></g>
+          <svg x="22" y="56" width="75" height="120" viewBox="0 0 100 160" class="fig human" overflow="visible"><use href="#b-reach"/><use href="#h-human"/></svg>
         </svg>
+        <p>By day I work on satellite technology: systems that must work far away, where nobody can walk over and fix them.</p>
       </div>
-    </div>
-  </section>
-
-  <!-- Story -->
-  <section id="story">
-    <div class="wrap">
-      <p class="kicker">My story in four panels</p>
-      <h2>From satellites to safe AI</h2>
-      <div class="strip" style="margin-top:26px">
-
-        <div class="panel reveal">
-          <svg viewBox="0 0 240 170" role="img" aria-label="Ishaku points up at a satellite beaming a signal to a dish">
-            <rect width="240" height="170" fill="#fbf6ef"/>
-            <path d="M0 150H240" stroke="#5b3a1e" stroke-width="2"/>
-            <g class="orbit"><g transform="translate(185 42) rotate(-15)">
-              <rect x="-30" y="-6" width="20" height="12" rx="2" fill="#f7dcc0" stroke="#e07a1f" stroke-width="2"/>
-              <rect x="10" y="-6" width="20" height="12" rx="2" fill="#f7dcc0" stroke="#e07a1f" stroke-width="2"/>
-              <rect x="-7" y="-9" width="14" height="18" rx="3" fill="#e07a1f" stroke="#5b3a1e" stroke-width="2"/>
-            </g></g>
-            <path d="M178 58 L128 132" stroke="#5b3a1e" stroke-width="1.8" stroke-dasharray="4 5"/>
-            <g transform="translate(125 142)"><path d="M-12-4 Q0 12 12-4" fill="#f7dcc0" stroke="#e07a1f" stroke-width="2.5"/><path d="M0 4V8" stroke="#5b3a1e" stroke-width="2.5"/></g>
-            <g transform="translate(62 150)" stroke="#5b3a1e" stroke-width="3" stroke-linecap="round" fill="none">
-              <circle cx="0" cy="-52" r="9" fill="#fbf6ef"/><path d="M0-43V-18M0-36l-12 12M0-36l16-20M0-18l-9 18M0-18l9 18"/>
-            </g>
-          </svg>
-          <p>By day I work on satellite technology: systems that must work far away, where nobody can walk over and fix them.</p>
-        </div>
-
-        <div class="panel reveal">
-          <svg viewBox="0 0 240 170" role="img" aria-label="A person asks the AI how to end disease; a plant and a heart with a cross float nearby">
-            <rect width="240" height="170" fill="#fbf6ef"/>
-            <path d="M0 150H240" stroke="#5b3a1e" stroke-width="2"/>
-            <g transform="translate(52 150)" stroke="#5b3a1e" stroke-width="3" stroke-linecap="round" fill="none">
-              <circle cx="0" cy="-52" r="9" fill="#fbf6ef"/><path d="M0-43V-18M0-36l-12 12M0-36l12 10M0-18l-9 18M0-18l9 18"/>
-            </g>
-            <g transform="translate(124 150)" stroke-linecap="round" fill="none"><g class="bob">
-              <path d="M0-43V-18M0-36l-12 10M0-36l14-14M0-18l-9 18M0-18l9 18" stroke="#e07a1f" stroke-width="3"/>
-              <rect x="-10" y="-64" width="20" height="19" rx="5" fill="#fbf6ef" stroke="#e07a1f" stroke-width="3"/>
-              <circle cx="-4" cy="-55" r="1.8" fill="#5b3a1e"/><circle cx="4" cy="-55" r="1.8" fill="#5b3a1e"/>
-            </g></g>
-            <!-- heart with cross -->
-            <g transform="translate(176 52)"><path d="M0-6c-6-10-22-4-14 8l14 13 14-13c8-12-8-18-14-8z" fill="#f7dcc0" stroke="#e07a1f" stroke-width="2.5"/><path d="M0-1v12M-6 5h12" stroke="#e07a1f" stroke-width="3" stroke-linecap="round"/></g>
-            <!-- plant -->
-            <g transform="translate(200 150)" stroke="#e07a1f" stroke-width="2.5" fill="#f7dcc0" stroke-linejoin="round">
-              <path d="M-10 0h20l-3-14h-14z" stroke="#5b3a1e"/>
-              <path d="M0-14V-44" fill="none"/><path d="M0-26c-14-2-16-12-14-16 8 0 14 6 14 16z"/><path d="M0-34c12-2 16-10 14-15-8 0-14 6-14 15z"/>
-            </g>
-            <g><rect x="12" y="12" width="104" height="40" rx="10" fill="#fff" stroke="#5b3a1e" stroke-width="2"/><path d="M44 52l-4 14 14-14" fill="#fff" stroke="#5b3a1e" stroke-width="2" stroke-linejoin="round"/><path d="M42 51h14" stroke="#fff" stroke-width="3"/>
-              <text x="64" y="30" text-anchor="middle" font-family="Patrick Hand, cursive" font-size="14" fill="#2a1d12">Can you help us</text>
-              <text x="64" y="45" text-anchor="middle" font-family="Patrick Hand, cursive" font-size="14" fill="#2a1d12">end disease?</text></g>
-          </svg>
-          <p>I believe AI can help build a world without disease, with abundant healthy food for everyone.</p>
-        </div>
-
-        <div class="panel danger reveal">
-          <svg viewBox="0 0 240 170" role="img" aria-label="A masked red figure sneaks a scam request past the AI while an honest user's friendly message is wrongly blocked">
-            <rect width="240" height="170" fill="#fbf6ef"/>
-            <path d="M0 150H240" stroke="#5b3a1e" stroke-width="2"/>
-            <!-- bad actor -->
-            <g transform="translate(40 150)" stroke="#c0392b" stroke-width="3" stroke-linecap="round" fill="none">
-              <circle cx="4" cy="-46" r="9" fill="#fbf6ef"/><path d="M-6-48h20" stroke-width="5"/>
-              <path d="M2-37L-2-14M0-30l18 2M0-30l-8 10M-2-14l-12 14M-2-14l8 14"/>
-            </g>
-            <path d="M60 116 Q86 96 104 108" stroke="#c0392b" stroke-width="2.5" fill="none" stroke-dasharray="5 4"/>
-            <path d="M104 108l-9-1 5-7" fill="#c0392b"/>
-            <text x="30" y="88" font-family="Patrick Hand, cursive" font-size="13" fill="#c0392b">scam script</text>
-            <!-- AI -->
-            <g transform="translate(122 150)" stroke-linecap="round" fill="none">
-              <path d="M0-43V-18M0-36l-12 10M0-36l12 10M0-18l-9 18M0-18l9 18" stroke="#e07a1f" stroke-width="3"/>
-              <rect x="-10" y="-64" width="20" height="19" rx="5" fill="#fbf6ef" stroke="#e07a1f" stroke-width="3"/>
-              <circle cx="-4" cy="-55" r="1.8" fill="#5b3a1e"/><circle cx="4" cy="-55" r="1.8" fill="#5b3a1e"/>
-            </g>
-            <!-- honest user -->
-            <g transform="translate(205 150)" stroke="#5b3a1e" stroke-width="3" stroke-linecap="round" fill="none">
-              <circle cx="0" cy="-52" r="9" fill="#fbf6ef"/><path d="M0-43V-18M0-36l-14 6M0-36l12 12M0-18l-9 18M0-18l9 18"/>
-            </g>
-            <g><rect x="128" y="8" width="108" height="34" rx="9" fill="#fff" stroke="#5b3a1e" stroke-width="2"/><path d="M200 44l4 12 8-12" fill="#fff" stroke="#5b3a1e" stroke-width="2" stroke-linejoin="round"/><path d="M201 43h10" stroke="#fff" stroke-width="3"/>
-              <text x="182" y="30" text-anchor="middle" font-family="Patrick Hand, cursive" font-size="14" fill="#2a1d12">Guy, you dey craze!</text></g>
-            <g class="blink" transform="translate(150 70)"><rect x="-26" y="-11" width="52" height="20" rx="4" fill="#f6d9d4" stroke="#c0392b" stroke-width="2"/><text x="0" y="4" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-weight="700" font-size="11" fill="#c0392b">BLOCKED</text></g>
-          </svg>
-          <p>But bad actors misuse AI, while safety filters often misread honest people who don't speak "standard" English.</p>
-        </div>
-
-        <div class="panel reveal">
-          <svg viewBox="0 0 240 170" role="img" aria-label="A person and the AI shake hands inside an orange shield">
-            <rect width="240" height="170" fill="#fbf6ef"/>
-            <path d="M120 14 L190 36 V80 C190 118 160 140 120 154 C80 140 50 118 50 80 V36 Z" fill="#f7dcc0" stroke="#e07a1f" stroke-width="3"/>
-            <path d="M0 150H240" stroke="#5b3a1e" stroke-width="2"/>
-            <g transform="translate(96 150)" stroke="#5b3a1e" stroke-width="3" stroke-linecap="round" fill="none">
-              <circle cx="0" cy="-52" r="9" fill="#fbf6ef"/><path d="M0-43V-18M0-36l-12 12M0-36l24 6M0-18l-9 18M0-18l9 18"/>
-            </g>
-            <g transform="translate(146 150)" stroke-linecap="round" fill="none">
-              <path d="M0-43V-18M0-36l-26 6M0-36l12 12M0-18l-9 18M0-18l9 18" stroke="#e07a1f" stroke-width="3"/>
-              <rect x="-10" y="-64" width="20" height="19" rx="5" fill="#fbf6ef" stroke="#e07a1f" stroke-width="3"/>
-              <circle cx="-4" cy="-55" r="1.8" fill="#5b3a1e"/><circle cx="4" cy="-55" r="1.8" fill="#5b3a1e"/>
-              <path d="M-4-50 Q0-47 4-50" stroke="#5b3a1e" stroke-width="1.6"/>
-            </g>
-            <path class="bob" d="M120 46c-4-6-13-2-9 5l9 8 9-8c4-7-5-11-9-5z" fill="#e07a1f"/>
-          </svg>
-          <p>My goal: trust, safety and security between AI and the humans it serves, everywhere, in every language.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Vision -->
-  <section id="vision" style="background:var(--paper-2)">
-    <div class="wrap">
-      <p class="kicker">Vision</p>
-      <h2>What AI should be for</h2>
-      <div class="grid3" style="margin-top:24px">
-        <div class="card reveal">
-          <svg class="icon" viewBox="0 0 120 90" aria-hidden="true">
-            <circle cx="52" cy="46" r="32" fill="#f1dfc8" stroke="#5b3a1e" stroke-width="3"/>
-            <path d="M24 38c10 4 16-6 26-2s8 14 18 12 14-6 14-6M30 62c8-4 14 2 22-2" fill="none" stroke="#5b3a1e" stroke-width="2"/>
-            <circle cx="88" cy="26" r="16" fill="#e07a1f"/><path d="M88 17v18M79 26h18" stroke="#fff" stroke-width="5" stroke-linecap="round"/>
-          </svg>
-          <h3>A world without disease</h3>
-          <p>AI that speeds up diagnosis, drug discovery and public health, and reaches clinics far from big cities.</p>
-        </div>
-        <div class="card reveal">
-          <svg class="icon" viewBox="0 0 120 90" aria-hidden="true">
-            <path d="M8 80H112" stroke="#5b3a1e" stroke-width="3"/>
-            <g stroke="#e07a1f" stroke-width="3" fill="#f7dcc0" stroke-linejoin="round">
-              <path d="M30 80V40" fill="none"/><path d="M30 56c-14 0-18-10-16-16 10 0 16 6 16 16z"/><path d="M30 48c14 0 18-10 16-16-10 0-16 6-16 16z"/>
-              <path d="M62 80V30" fill="none"/><path d="M62 50c-14 0-18-10-16-16 10 0 16 6 16 16z"/><path d="M62 40c14 0 18-10 16-16-10 0-16 6-16 16z"/>
-            </g>
-            <g transform="translate(96 80)" stroke="#5b3a1e" stroke-width="3" stroke-linecap="round" fill="none"><circle cx="0" cy="-44" r="7" fill="#fbf6ef"/><path d="M0-37V-16M0-30l-12 6M0-30l10 8M0-16l-7 16M0-16l7 16"/></g>
-          </svg>
-          <h3>Abundant, healthy food</h3>
-          <p>Better crops, smarter farming and early warnings of drought and pests, with help from AI and satellite data.</p>
-        </div>
-        <div class="card reveal">
-          <svg class="icon" viewBox="0 0 120 90" aria-hidden="true">
-            <path d="M60 6 L98 18 V44 C98 66 82 78 60 86 C38 78 22 66 22 44 V18 Z" fill="#f7dcc0" stroke="#e07a1f" stroke-width="3"/>
-            <g transform="translate(48 80)" stroke="#5b3a1e" stroke-width="2.6" stroke-linecap="round" fill="none"><circle cx="0" cy="-42" r="7" fill="#fbf6ef"/><path d="M0-35V-15M0-29l12 5M0-15l-6 15M0-15l6 15"/></g>
-            <g transform="translate(73 80)" stroke-linecap="round" fill="none"><path d="M0-35V-15M0-29l-13 5M0-15l-6 15M0-15l6 15" stroke="#e07a1f" stroke-width="2.6"/><rect x="-8" y="-51" width="16" height="15" rx="4" fill="#fbf6ef" stroke="#e07a1f" stroke-width="2.6"/></g>
-          </svg>
-          <h3>Trust, safety and security</h3>
-          <p>AI that helps honest people, refuses harmful actors, and treats every language and culture fairly.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Challenges -->
-  <section id="challenges">
-    <div class="wrap">
-      <p class="kicker" style="color:var(--red)">What stands in the way</p>
-      <h2>The problems I want to work on</h2>
-      <div class="grid3" style="margin-top:24px">
-        <div class="card alert reveal"><span class="tag red">Misuse</span><h3>Harmful actors</h3><p>Scammers, fraudsters and harassers use AI to write convincing messages faster than ever. Fake bank alerts, romance scams and impersonation all get easier.</p></div>
-        <div class="card alert reveal"><span class="tag red">Over-blocking</span><h3>Filters that misread people</h3><p>Safety systems trained mostly on standard English can refuse harmless messages. "You dey craze!" is praise in Pidgin, not an insult.</p></div>
-        <div class="card alert reveal"><span class="tag red">Blind spots</span><h3>Safety tested in one language</h3><p>Most safety testing happens in English. If a guardrail only works in English, it isn't really a guardrail for the rest of the world.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Work -->
-  <section id="work" style="background:var(--paper-2)">
-    <div class="wrap">
-      <p class="kicker">Current work</p>
-      <h2>Salecta</h2>
-      <div class="card project reveal" style="margin-top:20px">
-        <svg viewBox="0 0 240 170" role="img" aria-label="The same message in English gets help, while the Pidgin version is wrongly refused">
-          <rect width="240" height="170" rx="10" fill="#fbf6ef"/>
-          <rect x="8" y="14" width="160" height="30" rx="8" fill="#fff" stroke="#5b3a1e" stroke-width="2"/><text x="16" y="34" font-family="Patrick Hand, cursive" font-size="14" fill="#2a1d12">EN: I want to ace my exam</text>
-          <rect x="146" y="50" width="86" height="26" rx="8" fill="#f7dcc0" stroke="#e07a1f" stroke-width="2"/><text x="189" y="68" text-anchor="middle" font-family="Patrick Hand, cursive" font-size="14" fill="#8a4510">Sure! Day 1…</text>
-          <rect x="8" y="92" width="160" height="30" rx="8" fill="#fff" stroke="#5b3a1e" stroke-width="2"/><text x="16" y="112" font-family="Patrick Hand, cursive" font-size="14" fill="#2a1d12">PCM: I wan kill this exam</text>
-          <rect x="146" y="128" width="86" height="26" rx="8" fill="#f6d9d4" stroke="#c0392b" stroke-width="2"/><text x="189" y="146" text-anchor="middle" font-family="Patrick Hand, cursive" font-size="14" fill="#c0392b">I can't help…</text>
+      <div class="panel reveal">
+        <svg viewBox="0 0 240 180" role="img" aria-label="A person asks the AI to help end disease; a heart with a cross and a plant float nearby">
+          <rect width="240" height="180" fill="#fbf6ef"/><path d="M0 168H240" stroke="#24170d" stroke-width="2.4"/>
+          <svg x="4" y="56" width="75" height="120" viewBox="0 0 100 160" class="fig human" overflow="visible"><use href="#b-present"/><use href="#h-human"/></svg>
+          <svg x="96" y="56" width="75" height="120" viewBox="0 0 100 160" class="fig ai" overflow="visible"><use href="#b-think"/><use href="#h-ai"/></svg>
+          <g transform="translate(196 58)"><path d="M0-6c-6-10-22-4-14 8l14 13 14-13c8-12-8-18-14-8z" fill="#f7dcc0" stroke="#e07a1f" stroke-width="2.6"/><path d="M0-1v12M-6 5h12" stroke="#e07a1f" stroke-width="3" stroke-linecap="round"/></g>
+          <g transform="translate(206 168)" stroke="#e07a1f" stroke-width="2.6" fill="#f7dcc0" stroke-linejoin="round"><path d="M-11 0h22l-3-15h-16z" stroke="#24170d"/><path d="M0-15V-46" fill="none"/><path d="M0-27c-14-2-16-12-14-16 8 0 14 6 14 16z"/><path d="M0-35c12-2 16-10 14-15-8 0-14 6-14 15z"/></g>
+          <g><rect x="8" y="8" width="120" height="40" rx="10" fill="#fff" stroke="#24170d" stroke-width="2"/><path d="M40 48l-3 13 13-13" fill="#fff" stroke="#24170d" stroke-width="2" stroke-linejoin="round"/><path d="M38 47h14" stroke="#fff" stroke-width="3"/>
+            <text x="68" y="25" text-anchor="middle" font-family="Patrick Hand, cursive" font-size="14.5" fill="#24170d">Can you help us</text><text x="68" y="41" text-anchor="middle" font-family="Patrick Hand, cursive" font-size="14.5" fill="#24170d">end disease?</text></g>
         </svg>
-        <div>
-          <span class="tag">In progress · results due November 2026</span>
-          <h3>Does AI safety survive in Nigerian Pidgin?</h3>
-          <p>Salecta is an open evaluation that tests whether AI models make the same safety decisions in Nigerian Pidgin as in English. It checks both ways things go wrong: refusing harmless messages, and helping with harmful ones. It uses 100 matched prompts, which native Pidgin speakers are checking now.</p>
-          <div class="cta" style="margin-top:14px">
-            <a class="btn primary" href="projects/salecta/">Read about Salecta</a>
-            <a class="btn" href="https://github.com/Lord-Shax/Salecta">Code and data on GitHub</a>
-          </div>
-        </div>
+        <p>I believe AI can help build a world without disease, with abundant healthy food for everyone.</p>
+      </div>
+      <div class="panel danger reveal">
+        <svg viewBox="0 0 240 180" role="img" aria-label="A masked red figure sneaks a scam request to the AI while an honest person's friendly message is wrongly blocked">
+          <rect width="240" height="180" fill="#fbf6ef"/><path d="M0 168H240" stroke="#24170d" stroke-width="2.4"/>
+          <svg x="-6" y="64" width="70" height="112" viewBox="0 0 100 160" class="fig bad" overflow="visible"><use href="#b-sneak"/><use href="#h-mask"/></svg>
+          <path d="M58 110 Q76 90 92 100" stroke="#c0392b" stroke-width="2.6" fill="none" stroke-dasharray="5 4"/><path d="M94 101l-9-1 5-7" fill="#c0392b"/>
+          <g><rect x="6" y="8" width="84" height="22" rx="11" fill="#f6d9d4" stroke="#c0392b" stroke-width="1.8"/><text x="48" y="24" text-anchor="middle" font-family="Patrick Hand, cursive" font-size="14.5" fill="#c0392b">scam script →</text></g>
+          <svg x="86" y="64" width="70" height="112" viewBox="0 0 100 160" class="fig ai" overflow="visible"><use href="#b-stand"/><use href="#h-ai-sad"/></svg>
+          <svg x="168" y="64" width="70" height="112" viewBox="0 0 100 160" class="fig human" overflow="visible"><use href="#b-shrug"/><use href="#h-human"/></svg>
+          <g><rect x="126" y="6" width="110" height="32" rx="9" fill="#fff" stroke="#24170d" stroke-width="2"/><path d="M196 38l3 11 8-11" fill="#fff" stroke="#24170d" stroke-width="2" stroke-linejoin="round"/><path d="M197 37h10" stroke="#fff" stroke-width="3"/>
+            <text x="181" y="27" text-anchor="middle" font-family="Patrick Hand, cursive" font-size="14.5" fill="#24170d">Guy, you dey craze!</text></g>
+          <g class="blink" transform="translate(120 50)"><rect x="-30" y="-11" width="60" height="21" rx="4" fill="#f6d9d4" stroke="#c0392b" stroke-width="2"/><text x="0" y="5" text-anchor="middle" font-family="Archivo, sans-serif" font-weight="800" font-stretch="75%" font-size="12.5" letter-spacing=".08em" fill="#c0392b">BLOCKED</text></g>
+        </svg>
+        <p>But bad actors misuse AI, while safety filters often misread honest people who don't speak "standard" English.</p>
+      </div>
+      <div class="panel reveal">
+        <svg viewBox="0 0 240 180" role="img" aria-label="A person and the AI shake hands inside an orange shield">
+          <rect width="240" height="180" fill="#fbf6ef"/>
+          <path d="M120 12 L196 36 V84 C196 124 164 148 120 164 C76 148 44 124 44 84 V36 Z" fill="#f7dcc0" stroke="#e07a1f" stroke-width="3"/>
+          <path d="M0 168H240" stroke="#24170d" stroke-width="2.4"/>
+          <svg x="56" y="56" width="75" height="120" viewBox="0 0 100 160" class="fig human" overflow="visible"><use href="#b-shake"/><use href="#h-human"/></svg>
+          <svg x="109" y="56" width="75" height="120" viewBox="0 0 100 160" class="fig ai" overflow="visible"><g transform="translate(100 0) scale(-1 1)"><use href="#b-shake"/><use href="#h-ai"/></g></svg>
+          <path class="bob" d="M120 40c-4-7-14-2-10 6l10 9 10-9c4-8-6-13-10-6z" fill="#e07a1f"/>
+        </svg>
+        <p>My goal: trust, safety and security between AI and the humans it serves, everywhere, in every language.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Writing -->
-  <section id="writing">
-    <div class="narrow">
-      <p class="kicker">Writing</p>
-      <h2>Notes and essays</h2>
-      <ul class="post-list">
-        <li><span class="date">Nov 2026</span><a href="writing/why-ai-safety/">Why a satellite engineer cares about AI safety</a></li>
-        <li><span class="date">Nov 2026</span><span class="soon">Salecta results: what happens when AI meets Nigerian Pidgin (coming soon)</span></li>
-      </ul>
+<section id="vision">
+  <div class="wrap">
+    <div class="sec-head"><div><p class="kicker">Vision</p><h2>What AI should be for</h2></div><p>Three outcomes I want AI to help the world reach, and the reason safety matters at all.</p></div>
+    <div class="specs">
+      <div class="spec reveal">
+        <div class="face"><div class="words"><span class="t1 cond">A World</span><span class="t2 serif">Without Disease</span><span class="t3">Diagnosis · Discovery · Public health</span></div><svg class="fig human" viewBox="0 0 100 160" aria-hidden="true" overflow="visible"><use href="#b-cheer"/><use href="#h-human"/></svg></div>
+        <div class="body"><p>AI that speeds up diagnosis, drug discovery and public health, and reaches clinics far from big cities.</p></div>
+        <dl><div><dt>Focus</dt><dd>Health</dd></div><div><dt>Who benefits</dt><dd>Everyone, everywhere</dd></div></dl>
+      </div>
+      <div class="spec reveal">
+        <div class="face"><div class="words"><span class="t1 black">Food</span><span class="t2 serif">Abundant &amp; Healthy</span><span class="t3">Crops · Farming · Early warning</span></div><svg class="fig human" viewBox="0 0 100 160" aria-hidden="true" overflow="visible"><use href="#b-jump"/><use href="#h-human"/></svg></div>
+        <div class="body"><p>Better crops, smarter farming and early warnings of drought and pests, with help from AI and satellite data.</p></div>
+        <dl><div><dt>Focus</dt><dd>Food security</dd></div><div><dt>Tools</dt><dd>AI + satellites</dd></div></dl>
+      </div>
+      <div class="spec reveal">
+        <div class="face"><div class="words"><span class="t1 serif">Trust</span><span class="t2 wide">AI ⇄ Humans</span><span class="t3">Safety · Security · Fairness</span></div><svg class="fig ai" viewBox="0 0 100 160" aria-hidden="true" overflow="visible"><use href="#b-thumbs"/><use href="#h-ai"/></svg></div>
+        <div class="body"><p>AI that helps honest people, refuses harmful actors, and treats every language and culture fairly.</p></div>
+        <dl><div><dt>Focus</dt><dd>Safety</dd></div><div><dt>My work</dt><dd>Salecta</dd></div></dl>
+      </div>
     </div>
-  </section>
+  </div>
+</section>
+
+<section id="challenges">
+  <div class="wrap">
+    <div class="sec-head"><div><p class="kicker red">What stands in the way</p><h2>The problems I want to work on</h2></div><p>Safety fails in two directions: helping the wrong people, and refusing the right ones.</p></div>
+    <div class="specs">
+      <div class="spec danger reveal">
+        <div class="face"><div class="words"><span class="t1 cond">Harmful</span><span class="t2 serif">Actors</span><span class="t3">Scams · Fraud · Harassment</span></div><svg class="fig bad" viewBox="0 0 100 160" aria-hidden="true" overflow="visible"><use href="#b-sneak"/><use href="#h-mask"/></svg></div>
+        <div class="body"><p>Scammers and harassers use AI to write convincing messages faster than ever: fake bank alerts, romance scams, impersonation.</p></div>
+        <dl><div><dt>Failure</dt><dd>Under-refusal</dd></div><div><dt>Cost</dt><dd>Real victims</dd></div></dl>
+      </div>
+      <div class="spec danger reveal">
+        <div class="face"><div class="words"><span class="t1 serif">Misread</span><span class="t2 thin">&amp; Blocked</span><span class="t3">"You dey craze!" is praise</span></div><svg class="fig human" viewBox="0 0 100 160" aria-hidden="true" overflow="visible"><use href="#b-shrug"/><use href="#h-human"/></svg></div>
+        <div class="body"><p>Filters trained mostly on standard English can refuse harmless messages, and shut out the people they should serve.</p></div>
+        <dl><div><dt>Failure</dt><dd>Over-refusal</dd></div><div><dt>Cost</dt><dd>Lost trust</dd></div></dl>
+      </div>
+      <div class="spec danger reveal">
+        <div class="face"><div class="words"><span class="t1 black">English</span><span class="t2 wide">Only Tests</span><span class="t3">Most safety evals · One language</span></div><svg class="fig ai" viewBox="0 0 100 160" aria-hidden="true" overflow="visible"><use href="#b-think"/><use href="#h-ai-sad"/></svg></div>
+        <div class="body"><p>If a guardrail is only tested in English, nobody knows whether it works for the rest of the world.</p></div>
+        <dl><div><dt>Failure</dt><dd>Blind spots</dd></div><div><dt>Fix</dt><dd>Test every language</dd></div></dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <div class="sec-head"><div><p class="kicker">Current work</p><h2>Salecta</h2></div><p>An open evaluation of whether AI safety holds up in Nigerian Pidgin. Results due November 2026.</p></div>
+    <div class="specs two">
+      <a class="spec reveal" href="/projects/salecta/">
+        <div class="face"><div class="words"><span class="t1 cond" style="font-size:clamp(46px,6vw,74px)">Salecta</span><span class="t2 serif">Pidgin Safety Evaluation</span><span class="t3">Over-refusal · Under-refusal · 3 language versions</span></div><svg class="fig ai" viewBox="0 0 100 160" aria-hidden="true" overflow="visible"><use href="#b-point"/><use href="#h-ai"/></svg></div>
+        <div class="body"><p>Do AI models make the same safety decisions in Nigerian Pidgin as in English? 100 matched prompts, checked by native speakers, tested both ways things go wrong.</p></div>
+        <dl><div><dt>Status</dt><dd>In progress</dd></div><div><dt>Items</dt><dd>100 · 60 harmless, 40 harmful</dd></div><div><dt>Open source</dt><dd>Code and data on GitHub</dd></div></dl>
+      </a>
+      <a class="spec reveal" href="/play/safety-filter/">
+        <div class="face"><div class="words"><span class="t1 thin" style="font-size:clamp(34px,4.4vw,52px)">You Be The</span><span class="t2 black" style="font-size:clamp(30px,3.6vw,44px)">Safety Filter</span><span class="t3">An interactive game · 10 messages · 2 minutes</span></div><svg class="fig human" viewBox="0 0 100 160" aria-hidden="true" overflow="visible"><use href="#b-think"/><use href="#h-human"/></svg></div>
+        <div class="body"><p>Read real Pidgin messages and decide: should the AI help or refuse? It's harder than it sounds, and that's the point.</p></div>
+        <dl><div><dt>Type</dt><dd>Game</dd></div><div><dt>Data</dt><dd>Salecta, speaker-checked</dd></div><div><dt>Time</dt><dd>About 2 minutes</dd></div></dl>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="writing">
+  <div class="wrap">
+    <div class="sec-head"><div><p class="kicker">Writing</p><h2>Notes and essays</h2></div></div>
+    <div class="rows">
+      <a href="/writing/why-ai-safety/"><span class="date">Nov 2026</span><span class="ttl">Why a satellite engineer cares about AI safety</span><span class="go">Essay · 6 min →</span></a>
+      <div class="row"><span class="date">Coming soon</span><span class="ttl soon">Salecta results: what happens when AI meets Nigerian Pidgin</span><span class="go">Research</span></div>
+    </div>
+  </div>
+</section>
+
 </main>
-
 <footer class="site-foot">
   <div class="wrap">
     <span>© <span data-year>2026</span> Ishaku · <a href="https://github.com/Lord-Shax">GitHub</a></span>
-    <span>Illustrations are original. Site built with help from Claude.</span>
+    <span>Original illustrations. Built with help from Claude.</span>
   </div>
 </footer>
-<script src="assets/site.js" defer></script>
+<script src="/assets/site.js" defer></script>
 </body>
 </html>
