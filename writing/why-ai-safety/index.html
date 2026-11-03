@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Why a satellite engineer cares about AI safety · Ishaku</title>
+<meta name="description" content="Four lessons from satellite engineering that shape how I think about AI safety: test before launch, watch the telemetry, build for everyone under the footprint, and expect someone to jam the signal.">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="../../"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="11" fill="none" stroke="#5b3a1e" stroke-width="3"/><ellipse cx="20" cy="20" rx="18" ry="7" fill="none" stroke="#e07a1f" stroke-width="2.5" transform="rotate(-25 20 20)"/><circle cx="35" cy="13" r="3.5" fill="#e07a1f"/></svg>Ishaku</a>
+    <nav class="nav" aria-label="Main"><a href="../../#story">Story</a><a href="../../#work">Work</a><a href="../../#writing" aria-current="page">Writing</a><a href="../../play/safety-filter/">Play</a></nav>
+  </div>
+</header>
+
+<main id="main">
+<article class="narrow">
+  <p class="kicker">Essay</p>
+  <h1 style="font-size:clamp(32px,5vw,48px)">Why a satellite engineer cares about AI safety</h1>
+  <p class="meta">Ishaku · November 2026 · 6 minute read</p>
+
+  <p class="lede">I work on satellite technology. People sometimes ask why someone in my field spends evenings thinking about AI safety. My honest answer is that the habits satellite work teaches you are exactly the habits AI needs.</p>
+
+  <p>I'm excited about what AI could do: help end diseases, grow more healthy food with less waste, and give people everywhere access to expertise that used to be rare. But I've also learned, from building systems that have to work far from home, that capability is only half the job. The other half is making sure the system does what you meant, for everyone it touches, even when someone is trying to make it fail.</p>
+  <p>Here are four lessons from my side of engineering that shape how I think about AI.</p>
+
+  <h2>1. You can't patch it after launch</h2>
+  <figure>
+    <div class="art">
+      <svg viewBox="0 0 640 220" role="img" aria-labelledby="f1t">
+        <title id="f1t">An engineer ticks off a long checklist beside a rocket on the launch pad</title>
+        <rect width="640" height="220" fill="#fbf6ef"/><path d="M0 196H640" stroke="#5b3a1e" stroke-width="2.5"/>
+        <g transform="translate(470 196)"><path d="M0-160 C18-136 22-100 20-60 H-20 C-22-100-18-136 0-160Z" fill="#f7dcc0" stroke="#e07a1f" stroke-width="3"/><circle cx="0" cy="-110" r="8" fill="#fbf6ef" stroke="#e07a1f" stroke-width="3"/><path d="M-20-60 L-34-30 H-20 M20-60 L34-30 H20 M-20-30 H20" fill="none" stroke="#e07a1f" stroke-width="3" stroke-linejoin="round"/><path d="M-30-30 V0 M30-30 V0" stroke="#5b3a1e" stroke-width="3"/></g>
+        <g transform="translate(250 196)" stroke="#5b3a1e" stroke-width="3.2" stroke-linecap="round" fill="none"><circle cx="0" cy="-74" r="11" fill="#fbf6ef"/><path d="M0-63V-28M0-54l26 10M0-54l-14 18M0-28l-11 28M0-28l11 28"/></g>
+        <g transform="translate(290 54)"><rect x="0" y="0" width="110" height="130" rx="6" fill="#fff" stroke="#5b3a1e" stroke-width="2.5"/>
+          <g font-family="Patrick Hand, cursive" font-size="16" fill="#2a1d12">
+            <text x="30" y="26">power</text><text x="30" y="52">comms</text><text x="30" y="78">thermal</text><text x="30" y="104">"what if…?"</text></g>
+          <g stroke="#e07a1f" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M10 20l5 5 8-10M10 46l5 5 8-10M10 72l5 5 8-10M10 98l5 5 8-10"/></g></g>
+        <text x="90" y="80" font-family="Patrick Hand, cursive" font-size="22" fill="#5b3a1e">test it all</text><text x="90" y="106" font-family="Patrick Hand, cursive" font-size="22" fill="#5b3a1e">before it leaves</text>
+      </svg>
+    </div>
+    <figcaption>Most satellites are never touched by a human hand again after launch. So you test before it leaves.</figcaption>
+  </figure>
+  <p>Once most satellites are in orbit, nobody can reach them with a screwdriver. That changes how you work. You don't ask "does it work?" You ask "how could this fail, and have we tested every one of those ways?" You test on the ground, under conditions harsher than space, because a mistake after launch is very hard to undo.</p>
+  <p>AI models are different in one way: they can be updated. But once millions of people rely on a model, a failure has already reached them by the time anyone patches it. That's why I care about <strong>evaluations</strong>: careful tests, run before deployment, that ask how the model could fail and for whom. A model that is safe in the cases nobody tested hasn't been shown to be safe.</p>
+
+  <h2>2. Watch the telemetry</h2>
+  <figure class="danger">
+    <div class="art">
+      <svg viewBox="0 0 640 210" role="img" aria-labelledby="f2t">
+        <title id="f2t">A ground station dish receives a stream of signals; one spike is red and an engineer points at it</title>
+        <rect width="640" height="210" fill="#fbf6ef"/><path d="M0 188H640" stroke="#5b3a1e" stroke-width="2.5"/>
+        <g transform="translate(90 188)"><path d="M-34-74 Q0-14 34-74" fill="#f7dcc0" stroke="#e07a1f" stroke-width="3"/><path d="M0-46 L14-80 M0-44V0 M-16 0H16" stroke="#5b3a1e" stroke-width="3" stroke-linecap="round"/></g>
+        <path d="M150 120 H250 l10-20 10 40 10-20 H330 l8-14 8 28 8-14 H420" fill="none" stroke="#5b3a1e" stroke-width="3" stroke-linejoin="round"/>
+        <path d="M420 120 l12-78 12 120 12-42 H560" fill="none" stroke="#c0392b" stroke-width="3.5" stroke-linejoin="round" class="blink"/>
+        <circle cx="432" cy="42" r="6" fill="#c0392b"/>
+        <g transform="translate(560 188)" stroke="#5b3a1e" stroke-width="3.2" stroke-linecap="round" fill="none"><circle cx="0" cy="-74" r="11" fill="#fbf6ef"/><path d="M0-63V-28M0-54l-30-24M0-54l14 18M0-28l-11 28M0-28l11 28"/></g>
+        <text x="470" y="30" font-family="Patrick Hand, cursive" font-size="20" fill="#c0392b">that's not normal</text>
+      </svg>
+    </div>
+    <figcaption>Operators watch a constant stream of health data. Strange patterns get noticed early.</figcaption>
+  </figure>
+  <p>A satellite talks to the ground all the time: temperatures, voltages, orientation, error counts. Teams watch that telemetry for anything unusual, because small anomalies are often early warnings of big failures.</p>
+  <p>AI systems need the same discipline. Some of the most important safety work isn't about the model at all. It's about noticing how the model is being used: spotting patterns that suggest fraud, harassment or other abuse, and acting before harm spreads. You can't stop harmful actors you never see.</p>
+
+  <h2>3. Everyone under the footprint counts</h2>
+  <figure>
+    <div class="art">
+      <svg viewBox="0 0 640 230" role="img" aria-labelledby="f3t">
+        <title id="f3t">A satellite's beam covers people speaking different languages; the AI understands only one of them</title>
+        <rect width="640" height="230" fill="#fbf6ef"/><path d="M0 206H640" stroke="#5b3a1e" stroke-width="2.5"/>
+        <path d="M320 42 L60 206 H580 Z" fill="#f7dcc0" opacity=".55"/>
+        <g transform="translate(320 34)"><rect x="-38" y="-7" width="26" height="14" rx="2" fill="#f7dcc0" stroke="#e07a1f" stroke-width="2.5"/><rect x="12" y="-7" width="26" height="14" rx="2" fill="#f7dcc0" stroke="#e07a1f" stroke-width="2.5"/><rect x="-10" y="-12" width="20" height="24" rx="4" fill="#e07a1f" stroke="#5b3a1e" stroke-width="2.5"/></g>
+        <g font-family="Patrick Hand, cursive" font-size="17" fill="#2a1d12">
+          <g transform="translate(140 206)" stroke="#5b3a1e" stroke-width="3" stroke-linecap="round" fill="none"><circle cx="0" cy="-58" r="9" fill="#fbf6ef"/><path d="M0-49V-22M0-42l-12 12M0-42l12 12M0-22l-9 22M0-22l9 22"/></g><text x="104" y="120">"How far?"</text>
+          <g transform="translate(260 206)" stroke="#5b3a1e" stroke-width="3" stroke-linecap="round" fill="none"><circle cx="0" cy="-58" r="9" fill="#fbf6ef"/><path d="M0-49V-22M0-42l-12 12M0-42l12 12M0-22l-9 22M0-22l9 22"/></g><text x="222" y="120">"Sannu!"</text>
+          <g transform="translate(380 206)" stroke="#5b3a1e" stroke-width="3" stroke-linecap="round" fill="none"><circle cx="0" cy="-58" r="9" fill="#fbf6ef"/><path d="M0-49V-22M0-42l-12 12M0-42l12 12M0-22l-9 22M0-22l9 22"/></g><text x="348" y="120">"Bawo ni?"</text>
+          <g transform="translate(500 206)" stroke="#5b3a1e" stroke-width="3" stroke-linecap="round" fill="none"><circle cx="0" cy="-58" r="9" fill="#fbf6ef"/><path d="M0-49V-22M0-42l-12 12M0-42l12 12M0-22l-9 22M0-22l9 22"/></g><text x="470" y="120">"Hello!"</text>
+        </g>
+      </svg>
+    </div>
+    <figcaption>A beam doesn't stop at borders. Neither should safety.</figcaption>
+  </figure>
+  <p>A satellite's footprint covers whole regions: many countries, many languages, many ways of living. You design for everyone under it, not just the people who happen to be near the engineers.</p>
+  <p>AI is the same, except that most safety testing still happens in standard English. That creates two quiet failures. Honest users who speak differently, like the many millions of Nigerians who use Pidgin every day, can get refused or lectured for harmless messages. And a guardrail that only works in English may not stop a harmful request written in Pidgin. Either way, the people under the footprint get a worse, less safe product. That's the problem my project <a href="../../projects/salecta/">Salecta</a> sets out to measure.</p>
+
+  <h2>4. Expect someone to jam the signal</h2>
+  <figure class="danger">
+    <div class="art">
+      <svg viewBox="0 0 640 200" role="img" aria-labelledby="f4t">
+        <title id="f4t">A red figure tries to interfere with a signal, and an orange shield blocks the interference</title>
+        <rect width="640" height="200" fill="#fbf6ef"/><path d="M0 178H640" stroke="#5b3a1e" stroke-width="2.5"/>
+        <path d="M90 60 C220 40 420 40 560 60" fill="none" stroke="#e07a1f" stroke-width="3" stroke-dasharray="8 8"/>
+        <g transform="translate(120 178)" stroke="#c0392b" stroke-width="3.2" stroke-linecap="round" fill="none"><circle cx="4" cy="-62" r="10" fill="#fbf6ef"/><path d="M-8-64h24" stroke-width="5"/><path d="M2-52L-2-24M0-44l26-14M0-44l-12 14M-2-24l-12 24M-2-24l10 24"/></g>
+        <path d="M150 118 l20-14 6 12 20-16 6 12 20-14" fill="none" stroke="#c0392b" stroke-width="3" stroke-linejoin="round"/>
+        <path d="M270 70 L306 82 V104 C306 124 290 136 270 142 C250 136 234 124 234 104 V82 Z" fill="#f7dcc0" stroke="#e07a1f" stroke-width="3"/>
+        <g transform="translate(520 178)" stroke="#5b3a1e" stroke-width="3.2" stroke-linecap="round" fill="none"><circle cx="0" cy="-62" r="10" fill="#fbf6ef"/><path d="M0-52V-24M0-44l-12 12M0-44l14 10M0-24l-10 24M0-24l10 24"/></g>
+      </svg>
+    </div>
+    <figcaption>Some people will try to break the system on purpose. Design for them from day one.</figcaption>
+  </figure>
+  <p>Satellite links face deliberate interference: jamming, spoofing, people trying to make a system believe something false. You can't design only for accidents. You also have to assume an adversary.</p>
+  <p>AI safety works the same way. Scammers, fraudsters and abusers will look for the phrasing, language or framing that slips past a model's guardrails. A safety measure has to hold up against someone actively trying to defeat it, without punishing the honest majority. Getting that balance right is, to me, the heart of the problem.</p>
+
+  <h2>What I'm working toward</h2>
+  <blockquote>AI that helps end disease, feeds people well, and earns a relationship of trust, safety and security with every human it serves.</blockquote>
+  <p>That's a long road, and I'm starting with something small and concrete. Salecta tests whether today's AI models make the same safety decisions in Nigerian Pidgin as in English: whether they help honest people and refuse harmful ones, whichever way someone speaks. It's open source, checked by native Pidgin speakers, and I'll publish the results here, including whatever doesn't go the way I expect.</p>
+  <p>If you work on evaluations, multilingual safety, or trust and safety, I'd love to compare notes. You can find me on <a href="https://github.com/Lord-Shax">GitHub</a>.</p>
+
+  <p style="margin-top:40px"><a href="../../">← Back home</a></p>
+</article>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap"><span>© <span data-year>2026</span> Ishaku · <a href="https://github.com/Lord-Shax">GitHub</a></span><span>Illustrations are original. Site built with help from Claude.</span></div>
+</footer>
+<script src="../../assets/site.js" defer></script>
+</body>
+</html>
