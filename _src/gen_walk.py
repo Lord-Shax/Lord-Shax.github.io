@@ -45,12 +45,35 @@ def walker(kind, x_off, direction):
             f'{held_arm(direction)}{leg("leg-a")}<use href="#{head}" width="100" height="160"/></g></g>')
 
 
-def milestone(x, word):
-    hw = 14 + len(word) * 6.3  # half width fits the word
+WORDS = ["SAFETY", "ACCOUNTABILITY", "TRUST", "TRANSPARENCY", "FAIRNESS", "DATA PROTECTION",
+         "RESPONSIBILITY", "EXPLAINABILITY", "ROBUSTNESS", "HUMAN OVERSIGHT", "INCLUSION"]
+RAINBOW = ["#e53935", "#f57c00", "#c99700", "#2e9d4f", "#1e7bd6", "#4b3bb5", "#9b3bb5"]
+NEAR_W = 3600  # one loop of signposts; CSS drifts it by this much
+
+
+def sign_colours(n, seed=4):
+    """Every rainbow colour in a random order before any repeats, never twice in a row."""
+    import random
+    rnd, out = random.Random(seed), []
+    while len(out) < n:
+        bag = RAINBOW[:]
+        rnd.shuffle(bag)
+        if out and bag[0] == out[-1]:
+            bag.append(bag.pop(0))
+        out += bag
+    return out[:n]
+
+
+def half_width(word):
+    return 14 + len(word) * 6.3  # half width fits the word
+
+
+def milestone(x, word, colour="#24170d"):
+    hw = half_width(word)
     return (f'<g transform="translate({x} 0)">'
             f'<rect x="-2" y="226" width="4" height="40" rx="2" fill="#5b3a1e"/>'
             f'<rect x="{-hw:.1f}" y="206" width="{2 * hw:.1f}" height="26" rx="5" fill="#fbf6ef" stroke="#24170d" stroke-width="1.6"/>'
-            f'<text x="0" y="223.5" text-anchor="middle" class="msign">{word}</text></g>')
+            f'<text x="0" y="223.5" text-anchor="middle" class="msign" style="fill:{colour}">{word}</text></g>')
 
 
 def tufts(x):
@@ -59,10 +82,15 @@ def tufts(x):
 
 
 def near_tile(ox):
-    out = [milestone(ox + 110, "SAFETY"), milestone(ox + 510, "TRUST"), milestone(ox + 910, "RESPONSIBILITY")]
-    for i, x in enumerate(range(30, 1200, 95)):
+    widths = [2 * half_width(w) for w in WORDS]
+    gap = (NEAR_W - sum(widths)) / len(WORDS)
+    out, x = [], gap / 2
+    for word, w, colour in zip(WORDS, widths, sign_colours(len(WORDS))):
+        out.append(milestone(ox + x + w / 2, word, colour))
+        x += w + gap
+    for i, x in enumerate(range(30, NEAR_W, 95)):
         out.append(tufts(ox + x + (i * 37) % 40))
-    for i, x in enumerate(range(60, 1200, 140)):
+    for i, x in enumerate(range(60, NEAR_W, 140)):
         c = ("#e07a1f", "#3f7d4a", "#c9a03a", "#5b3a1e")[i % 4]
         out.append(f'<ellipse cx="{ox + x + (i * 53) % 60}" cy="{284 + (i * 7) % 10}" rx="4" ry="2.2" fill="{c}" opacity=".55"/>')
     return "".join(out)
@@ -124,7 +152,7 @@ def scene():
     human_x, ai_x = 0, 56          # local offsets; hands meet at local x 78
     walkers = walker("human", human_x, +1) + walker("ai", ai_x, -1)
     return f'''<svg class="walkscene" viewBox="0 0 1200 300" preserveAspectRatio="xMidYMax slice" role="img"
-     aria-label="A human and an AI walk hand in hand toward a gate with an arrow sign marked Safety and Alignment, passing signposts for Safety, Trust and Responsibility.">
+     aria-label="A human and an AI walk hand in hand toward a gate with an arrow sign marked Safety and Alignment, passing signposts for safety, trust, accountability, transparency, fairness, data protection, responsibility, explainability, robustness, human oversight and inclusion.">
   <defs>
     <linearGradient id="ws-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6fb0e3"/><stop offset=".5" stop-color="#b9dcf3"/><stop offset=".8" stop-color="#f3e6d2"/><stop offset="1" stop-color="#f7d9b4"/></linearGradient>
     <radialGradient id="ws-sun" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#ffd59a"/><stop offset=".45" stop-color="#f7b867" stop-opacity=".55"/><stop offset="1" stop-color="#f7b867" stop-opacity="0"/></radialGradient>
@@ -167,7 +195,7 @@ def scene():
     <!-- near ground scrolls at walking pace -->
     <rect y="248" width="1200" height="52" fill="#e6cba6"/>
     <line x1="0" y1="248" x2="1200" y2="248" stroke="#24170d" stroke-width="1.6"/>
-    <g class="drift-near">{near_tile(0)}{near_tile(1200)}</g>
+    <g class="drift-near">{near_tile(0)}{near_tile(NEAR_W)}</g>
     <g class="drift-path"><line x1="0" y1="276" x2="2400" y2="276" stroke="#c9a77d" stroke-width="3" stroke-dasharray="26 34" stroke-linecap="round"/></g>
     <!-- the walkers -->
     <g transform="translate(372 76) scale(1.24)">

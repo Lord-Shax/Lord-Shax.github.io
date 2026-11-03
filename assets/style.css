@@ -325,7 +325,8 @@ a.spec:hover { box-shadow: 6px 8px 0 -1px var(--orange), 0 22px 40px -26px rgba(
 @keyframes stride { from { transform: rotate(-24deg); } to { transform: rotate(24deg); } }
 @keyframes swing { from { transform: rotate(20deg); } to { transform: rotate(-20deg); } }
 @keyframes wbob { from { transform: translateY(0); } to { transform: translateY(-3px); } }
-.walkscene .drift-near { animation: drift 11s linear infinite; }
+.walkscene .drift-near { animation: drift-near 33s linear infinite; }
+@keyframes drift-near { to { transform: translateX(-3600px); } }
 .walkscene .drift-path { animation: drift-path .55s linear infinite; }
 .walkscene .drift-far { animation: drift 70s linear infinite; }
 .walkscene .clouds { animation: drift 90s linear infinite; }
