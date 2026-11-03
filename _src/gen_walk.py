@@ -71,7 +71,53 @@ def near_tile(ox):
 def hills_tile(ox):
     return (f'<path d="M{ox} 236 C{ox+90} 214 {ox+180} 214 {ox+260} 228 C{ox+340} 242 {ox+430} 206 {ox+560} 212 '
             f'C{ox+680} 218 {ox+760} 236 {ox+860} 226 C{ox+960} 216 {ox+1060} 210 {ox+1200} 236 L{ox+1200} 250 L{ox} 250 Z" '
-            f'fill="#ead3b4"/>')
+            f'fill="#d9c69a"/>'
+            + "".join(tree(ox + x, y, sc, k) for x, y, sc, k in
+                      [(70, 228, .8, 0), (120, 224, .7, 1), (300, 232, .9, 2), (470, 214, .75, 0), (520, 213, .65, 1),
+                       (700, 222, .8, 1), (780, 230, .85, 0), (990, 216, .7, 2), (1100, 222, .8, 0), (1150, 228, .7, 1)]))
+
+
+def mountains_tile(ox, y0, color, peaks):
+    d = f"M{ox} 250 L{ox} {y0}"
+    for x, h in peaks:
+        d += f" L{ox + x} {y0 - h}"
+    d += f" L{ox + 1200} {y0} L{ox + 1200} 250 Z"
+    return f'<path d="{d}" fill="{color}"/>'
+
+
+def snow(ox, peaks, y0):
+    out = []
+    for x, h in peaks:
+        if h > 70:
+            px, py = ox + x, y0 - h
+            out.append(f'<path d="M{px-9} {py+12} L{px} {py} L{px+9} {py+12} L{px+4} {py+9} L{px} {py+13} L{px-4} {py+9} Z" fill="#f7fbff"/>')
+    return "".join(out)
+
+
+def tree(x, y, s=1.0, kind=0):
+    if kind == 0:   # round canopy
+        return (f'<g transform="translate({x} {y}) scale({s})"><rect x="-1.2" y="-10" width="2.4" height="10" fill="#6b5236"/>'
+                f'<circle cx="0" cy="-14" r="7" fill="#7f9a52"/><circle cx="-4" cy="-11" r="4.5" fill="#738d49"/></g>')
+    if kind == 1:   # acacia, flat top
+        return (f'<g transform="translate({x} {y}) scale({s})"><path d="M0 0 V-11 M0 -8 L-5 -13 M0 -9 L5 -14" stroke="#6b5236" stroke-width="1.8" fill="none"/>'
+                f'<ellipse cx="0" cy="-15" rx="12" ry="3.6" fill="#839c55"/></g>')
+    return (f'<g transform="translate({x} {y}) scale({s})"><path d="M-2.5 0 L-1.8 -12 L1.8 -12 L2.5 0 Z" fill="#7a5d3c"/>'   # baobab
+            f'<path d="M-1.8 -12 L-6 -16 M0 -12 L0 -18 M1.8 -12 L6 -16" stroke="#7a5d3c" stroke-width="1.6"/>'
+            f'<circle cx="-6" cy="-17" r="3.2" fill="#7f9a52"/><circle cx="0" cy="-19.5" r="3.6" fill="#7f9a52"/><circle cx="6" cy="-17" r="3.2" fill="#7f9a52"/></g>')
+
+
+def cloud(x, y, s=1.0):
+    return (f'<g transform="translate({x} {y}) scale({s})">'
+            f'<path d="M0 22 a14 14 0 0 1 12 -20 a20 20 0 0 1 36 -2 a16 16 0 0 1 26 10 a12 12 0 0 1 2 24 h-70 a10 10 0 0 1 -6 -12 z" fill="#ffffff"/>'
+            f'<path d="M4 30 h68 a10 10 0 0 1 -4 4 h-60 a8 8 0 0 1 -4 -4 z" fill="#d7e6f3"/></g>')
+
+
+def plane(cls, y, s, flip=False):
+    tr = f"scale(-1 1)" if flip else ""
+    return (f'<g class="plane {cls}"><g transform="translate(0 {y}) scale({s})"><g transform="{tr}">'
+            f'<line x1="-70" y1="0" x2="-8" y2="0" stroke="#ffffff" stroke-width="2" stroke-linecap="round" opacity=".85"/>'
+            f'<path d="M-8 0 L10 -1.4 Q13 0 10 1.4 Z" fill="#4d5d70"/>'
+            f'<path d="M0 -1 L-4 -7 L-1 -7 L4 -1 Z M0 1 L-4 6 L-1 6 L4 1 Z M-7 -0.6 L-9 -4 L-7.5 -4 L-5 -0.6 Z" fill="#4d5d70"/></g></g></g>')
 
 
 def scene():
@@ -80,7 +126,7 @@ def scene():
     return f'''<svg class="walkscene" viewBox="0 0 1200 300" preserveAspectRatio="xMidYMax slice" role="img"
      aria-label="A human and an AI walk hand in hand toward a gate marked Progress and Alignment, passing signposts for Safety, Trust and Responsibility.">
   <defs>
-    <linearGradient id="ws-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fbf3e6"/><stop offset="1" stop-color="#f6dcbc"/></linearGradient>
+    <linearGradient id="ws-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6fb0e3"/><stop offset=".5" stop-color="#b9dcf3"/><stop offset=".8" stop-color="#f3e6d2"/><stop offset="1" stop-color="#f7d9b4"/></linearGradient>
     <radialGradient id="ws-sun" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#ffd59a"/><stop offset=".45" stop-color="#f7b867" stop-opacity=".55"/><stop offset="1" stop-color="#f7b867" stop-opacity="0"/></radialGradient>
     <clipPath id="ws-clip"><rect width="1200" height="300" rx="22"/></clipPath>
   </defs>
@@ -98,13 +144,15 @@ def scene():
       <rect x="9" y="-3.5" width="16" height="7" fill="#3f5f8a" stroke="#24170d" stroke-width="1"/>
       <line x1="-9" y1="0" x2="9" y2="0" stroke="#24170d" stroke-width="1.4"/>
       <circle class="blink" cx="0" cy="-8" r="2" fill="#e07a1f"/></g></g>
-    <!-- clouds -->
-    <g class="clouds" fill="#fffaf3" opacity=".9">
-      <path d="M150 92 a16 16 0 0 1 30 -8 a20 20 0 0 1 36 4 a13 13 0 0 1 4 26 h-66 a12 12 0 0 1 -4 -22 z"/>
-      <path d="M560 60 a12 12 0 0 1 22 -6 a15 15 0 0 1 27 3 a10 10 0 0 1 3 19 h-49 a9 9 0 0 1 -3 -16 z"/>
-      <path d="M1350 100 a16 16 0 0 1 30 -8 a20 20 0 0 1 36 4 a13 13 0 0 1 4 26 h-66 a12 12 0 0 1 -4 -22 z"/>
-      <path d="M1760 60 a12 12 0 0 1 22 -6 a15 15 0 0 1 27 3 a10 10 0 0 1 3 19 h-49 a9 9 0 0 1 -3 -16 z"/>
-    </g>
+    <!-- planes far overhead -->
+    {plane("p1", 46, .9)}
+    {plane("p2", 26, .6, True)}
+    <!-- clouds, two depths -->
+    <g class="clouds-far" opacity=".85">{cloud(120, 70, .55)}{cloud(520, 40, .45)}{cloud(820, 86, .5)}{cloud(1320, 70, .55)}{cloud(1720, 40, .45)}{cloud(2020, 86, .5)}</g>
+    <g class="clouds">{cloud(60, 96, .95)}{cloud(420, 112, .8)}{cloud(700, 30, .7)}{cloud(1260, 96, .95)}{cloud(1620, 112, .8)}{cloud(1900, 30, .7)}</g>
+    <!-- distant mountains -->
+    <g class="drift-mtn">{mountains_tile(0, 222, "#b7c9da", [(90, 60), (220, 95), (330, 50), (470, 110), (610, 70), (760, 40), (880, 88), (1020, 56), (1130, 80)])}{snow(0, [(90, 60), (220, 95), (330, 50), (470, 110), (610, 70), (760, 40), (880, 88), (1020, 56), (1130, 80)], 222)}{mountains_tile(1200, 222, "#b7c9da", [(90, 60), (220, 95), (330, 50), (470, 110), (610, 70), (760, 40), (880, 88), (1020, 56), (1130, 80)])}{snow(1200, [(90, 60), (220, 95), (330, 50), (470, 110), (610, 70), (760, 40), (880, 88), (1020, 56), (1130, 80)], 222)}</g>
+    <g class="drift-mtn2">{mountains_tile(0, 236, "#9fb4a8", [(40, 30), (160, 48), (280, 26), (420, 54), (560, 34), (700, 58), (840, 30), (980, 50), (1120, 34)])}{mountains_tile(1200, 236, "#9fb4a8", [(40, 30), (160, 48), (280, 26), (420, 54), (560, 34), (700, 58), (840, 30), (980, 50), (1120, 34)])}</g>
     <!-- far hills drift slowly -->
     <g class="drift-far">{hills_tile(0)}{hills_tile(1200)}</g>
     <!-- the destination -->

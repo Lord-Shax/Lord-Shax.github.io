@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><title>Ishaku Gayus B. · CV</title>
+<style>
+@font-face { font-family: "Archivo"; src: url("../../assets/fonts/archivo-latin-standard-normal.woff2") format("woff2"); font-weight: 100 900; font-stretch: 62% 125%; }
+@page { size: A4; margin: 11mm 14mm 10mm; }
+* { box-sizing: border-box; }
+body { margin: 0; font: 400 9pt/1.36 "Archivo", Arial, sans-serif; color: #24170d; }
+a { color: inherit; text-decoration: none; }
+.cv-head { display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 2.2pt solid #24170d; padding-bottom: 8pt; margin-bottom: 4pt; }
+h1 { font-size: 23pt; font-weight: 850; font-stretch: 112%; letter-spacing: -.02em; margin: 0; line-height: 1; }
+.cv-role { margin: 5pt 0 0; font-size: 11pt; font-weight: 500; }
+.cv-role b { color: #c2600f; font-weight: 700; }
+.cv-contact { text-align: right; font-size: 8.6pt; line-height: 1.55; color: #4a3a2c; }
+.cv-contact b { color: #24170d; font-weight: 650; }
+h2 { font-size: 8.4pt; font-weight: 750; letter-spacing: .16em; text-transform: uppercase; color: #c2600f; margin: 10pt 0 4pt; display: flex; align-items: center; gap: 7pt; }
+h2::after { content: ""; flex: 1; height: .8pt; background: #e2d4c3; }
+p { margin: 0; }
+.cv-summary { font-size: 9.3pt; line-height: 1.44; }
+ul { margin: 3pt 0 0; padding-left: 11pt; }
+li { margin: 0 0 1.4pt; padding-left: 1pt; }
+li::marker { color: #c2600f; }
+.cv-job { margin-top: 6pt; break-inside: avoid; }
+.cv-job:first-of-type { margin-top: 2pt; }
+.cv-jh { display: flex; justify-content: space-between; align-items: baseline; gap: 10pt; }
+.cv-jt { font-weight: 720; font-size: 10.2pt; }
+.cv-jd { font-size: 8.8pt; color: #4a3a2c; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.cv-org { font-size: 9pt; color: #4a3a2c; font-style: italic; }
+.cv-skills { display: grid; grid-template-columns: 112pt 1fr; gap: 1.5pt 10pt; margin-top: 2pt; }
+.cv-skills dt { font-weight: 700; }
+.cv-skills dd { margin: 0; }
+.cv-feature { border-left: 2.4pt solid #e07a1f; padding: 1pt 0 1pt 9pt; margin-top: 4pt; break-inside: avoid; }
+.cv-three { display: grid; grid-template-columns: 1.1fr 1fr 1.1fr; gap: 0 14pt; font-size: 8.6pt; }
+.cv-edu div { margin-bottom: 3pt; }
+.cv-muted { color: #4a3a2c; }
+</style></head><body>
+<!--cv-->
+
+<div class="cv-head">
+  <div>
+    <h1>Ishaku Gayus B.</h1>
+    <p class="cv-role">Security &amp; Systems Engineer · <b>AI Safeguards and Evaluation</b></p>
+  </div>
+  <div class="cv-contact">
+    Abuja, Nigeria<br>
+    <b><a href="mailto:bwalabirma@yahoo.com">bwalabirma@yahoo.com</a></b><br>
+    <a href="https://lord-shax.github.io">lord-shax.github.io</a> · <a href="https://github.com/Lord-Shax">github.com/Lord-Shax</a>
+  </div>
+</div>
+
+<h2>Summary</h2>
+<p class="cv-summary">Security-focused systems engineer with 15+ years building and defending the networks and software of Nigeria’s national space agency (NASRDA). I wrote my organisation’s first cybersecurity policy, designed network security controls and audits, and led an automated monitoring system that predicts infrastructure failures before they happen (over NGN 100M saved a year). I now build AI safety evaluations: <b>Salecta</b> tests whether frontier models keep their safety behaviour in Nigerian Pidgin. I want to bring this defender’s mindset to AI safeguards full-time: safety evaluations, adversarial robustness and automated risk detection.</p>
+
+<h2>AI safety work</h2>
+<div class="cv-feature">
+  <div class="cv-jh"><span class="cv-jt">Salecta · Nigerian Pidgin safety evaluation</span><span class="cv-jd">2026 · in progress</span></div>
+  <ul>
+    <li>Open evaluation of whether LLM safety behaviour transfers from English to Nigerian Pidgin, measuring both over-refusal of harmless requests and under-refusal of harmful ones.</li>
+    <li>100 matched prompts (60 harmless, 40 harmful) in three language versions, checked by native speakers; built in Python on the UK AISI Inspect framework with inter-annotator agreement analysis.</li>
+    <li>Public code, data and an interactive “you be the safety filter” game: <a href="https://github.com/Lord-Shax/Salecta">github.com/Lord-Shax/Salecta</a>.</li>
+  </ul>
+</div>
+
+<h2>Experience</h2>
+<div class="cv-job">
+  <div class="cv-jh"><span class="cv-jt">Special Adviser (Technical) to the Director/CEO</span><span class="cv-jd">2015 – present</span></div>
+  <div class="cv-org">Centre for Satellite Technology Development (CSTD), NASRDA · Abuja</div>
+  <ul>
+    <li>Lead the ICT and software development divisions; set technical direction and mentor 25+ engineers and developers.</li>
+    <li>Led the design and build of an IoT monitoring system that watches IT infrastructure continuously and uses predictive analytics to flag failures before they happen, saving over NGN 100M a year.</li>
+    <li>Built an AI-powered IT support assistant (Python, FastAPI) that automates support workflows, and a machine-learning tool that surfaces recurring problems in user feedback for management action.</li>
+    <li>Keep organisation-wide infrastructure, from servers to workstations, secure and available; build internal platforms, including an electronic document management system (in progress).</li>
+    <li>Report technical metrics and project status to top management through Power BI dashboards; run staff training on emerging technologies, including AI.</li>
+  </ul>
+</div>
+<div class="cv-job">
+  <div class="cv-jh"><span class="cv-jt">Systems Administrator</span><span class="cv-jd">2011 – 2015</span></div>
+  <div class="cv-org">Centre for Basic Space Science (CBSS), NASRDA · Nsukka</div>
+  <ul>
+    <li>Wrote and implemented the Centre’s first cybersecurity policy; built and maintained its high-availability network infrastructure.</li>
+  </ul>
+</div>
+<div class="cv-job">
+  <div class="cv-jh"><span class="cv-jt">Systems Administrator (NYSC and internship)</span><span class="cv-jd">2009 – 2011</span></div>
+  <div class="cv-org">Startech Technologies · Abuja</div>
+  <ul>
+    <li>Designed network security measures and ran regular audits against industry standards; deployed secure LANs and WANs.</li>
+  </ul>
+</div>
+
+<h2>Skills</h2>
+<dl class="cv-skills">
+  <dt>Security and detection</dt><dd>Network security design, audits, cybersecurity policy, continuous monitoring, predictive early warning, automated alerting</dd>
+  <dt>AI/ML and software</dt><dd>Python, FastAPI, Inspect (LLM evaluations), machine learning for text, rapid prototyping</dd>
+  <dt>Leadership</dt><dd>Leading technical divisions, PMP-certified project delivery, mentoring, Power BI reporting, explaining risk to decision-makers</dd>
+</dl>
+
+<div class="cv-three">
+  <div>
+    <h2>Education</h2>
+    <div class="cv-edu">
+      <div><b>M.Eng, Electrical and Electronic Eng.</b> (Digital Communications)<br><span class="cv-muted">University of Nigeria, Nsukka · 2017</span></div>
+      <div><b>B.Eng, Electrical and Electronic Eng.</b> (Telecoms), Second Class Upper<br><span class="cv-muted">Federal University of Technology, Yola · 2009</span></div>
+    </div>
+  </div>
+  <div>
+    <h2>Certifications</h2>
+    <ul>
+      <li>Project Management Professional (PMP)</li>
+      <li>Cisco Network Security</li>
+      <li>Policy for Science, Technology and Innovation · Harvard University</li>
+      <li>Creative Problem-Solving · Imperial College London</li>
+    </ul>
+  </div>
+  <div>
+    <h2>Talks and service</h2>
+    <ul>
+      <li>“Artificial Intelligence Ethics and Implications for Developing Societies” (talk)</li>
+      <li>“Role of Information Technologists and Engineers in the Age of Artificial Intelligence” (talk)</li>
+      <li>ITU WP 7B (WRC-27), ECOWAS region: reporting</li>
+      <li>Member: IEEE, PMI, COREN, NSE</li>
+    </ul>
+  </div>
+</div>
+
+<!--/cv-->
+</body></html>

@@ -310,7 +310,7 @@ a.spec:hover { box-shadow: 6px 8px 0 -1px var(--orange), 0 22px 40px -26px rgba(
 
 /* ---------- hero walk scene ---------- */
 .walkwrap { margin: 4px 0 30px; }
-.walkscene { width: 100%; height: auto; aspect-ratio: 1200 / 300; border-radius: 22px; border: 1.5px solid var(--ink); overflow: hidden; background: #fbf3e6; }
+.walkscene { width: 100%; height: auto; aspect-ratio: 1200 / 300; border-radius: 22px; border: 1.5px solid var(--ink); overflow: hidden; background: #b9dcf3; }
 @media (max-width: 699px) { .walkscene { aspect-ratio: 680 / 280; border-radius: 16px; } }
 .walkscene .walker.human { color: var(--coffee); }
 .walkscene .walker.ai { color: var(--orange); }
@@ -329,6 +329,13 @@ a.spec:hover { box-shadow: 6px 8px 0 -1px var(--orange), 0 22px 40px -26px rgba(
 .walkscene .drift-path { animation: drift-path .55s linear infinite; }
 .walkscene .drift-far { animation: drift 70s linear infinite; }
 .walkscene .clouds { animation: drift 90s linear infinite; }
+.walkscene .clouds-far { animation: drift 160s linear infinite; }
+.walkscene .drift-mtn { animation: drift 240s linear infinite; }
+.walkscene .drift-mtn2 { animation: drift 150s linear infinite; }
+.walkscene .plane.p1 { animation: fly 19s linear infinite; }
+.walkscene .plane.p2 { animation: fly-back 31s linear infinite -12s; }
+@keyframes fly { from { transform: translateX(-80px); } to { transform: translateX(1300px); } }
+@keyframes fly-back { from { transform: translateX(1300px); } to { transform: translateX(-80px); } }
 @keyframes drift { to { transform: translateX(-1200px); } }
 @keyframes drift-path { to { transform: translateX(-60px); } }
 .walkscene .sun { transform-origin: 905px 150px; animation: sunpulse 4s ease-in-out infinite alternate; }
@@ -347,3 +354,59 @@ a.spec:hover { box-shadow: 6px 8px 0 -1px var(--orange), 0 22px 40px -26px rgba(
   .walkscene .heart { opacity: 1; transform: translateY(-20px); }
 }
 .hero.solo .walkwrap { margin: 0 0 -6px; }
+
+/* ---------- CV page ---------- */
+.cv-pill { letter-spacing: .02em; }
+.cv-pill:hover svg { animation: none; transform: translateX(2px); }
+.cv-pill[aria-current="page"] { background: var(--ink); color: var(--paper); box-shadow: 2px 2px 0 var(--orange); }
+.cvpage { padding: 18px 0 64px; }
+.cvbar { display: flex; justify-content: space-between; align-items: flex-end; gap: 18px; flex-wrap: wrap; max-width: 900px; margin: 0 auto 18px; }
+.cvbar .kicker { margin: 0; }
+.cvnote { margin: 4px 0 0; color: var(--muted); font-size: 15px; }
+.cvbar .cta { margin: 0; }
+.cvsheet { max-width: 900px; margin: 0 auto; background: var(--paper); border: 1.5px solid var(--ink); border-radius: 18px;
+  padding: 52px 58px; font-size: 15.5px; line-height: 1.55; color: var(--ink); box-shadow: 0 30px 60px -40px rgba(36,23,13,.5); }
+.cvsheet a { text-decoration: underline; text-decoration-color: var(--orange-soft); }
+.cvsheet a:hover { text-decoration-color: var(--orange); }
+.cv-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 20px; border-bottom: 3px solid var(--ink); padding-bottom: 14px; margin-bottom: 6px; }
+.cvsheet h1 { font-size: clamp(30px, 4vw, 40px); font-weight: 850; font-stretch: 112%; letter-spacing: -.02em; margin: 0; line-height: 1; }
+.cv-role { margin: 8px 0 0; font-size: 17px; font-weight: 500; }
+.cv-role b { color: #c2600f; }
+.cv-contact { text-align: right; font-size: 14px; line-height: 1.6; color: var(--ink-2); }
+.cvsheet h2 { font-size: 12.5px; font-weight: 750; letter-spacing: .16em; text-transform: uppercase; color: #c2600f; margin: 26px 0 8px; display: flex; align-items: center; gap: 10px; }
+.cvsheet h2::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+.cvsheet p { margin: 0; }
+.cvsheet ul { margin: 6px 0 0; padding-left: 18px; }
+.cvsheet li { margin: 0 0 4px; }
+.cvsheet li::marker { color: var(--orange); }
+.cv-job { margin-top: 14px; }
+.cv-jh { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.cv-jt { font-weight: 720; font-size: 16.5px; }
+.cv-jd { font-size: 14px; color: var(--ink-2); white-space: nowrap; }
+.cv-org { font-size: 14.5px; color: var(--ink-2); font-style: italic; }
+.cv-feature { border-left: 3px solid var(--orange); padding: 2px 0 2px 16px; margin-top: 6px; }
+.cv-skills { display: grid; grid-template-columns: 180px 1fr; gap: 6px 16px; margin: 4px 0 0; }
+.cv-skills dt { font-weight: 700; }
+.cv-skills dd { margin: 0; }
+.cv-three { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0 26px; font-size: 14.5px; }
+.cv-edu div { margin-bottom: 8px; }
+.cv-muted { color: var(--ink-2); }
+@media (max-width: 760px) {
+  .cvsheet { padding: 30px 22px; font-size: 15px; border-radius: 14px; }
+  .cv-head { flex-direction: column; align-items: flex-start; }
+  .cv-contact { text-align: left; }
+  .cv-skills { grid-template-columns: 1fr; gap: 0; }
+  .cv-skills dd { margin-bottom: 8px; }
+  .cv-three { grid-template-columns: 1fr; }
+}
+.cv-head > div:first-child { flex: 1 1 auto; } .cv-contact { flex: 0 0 auto; } @media (min-width: 761px) { .cv-role { white-space: nowrap; } }
+
+/* ---------- spinning globe + wordmark ---------- */
+.brand svg.globe { width: 48px; height: 48px; overflow: visible; }
+.globe-land { animation: globespin 14s linear infinite; }
+@keyframes globespin { from { transform: translateX(0); } to { transform: translateX(-80px); } }
+.brand:hover .globe-land { animation-duration: 4s; }
+.wordmark { font-size: 30px; font-weight: 820; letter-spacing: -.02em; line-height: 1; position: relative; }
+.wm-i { position: relative; display: inline-block; clip-path: inset(.36em -.2em -.3em -.2em); }
+.wordmark::before { content: ""; position: absolute; left: .055em; top: .1em; width: .21em; height: .21em; border-radius: 50%; background: var(--orange); }
+@media (prefers-reduced-motion: reduce) { .globe-land { animation: none; } }
