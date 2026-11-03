@@ -44,7 +44,11 @@ def fig(m: re.Match) -> str:
     pose = a["pose"]
     inner = f'<use href="#b-{pose}"/><use href="#h-{head}"/>'
     if flags:
-        inner = f'<g transform="translate(100 0) scale(-1 1)">{inner}</g>'
+        if head.startswith("ai"):  # mirror the body, but keep the "AI" hair readable
+            inner = (f'<g transform="translate(100 0) scale(-1 1)"><use href="#b-{pose}"/>'
+                     f'<use href="#h-{head}-bare"/></g><use href="#h-hair-ai"/>')
+        else:
+            inner = f'<g transform="translate(100 0) scale(-1 1)">{inner}</g>'
     cls = f'fig {kind} {a.get("class", "")}'.strip()
     if "x" in a:  # placed inside an SVG scene
         h = float(a.get("h", 160))
@@ -88,7 +92,7 @@ def layout(meta: dict, body: str) -> str:
 </main>
 <footer class="site-foot">
   <div class="wrap">
-    <span>© <span data-year>2026</span> Ishaku · <a href="https://github.com/Lord-Shax">GitHub</a></span>
+    <span>© <span data-year>2026</span> Ishaku · <a href="/#contact">Contact</a> · <a href="/cv/Ishaku-CV.pdf">CV</a> · <a href="https://github.com/Lord-Shax">GitHub</a></span>
     <span>Original illustrations. Built with help from Claude.</span>
   </div>
 </footer>

@@ -176,6 +176,13 @@ POSES = {
 }
 SKIRTED = {"dance-a-w": "dance-a", "dance-b-w": "dance-b", "stand-w": "stand"}
 
+# The letters "AI" are the robot's hair. Centred on x=50, so a mirrored figure can reuse it unflipped.
+HAIR_AI = ('<g fill="none" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10">'
+           '<path d="M40.6 12 L45.5 1 L50.4 12 M42.4 8 H48.6 M56.5 1.6 V10.4 M53.2 1.6 H59.8 M53.2 10.4 H59.8" '
+           'stroke="#fffaf3" stroke-width="4.6"/>'
+           '<path d="M40.6 12 L45.5 1 L50.4 12 M42.4 8 H48.6 M56.5 1.6 V10.4 M53.2 1.6 H59.8 M53.2 10.4 H59.8" '
+           'stroke="#120b06" stroke-width="2.4"/></g>')
+
 HEADS = {
     "human": ('<circle cx="50" cy="24.5" r="16" fill="#fffaf3" stroke="currentColor" stroke-width="2"/>'
              '<circle cx="40.6" cy="29.4" r="2.6" fill="#e07a1f" opacity=".22"/><circle cx="59.4" cy="29.4" r="2.6" fill="#e07a1f" opacity=".22"/>'
@@ -191,14 +198,10 @@ HEADS = {
              '<circle cx="40.6" cy="29.4" r="2.6" fill="#e07a1f" opacity=".22"/><circle cx="59.4" cy="29.4" r="2.6" fill="#e07a1f" opacity=".22"/>'
              '<circle cx="45" cy="24.6" r="1.65" fill="#24170d"/><circle cx="55" cy="24.6" r="1.65" fill="#24170d"/>'
              '<path d="M46.4 30.2 Q50 33.4 53.6 30.2" fill="none" stroke="#24170d" stroke-width="1.5" stroke-linecap="round"/>'),
-    "ai": ('<path d="M50 11.5 V6.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>'
-           '<circle cx="50" cy="5.6" r="2.6" fill="currentColor"/>'
-           '<rect x="36" y="11.5" width="28" height="27" rx="8" fill="#fffaf3" stroke="currentColor" stroke-width="2.2"/>'
+    "ai": (           '<rect x="36" y="11.5" width="28" height="27" rx="8" fill="#fffaf3" stroke="currentColor" stroke-width="2.2"/>'
            '<circle cx="44.6" cy="23" r="2.4" fill="#24170d"/><circle cx="55.4" cy="23" r="2.4" fill="#24170d"/>'
            '<path d="M45.4 30 Q50 33.6 54.6 30" fill="none" stroke="#24170d" stroke-width="1.9" stroke-linecap="round"/>'),
-    "ai-sad": ('<path d="M50 11.5 V6.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>'
-               '<circle cx="50" cy="5.6" r="2.6" fill="currentColor"/>'
-               '<rect x="36" y="11.5" width="28" height="27" rx="8" fill="#fffaf3" stroke="currentColor" stroke-width="2.2"/>'
+    "ai-sad": (               '<rect x="36" y="11.5" width="28" height="27" rx="8" fill="#fffaf3" stroke="currentColor" stroke-width="2.2"/>'
                '<circle cx="44.6" cy="23" r="2.4" fill="#24170d"/><circle cx="55.4" cy="23" r="2.4" fill="#24170d"/>'
                '<path d="M45.4 32.4 Q50 28.8 54.6 32.4" fill="none" stroke="#24170d" stroke-width="1.9" stroke-linecap="round"/>'),
 }
@@ -212,6 +215,10 @@ def main() -> None:
     for name, base in SKIRTED.items():
         sym.append(f'<symbol id="b-{name}" viewBox="0 0 100 160" overflow="visible">'
                    f'<g fill="currentColor">{figure(POSES[base], skirt=True)}</g></symbol>')
+    for name in ("ai", "ai-sad"):
+        HEADS[name + "-bare"] = HEADS[name]
+        HEADS[name] = HAIR_AI + HEADS[name]
+    HEADS["hair-ai"] = HAIR_AI
     for name, svg in HEADS.items():
         sym.append(f'<symbol id="h-{name}" viewBox="0 0 100 160" overflow="visible">{svg}</symbol>')
     OUT.write_text('<svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" style="position:absolute" '
