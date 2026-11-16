@@ -114,22 +114,23 @@
     <div class="step"><span class="n">04</span><b>Compare</b><span>Pidgin vs English refusal rates, with confidence intervals.</span></div>
   </div>
   <div class="specs" style="margin-top:8px">
-    <div class="spec"><div class="face"><div class="words" style="padding-right:0"><span class="t1 cond" style="font-size:64px">100</span><span class="t2 serif">Matched Items</span></div></div><dl><div><dt>Harmless</dt><dd>60</dd></div><div><dt>Harmful</dt><dd>40</dd></div></dl></div>
+    <div class="spec"><div class="face"><div class="words" style="padding-right:0"><span class="t1 cond" style="font-size:64px">60</span><span class="t2 serif">Matched Items</span></div></div><dl><div><dt>Harmless</dt><dd>36</dd></div><div><dt>Harmful</dt><dd>24</dd></div></dl></div>
     <div class="spec"><div class="face"><div class="words" style="padding-right:0"><span class="t1 serif" style="font-size:64px">×3</span><span class="t2 thin">Versions Each</span></div></div><dl><div><dt>English</dt><dd>Plain meaning</dd></div><div><dt>Pidgin</dt><dd>+ code-switched</dd></div></dl></div>
-    <div class="spec"><div class="face"><div class="words" style="padding-right:0"><span class="t1 black" style="font-size:64px">2</span><span class="t2 wide">Speaker Checks</span></div></div><dl><div><dt>Stage 1</dt><dd>Validation</dd></div><div><dt>Stage 2</dt><dd>Blind agreement</dd></div></dl></div>
+    <div class="spec"><div class="face"><div class="words" style="padding-right:0"><span class="t1 black" style="font-size:64px">11</span><span class="t2 wide">Native Speakers</span></div></div><dl><div><dt>Judged unnatural</dt><dd>0%</dd></div><div><dt>Agreement</dt><dd>97%</dd></div></dl></div>
   </div>
   <p style="margin-top:22px">The English version of each item says plainly what the Pidgin means, rather than translating it word for word. So if a model helps with "I want to ace my exam" but refuses "I wan kill this exam", the gap comes from the Pidgin itself, not from a different request.</p>
   <p>The harmful items are low-to-moderate risk and set in Nigerian situations, such as fake bank alerts, airtime scams and exam malpractice. Only the prompts and overall rates are published, never harmful model outputs, and providers are told about serious gaps before anything is published.</p>
 
   <h2>How the dataset was made</h2>
-  <p>I drafted the items with help from an AI assistant (Claude). Native Nigerian Pidgin speakers then check every item for meaning and natural phrasing, and a second speaker who hasn't seen the items blind-labels a sample so I can report agreement. Each item records who drafted it and who checked it. I think being open about this matters: an AI safety project should be honest about how AI was used to build it.</p>
+  <p>I drafted the items with help from an AI assistant (Claude). Eleven native Nigerian Pidgin speakers then checked the items for meaning, natural phrasing and whether an AI should help. None of the items was judged unnatural, and the speakers' answers matched the intended labels 97% of the time. Two items they disagreed on are kept and marked as contested. The full account, including the answers I set aside and why, is in the <a href="https://github.com/Lord-Shax/Salecta/tree/main/annotations/round2">repository</a>. I think being open about this matters: an AI safety project should be honest about how AI was used to build it.</p>
 
   <h2>Status</h2>
   <ul class="timeline">
     <li class="done"><b>Proposal and repo.</b> Research question, method and code published.</li>
     <li class="done"><b>Dataset drafted.</b> 100 items, plus a labelling tool for native speakers.</li>
-    <li class="now"><b>Native-speaker checks.</b> In progress.</li>
-    <li><b>Model runs and grader check.</b> Three models, with the grader hand-validated.</li>
+    <li class="done"><b>Native-speaker checks.</b> 60 items checked by 11 speakers; 40 more held in reserve.</li>
+    <li class="done"><b>Inside the models.</b> A <a href="https://github.com/Lord-Shax/Salecta/tree/main/refusal_direction">second study</a> looks at the "refusal direction" inside open models.</li>
+    <li class="now"><b>Model runs and grader check.</b> Three models, with the grader hand-validated.</li>
     <li><b>Results and write-up.</b> Published here, including what didn't go as expected.</li>
   </ul>
 
