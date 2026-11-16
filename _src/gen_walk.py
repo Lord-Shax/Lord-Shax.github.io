@@ -45,6 +45,92 @@ def walker(kind, x_off, direction):
             f'{held_arm(direction)}{leg("leg-a")}<use href="#{head}" width="100" height="160"/></g></g>')
 
 
+# ---- the human: an original flat cartoon (quiff, beard, glasses, orange hoodie, teal trousers) ----
+SKIN, SKIN_D = "#9a5a36", "#7a4426"
+HOOD, HOOD_D, HOOD_DD = "#ec7a2c", "#cf6320", "#b4531a"
+PANTS, PANTS_D = "#3e8f8b", "#2f6f6c"
+HAIR, HAIR_L, BEARD = "#6e3a20", "#a85a2e", "#33201a"
+INK = "#1f1612"
+
+
+def cartoon_leg(cls, front):
+    pants = PANTS if front else PANTS_D
+    return (f'<g class="{cls}">'
+            f'<path d="M44 84 L56 84 L55.2 116 L54.2 141 L46 141 L44.8 116 Z" fill="{pants}"/>'
+            f'<path d="M50 104 L50.4 112" stroke="{PANTS_D}" stroke-width="1.1" stroke-linecap="round" opacity=".7"/>'
+            f'<path d="M45 139.5 h9.6 q8.6 1.6 9.6 7.4 q0 3.6 -3.4 3.6 h-15.4 q-2.4 0 -2.4 -3.4 z" fill="#2a2a30"/>'
+            f'<path d="M44.8 149.4 H61.6" stroke="#f3eee6" stroke-width="1.6" stroke-linecap="round"/>'
+            f'<path d="M51 142.4 l2.6 2.4 M53.6 142.4 l-2.6 2.4 M55.6 143.4 l2.4 2.2 M58 143.4 l-2.4 2.2" '
+            f'stroke="#f0632a" stroke-width="1.2" stroke-linecap="round"/></g>')
+
+
+def cartoon_swing_arm(cls, phone=False):
+    extra = ('<rect x="45.6" y="76" width="6.6" height="10" rx="1.4" fill="#e2453a" stroke="#7a1f19" '
+             'stroke-width=".7" transform="rotate(-12 49 81)"/>') if phone else ''
+    return (f'<g class="{cls}">'
+            f'<path d="M45.6 44 Q43.6 60 46.2 74 L53.8 74 Q56.4 60 54.4 44 Z" fill="{HOOD_D}"/>'
+            f'<rect x="45.8" y="71.5" width="8.4" height="3.6" rx="1.4" fill="{HOOD_DD}"/>'
+            f'<circle cx="50" cy="78.6" r="3.9" fill="{SKIN}"/>{extra}</g>')
+
+
+def cartoon_held_arm(direction):
+    hx = 50 + 28 * direction
+    return (f'<path d="M50 47 Q{50 + 10 * direction} 63 {hx - 4.5 * direction} 71.5" fill="none" stroke="{HOOD}" '
+            f'stroke-width="8.4" stroke-linecap="round"/>'
+            f'<path d="M{hx - 7 * direction} 69.2 l{4.4 * direction} 4.6" stroke="{HOOD_DD}" stroke-width="3.6" stroke-linecap="round"/>'
+            f'<circle cx="{hx}" cy="75" r="4" fill="{SKIN}"/>')
+
+
+CARTOON_TORSO = (
+    f'<path d="M37.5 47 Q50 37 62.5 47 L64.5 89 Q50 95.5 35.5 89 Z" fill="{HOOD}"/>'
+    f'<path d="M57 45 Q62 47 62.5 52 L64.5 89 Q60 91.5 56 92.4 Q59 70 57 45 Z" fill="{HOOD_D}" opacity=".55"/>'
+    f'<path d="M40 45.5 Q50 34.5 60 45.5 Q50 41.5 40 45.5 Z" fill="{HOOD_DD}"/>'
+    f'<rect x="47.4" y="33.6" width="5.2" height="8" fill="{SKIN_D}"/>'
+    f'<path d="M45.2 43.6 L50 55 L54.8 43.6 Z" fill="#f2e6cf"/>'
+    f'<path d="M46.8 45.6 L45.8 57.6 M53.2 45.6 L54.2 57.6" stroke="#f2e6cf" stroke-width="1" stroke-linecap="round"/>'
+    f'<circle cx="45.8" cy="58.4" r=".9" fill="#f2e6cf"/><circle cx="54.2" cy="58.4" r=".9" fill="#f2e6cf"/>'
+    f'<path d="M41 75.5 Q50 72 59 75.5 L58 83.5 L42 83.5 Z" fill="{HOOD_D}"/>'
+    f'<path d="M35.8 86.5 Q50 92.5 64.2 86.5 L64.5 89.5 Q50 96 35.5 89.5 Z" fill="{HOOD_DD}"/>'
+    f'<path d="M40.4 46.5 Q39.4 62 41.2 80" fill="none" stroke="#2b3d63" stroke-width="2.6" stroke-linecap="round"/>'
+)
+
+CARTOON_HEAD = (
+    f'<circle cx="39.6" cy="24.8" r="2.9" fill="{SKIN_D}"/>'
+    f'<ellipse cx="50" cy="23.8" rx="10.6" ry="12.2" fill="{SKIN}"/>'
+    # beard and moustache
+    f'<path d="M39.6 23 Q39.6 38.6 50 39.4 Q60.4 38.6 60.4 23 Q59 31.2 50 31.8 Q41 31.2 39.6 23 Z" fill="{BEARD}"/>'
+    f'<path d="M44.6 29.6 Q50 27 55.4 29.6 Q50 31.4 44.6 29.6 Z" fill="{BEARD}"/>'
+    f'<path d="M47.6 32.4 Q50 33.6 52.4 32.4" fill="none" stroke="#c97b6a" stroke-width="1" stroke-linecap="round"/>'
+    # nose, eyes, brows
+    f'<path d="M50.4 21.6 q-2 3.8 .6 4.4" fill="none" stroke="{SKIN_D}" stroke-width="1.1" stroke-linecap="round"/>'
+    f'<circle cx="45.4" cy="21.6" r="1.15" fill="{INK}"/><circle cx="54.8" cy="21.6" r="1.15" fill="{INK}"/>'
+    f'<path d="M41.8 16.6 Q45 15 48.2 16.4 M51.8 16.4 Q55 15 58.2 16.6" fill="none" stroke="{BEARD}" '
+    f'stroke-width="1.7" stroke-linecap="round"/>'
+    # glasses
+    f'<rect x="41.3" y="18.4" width="7.8" height="6.4" rx="1.8" fill="#fff" fill-opacity=".28" stroke="{INK}" stroke-width="1.6"/>'
+    f'<rect x="50.9" y="18.4" width="7.8" height="6.4" rx="1.8" fill="#fff" fill-opacity=".28" stroke="{INK}" stroke-width="1.6"/>'
+    f'<path d="M49.1 21 H50.9 M41.3 20.6 L39.4 20.2 M58.7 20.6 L60.6 20.2" stroke="{INK}" stroke-width="1.4" stroke-linecap="round"/>'
+    # swept-up quiff
+    f'<path d="M39.2 21.4 Q36.6 10.6 45 6.6 Q51 2.2 58.6 4.2 Q66.2 5.6 63.6 11 Q67 12.6 61.8 16.6 '
+    f'Q61.2 13.2 56.2 12.8 Q49.6 13.4 44.2 14.4 Q40.8 16.4 40.4 21.8 Z" fill="{HAIR}"/>'
+    f'<path d="M46.4 7.6 Q54.6 3.8 61.6 7.8 Q55 6.8 48.6 9.6 Z" fill="{HAIR_L}"/>'
+    f'<path d="M45 11.6 Q52 9 58 10.4 Q52 10.6 46.4 13 Z" fill="{HAIR_L}" opacity=".8"/>'
+    f'<path d="M39.4 21.6 Q39.8 26 40.6 27.2 L41.4 21 Z" fill="{BEARD}"/>'
+    f'<path d="M60.6 21.6 Q60.2 26 59.4 27.2 L58.6 21 Z" fill="{BEARD}"/>'
+)
+
+
+def cartoon_human(x_off, direction):
+    """The human walker as a flat cartoon. Same pivots as the stick figures (hip 50,89; shoulder 50,46),
+    so the CSS walk cycle (leg-a/leg-b, arm-a/arm-b) works unchanged."""
+    swing = "arm-b" if direction > 0 else "arm-a"
+    return (f'<g class="walker human cartoon" transform="translate({x_off} 0)">'
+            f'<ellipse class="wshadow" cx="50" cy="151" rx="19" ry="2.6"/>'
+            f'<g class="bob">'
+            f'{cartoon_leg("leg-b", False)}{cartoon_swing_arm(swing, phone=True)}{CARTOON_TORSO}'
+            f'{cartoon_held_arm(direction)}{cartoon_leg("leg-a", True)}{CARTOON_HEAD}</g></g>')
+
+
 WORDS = ["SAFETY", "ACCOUNTABILITY", "TRUST", "TRANSPARENCY", "FAIRNESS", "DATA PROTECTION",
          "RESPONSIBILITY", "EXPLAINABILITY", "ROBUSTNESS", "HUMAN OVERSIGHT", "INCLUSION"]
 RAINBOW = ["#e53935", "#f57c00", "#c99700", "#2e9d4f", "#1e7bd6", "#4b3bb5", "#9b3bb5"]
@@ -150,7 +236,7 @@ def plane(cls, y, s, flip=False):
 
 def scene():
     human_x, ai_x = 0, 56          # local offsets; hands meet at local x 78
-    walkers = walker("human", human_x, +1) + walker("ai", ai_x, -1)
+    walkers = cartoon_human(human_x, +1) + walker("ai", ai_x, -1)
     return f'''<svg class="walkscene" viewBox="0 0 1200 300" preserveAspectRatio="xMidYMax slice" role="img"
      aria-label="A human and an AI walk hand in hand toward a gate with an arrow sign marked Safety and Alignment, passing signposts for safety, trust, accountability, transparency, fairness, data protection, responsibility, explainability, robustness, human oversight and inclusion.">
   <defs>
