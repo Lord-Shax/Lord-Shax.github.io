@@ -118,7 +118,7 @@ def build() -> None:
         body = re.sub(r"<fig\s+([^>]*?)/>", fig, text[m.end():])
         out = ROOT / src.relative_to(SRC / "pages")
         out.parent.mkdir(parents=True, exist_ok=True)
-        out.write_text(layout(meta, body), encoding="utf-8")
+        out.write_text(body if meta.get("standalone") else layout(meta, body), encoding="utf-8")
         print("built", out.relative_to(ROOT))
 
 
