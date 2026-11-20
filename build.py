@@ -79,27 +79,29 @@ def layout(meta: dict, body: str) -> str:
 <meta property="og:title" content="{title}">
 <meta property="og:description" content="{desc}">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
-<link rel="preload" href="/assets/fonts/archivo-latin-standard-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/style.css">{extra}
+<link rel="preload" href="/assets/home/fonts/urbanist-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/style.css">
+<link rel="stylesheet" href="/assets/theme.css">{extra}
 </head>
 <body>
-<div class="kente-strip" aria-hidden="true"></div>
 {SPRITE}
 <a class="skip" href="#main">Skip to content</a>
-<header class="site-head">
-  <div class="wrap">
-    <a class="brand" href="/" aria-label="Ishaku, home">{BRAND}<span class="wordmark" aria-hidden="true"><span class="wm-i">i</span>shaku</span></a>
-    <a class="cv-pill" href="/cv/"{' aria-current="page"' if meta.get("active") == "cv" else ""}>My CV <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9m-3.5-3.5L12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-    <nav class="nav" aria-label="Main">{nav}</nav>
-  </div>
-</header>
+<div class="tn"><nav class="topnav" aria-label="Main">
+  <a class="me" href="/">ISHAKU</a>
+  <a href="/#research"{" aria-current=\"page\"" if meta.get("active") == "projects" else ""}>Research</a>
+  <a href="/#vision">Vision</a>
+  <a href="/#writing"{" aria-current=\"page\"" if meta.get("active") == "writing" else ""}>Writing</a>
+  <a href="/cv/"{" aria-current=\"page\"" if meta.get("active") == "cv" else ""}>CV</a>
+  <a href="/#contact">Contact</a>
+</nav></div>
 <main id="main">
 {body}
 </main>
 <footer class="site-foot">
-  <div class="wrap">
-    <span>© <span data-year>2026</span> Ishaku · <a href="/#contact">Contact</a> · <a href="/cv/">CV</a> · <a href="https://github.com/Lord-Shax">GitHub</a></span>
-    <span>Original illustrations. Built with help from Claude.</span>
+  <div class="wrap ft">
+    <div><a href="/">lord-shax.github.io</a><br><a href="https://github.com/Lord-Shax">github.com/Lord-Shax</a></div>
+    <div>Issue<br>Nov 2026</div>
+    <div class="ftag">Making AI safe for all.</div>
   </div>
 </footer>
 <script src="/assets/site.js" defer></script>
