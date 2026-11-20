@@ -72,7 +72,7 @@
 <div class="cv-head">
   <div>
     <h1>Ishaku Gayus B.</h1>
-    <p class="cv-role">Security &amp; Systems Engineer · <b>AI Safeguards and Evaluation</b></p>
+    <p class="cv-role">Security &amp; Systems Engineer · <b>AI Safety Research</b></p>
   </div>
   <div class="cv-contact">
     Abuja, Nigeria<br>
@@ -82,79 +82,73 @@
 </div>
 
 <h2>Summary</h2>
-<p class="cv-summary">Security-focused systems engineer with 15+ years building and defending the networks and software of Nigeria’s national space agency (NASRDA). I wrote my organisation’s first cybersecurity policy, designed network security controls and audits, and led an automated monitoring system that predicts infrastructure failures before they happen (over NGN 100M saved a year). I now build AI safety evaluations: <b>Salecta</b> tests whether frontier models keep their safety behaviour in Nigerian Pidgin. I want to bring this defender’s mindset to AI safeguards full-time: safety evaluations, adversarial robustness and automated risk detection.</p>
+<p class="cv-summary">Security and systems engineer with over 15 years securing critical Space infrastructure at Nigeria’s space agency (NASRDA). Now doing empirical AI safety research. Co-authored my organisation’s first cybersecurity policy, designed network security controls and audits, and led an automated monitoring system that predicts infrastructure failures before they happen and saved over NGN 100M. I now build AI safety evaluations. Motivated to bring this defender’s mindset to safety evaluations, adversarial robustness and automated risk detection.</p>
 
-<h2>AI safety work</h2>
+<h2>Recent AI safety research</h2>
 <div class="cv-feature">
-  <div class="cv-jh"><span class="cv-jt">Salecta · Nigerian Pidgin safety evaluation</span><span class="cv-jd">2026 · in progress</span></div>
+  <div class="cv-jh"><span class="cv-jt">Salecta · multilingual LLM safety evaluation (Nigerian Pidgin)</span><span class="cv-jd">Nov 2026</span></div>
   <ul>
-    <li>Open evaluation of whether LLM safety behaviour transfers from English to Nigerian Pidgin, measuring both over-refusal of harmless requests and under-refusal of harmful ones.</li>
-    <li>100 matched prompts (60 harmless, 40 harmful) in three language versions, checked by native speakers; built in Python on the UK AISI Inspect framework with inter-annotator agreement analysis.</li>
-    <li>Public code, data and an interactive “you be the safety filter” game: <a href="https://github.com/Lord-Shax/Salecta">github.com/Lord-Shax/Salecta</a>.</li>
+    <li>Designed a safety evaluation of over-refusal and harmful compliance on matched prompts in English, Pidgin and code-switched form; red-teaming dataset validated by native speakers.</li>
+    <li>Evaluated GPT-5.4 Mini, Llama 3.3 70B and Claude Haiku 5.5</li>
+  </ul>
+</div>
+<div class="cv-feature">
+  <div class="cv-jh"><span class="cv-jt">Refusal direction · interpretability study</span><span class="cv-jd">Nov 2026</span></div>
+  <ul>
+    <li>Extracted the refusal direction from the residual stream of five open models (Qwen2.5 1.5B/7B, Llama 3.2 3B / 3.1 8B, OLMo 2 7B) and tested it causally with directional ablation, KL-divergence checks and non-safety control directions.</li>
+    <li>Pidgin compresses the harmful/harmless separation to 41–70% of English in every model. PyTorch, Hugging Face Transformers. Paper in preparation; code at <a href="https://github.com/Lord-Shax/Salecta/tree/main/refusal_direction">https://github.com/Lord-Shax/Salecta/tree/main/refusal_direction</a>.</li>
   </ul>
 </div>
 
 <h2>Experience</h2>
 <div class="cv-job">
-  <div class="cv-jh"><span class="cv-jt">Special Adviser (Technical) to the Director/CEO</span><span class="cv-jd">2015 – present</span></div>
+  <div class="cv-jh"><span class="cv-jt">Special Adviser (Technical) to the Director/CEO</span><span class="cv-jd">2015 – 2026</span></div>
   <div class="cv-org">Centre for Satellite Technology Development (CSTD), NASRDA · Abuja</div>
   <ul>
-    <li>Lead the ICT and software development divisions; set technical direction and mentor 25+ engineers and developers.</li>
-    <li>Led the design and build of an IoT monitoring system that watches IT infrastructure continuously and uses predictive analytics to flag failures before they happen, saving over NGN 100M a year.</li>
-    <li>Built an AI-powered IT support assistant (Python, FastAPI) that automates support workflows, and a machine-learning tool that surfaces recurring problems in user feedback for management action.</li>
-    <li>Keep organisation-wide infrastructure, from servers to workstations, secure and available; build internal platforms, including an electronic document management system (in progress).</li>
-    <li>Report technical metrics and project status to top management through Power BI dashboards; run staff training on emerging technologies, including AI.</li>
+    <li>Technical leadership: lead the ICT and software development divisions; set technical direction and mentor 25+ engineers and developers.</li>
+    <li>Led the design and build of an IoT monitoring and early-warning system that watches IT/Satellite ground station infrastructure continuously and uses predictive analytics to flag failures before they happen</li>
+    <li>Built an AI-powered IT support adviser (Python, FastAPI, LLM) that automates support workflows, and a machine-learning (NLP) tool that surfaces recurring problems in user feedback for management action.</li>
+    <li>Report to top management through Power BI dashboards; train and retrain staff on AI and emerging technologies.</li>
+    <li>Led the development of a small satellite (TubeSat) as an engineering model to demonstrate in-house capacity.</li>
+    <li>Led the embedded systems team responsible for building electrical circuits for CSTD satellite technology projects.</li>
   </ul>
 </div>
 <div class="cv-job">
   <div class="cv-jh"><span class="cv-jt">Systems Administrator</span><span class="cv-jd">2011 – 2015</span></div>
   <div class="cv-org">Centre for Basic Space Science (CBSS), NASRDA · Nsukka</div>
   <ul>
-    <li>Wrote and implemented the Centre’s first cybersecurity policy; built and maintained its high-availability network infrastructure.</li>
+    <li>Wrote and implemented the Centre’s first cybersecurity policy; built and maintained its high-availability network infrastructure that supported Astronomy telescopes.</li>
   </ul>
 </div>
 <div class="cv-job">
   <div class="cv-jh"><span class="cv-jt">Systems Administrator (NYSC and internship)</span><span class="cv-jd">2009 – 2011</span></div>
   <div class="cv-org">Startech Technologies · Abuja</div>
   <ul>
-    <li>Designed network security measures and ran regular audits against industry standards; deployed secure LANs and WANs.</li>
+    <li>Designed network security measures and audits; deployed secure LANs and WANs.</li>
   </ul>
 </div>
 
 <h2>Skills</h2>
 <dl class="cv-skills">
-  <dt>Security and detection</dt><dd>Network security design, audits, cybersecurity policy, continuous monitoring, predictive early warning, automated alerting</dd>
-  <dt>AI/ML and software</dt><dd>Python, FastAPI, Inspect (LLM evaluations), machine learning for text, rapid prototyping</dd>
-  <dt>Leadership</dt><dd>Leading technical divisions, PMP-certified project delivery, mentoring, Power BI reporting, explaining risk to decision-makers</dd>
+  <dt>AI safety</dt><dd>LLM evaluations, red-teaming, safeguards, mechanistic interpretability, activation ablation, multilingual and low-resource NLP, presentation and speaking.</dd>
+  <dt>Security</dt><dd>Network security design, audits, cybersecurity policy, continuous monitoring, failure prediction, automated alerting</dd>
+  <dt>Engineering and data</dt><dd>Python, PyTorch, Hugging Face Transformers, Inspect, FastAPI, statistics</dd>
 </dl>
 
-<div class="cv-three">
-  <div>
-    <h2>Education</h2>
-    <div class="cv-edu">
-      <div><b>M.Eng, Electrical and Electronic Eng.</b> (Digital Communications)<br><span class="cv-muted">University of Nigeria, Nsukka · 2017</span></div>
-      <div><b>B.Eng, Electrical and Electronic Eng.</b> (Telecoms), Second Class Upper<br><span class="cv-muted">Federal University of Technology, Yola · 2009</span></div>
-    </div>
-  </div>
-  <div>
-    <h2>Certifications</h2>
-    <ul>
-      <li>Project Management Professional (PMP)</li>
-      <li>Cisco Network Security</li>
-      <li>Policy for Science, Technology and Innovation · Harvard University</li>
-      <li>Creative Problem-Solving · Imperial College London</li>
-    </ul>
-  </div>
-  <div>
-    <h2>Talks and service</h2>
-    <ul>
-      <li>“Artificial Intelligence Ethics and Implications for Developing Societies” (talk)</li>
-      <li>“Role of Information Technologists and Engineers in the Age of Artificial Intelligence” (talk)</li>
-      <li>ITU WP 7B (WRC-27), ECOWAS region: reporting</li>
-      <li>Member: IEEE, PMI, COREN, NSE</li>
-    </ul>
-  </div>
+<h2>Education</h2>
+<div class="cv-edu">
+  <div>M.Eng, Electrical and Electronic Engineering (Digital Communications), University of Nigeria, Nsukka · 2017</div>
+  <div>B.Eng, Electrical and Electronic Engineering (Telecommunications), Second Class Upper, Federal University of Technology, Yola · 2009</div>
 </div>
+
+<h2>Certifications</h2>
+<p>Project Management Professional (PMP) · Cisco Network Security · Policy for Science, Technology and Innovation (Harvard University) · Creative Problem-Solving (Imperial College London)</p>
+
+<h2>Talks and service</h2>
+<ul>
+  <li>Talks: “Artificial Intelligence Ethics and Implications for Developing Societies”; “Role of Information Technologists and Engineers in the Age of Artificial Intelligence” 2026</li>
+  <li>Member: IEEE Computer Society, PMI, COREN, NSE</li>
+</ul>
 <!--/cv-->
     </article>
   </div>
