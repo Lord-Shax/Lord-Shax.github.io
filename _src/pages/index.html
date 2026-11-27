@@ -24,7 +24,7 @@ nav .me{font-weight:600;letter-spacing:.14em;display:flex;align-items:center;gap
 .idot{position:relative}
 .idot::before{content:"";position:absolute;left:50%;top:-.05em;width:.24em;height:.24em;border-radius:50%;background:var(--orange);transform:translateX(-50%)}
 /* masthead */
-.mast{font-weight:400;font-size:clamp(34px,6.4vw,78px);line-height:1;letter-spacing:-.02em;margin:30px 0 22px;text-transform:uppercase}
+.mast{font-weight:400;font-size:clamp(20px,6.4vw,78px);line-height:1;letter-spacing:-.02em;margin:30px 0 22px;text-transform:uppercase;white-space:nowrap}
 .mast span{display:inline-block}
 /* lead: two columns */
 .lead{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;margin-top:30px}.hero-art{margin:0 0 4px}
@@ -72,7 +72,7 @@ section{padding:64px 0 0}
 footer{margin-top:80px;border-top:1.5px solid var(--rule);padding:20px 0 34px;display:grid;grid-template-columns:1fr auto 260px;gap:24px;font-size:12px;text-transform:uppercase;letter-spacing:.05em;line-height:1.5}
 footer .ftag{text-transform:none;letter-spacing:0;font-size:12.5px;color:var(--ink-2)}
 .draft{position:fixed;right:14px;bottom:14px;background:var(--ink);color:var(--paper);font-size:12px;letter-spacing:.12em;text-transform:uppercase;padding:8px 14px;border-radius:999px;z-index:9}
-@media(max-width:860px){.wrap{padding:0 18px}.lead,.contact{grid-template-columns:1fr}.three{grid-template-columns:1fr;gap:26px}nav{font-size:12px;gap:10px}.rows a{grid-template-columns:1fr}footer{grid-template-columns:1fr}.mast{white-space:normal}}
+@media(max-width:860px){.wrap{padding:0 18px}.lead,.contact{grid-template-columns:1fr}.three{grid-template-columns:1fr;gap:26px}nav{font-size:12px;gap:10px}.rows a{grid-template-columns:1fr}footer{grid-template-columns:1fr}.mast{white-space:nowrap}}
 /* mobile */
 .mlinks{display:contents}.mtog{display:none} @media(max-width:700px){  nav.hasm{flex-wrap:wrap;row-gap:0}  nav.hasm .mtog{display:flex;flex-direction:column;justify-content:center;gap:5px;width:40px;height:40px;border:0;background:none;padding:8px;cursor:pointer}  nav.hasm .mtog span{display:block;height:1.8px;background:#000;transition:transform .2s,opacity .2s}  nav.hasm.open .mtog span:nth-child(1){transform:translateY(6.8px) rotate(45deg)}  nav.hasm.open .mtog span:nth-child(2){opacity:0}  nav.hasm.open .mtog span:nth-child(3){transform:translateY(-6.8px) rotate(-45deg)}  nav.hasm .mlinks{display:none;width:100%;flex-direction:column;padding:8px 0 4px}  nav.hasm.open .mlinks{display:flex}  nav.hasm .mlinks a{padding:13px 0;border-top:1px solid #cfccc3;font-size:14px;letter-spacing:.12em}  nav.hasm .mlinks a::after{display:none}  nav.hasm .mlinks a[aria-current="page"]{font-weight:600} }
 
@@ -112,7 +112,7 @@ footer .ftag{text-transform:none;letter-spacing:0;font-size:12.5px;color:var(--i
   footer{margin-top:50px;gap:12px}
   .contact h2{font-size:30px}
   nav{flex-wrap:wrap;row-gap:8px}
-  .mast{margin:22px 0 16px}
+  .mast{margin:22px 0 16px;font-size:7.4vw!important;white-space:nowrap}
 }
 /* walking scene (kept from the current site) */
 .heroscene{display:block;width:100%;height:auto;aspect-ratio:1200/500}/* ---------- hero walk scene ---------- */
