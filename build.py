@@ -88,7 +88,7 @@ def layout(meta: dict, body: str) -> str:
 <a class="skip" href="#main">Skip to content</a>
 <div class="tn"><nav class="topnav" aria-label="Main">
   <a class="me" href="/">ISHAKU</a>
-  <a href="/#research"{" aria-current=\"page\"" if meta.get("active") == "projects" else ""}>Research</a>
+  <a href="/research/"{" aria-current=\"page\"" if meta.get("active") == "projects" else ""}>Research</a>
   <a href="/#vision">Vision</a>
   <a href="/#writing"{" aria-current=\"page\"" if meta.get("active") == "writing" else ""}>Writing</a>
   <a href="/cv/"{" aria-current=\"page\"" if meta.get("active") == "cv" else ""}>CV</a>
