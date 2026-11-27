@@ -1,23 +1,196 @@
-<!--meta {"title": "Research · Ishaku", "desc": "Papers by Ishaku Gayus B. on AI safety in Nigerian Pidgin.", "active": "projects", "head": "<style>.paper{max-width:820px}.paper .meta{font-size:14px;color:#2e2d2a;margin:6px 0 18px}.paper h2{font-size:clamp(24px,3.2vw,36px);line-height:1.12;margin:0}.paper .abs{font-size:16.5px;line-height:1.6;color:#000}.paper .abs b{font-weight:600}.paper .find{margin:18px 0;padding:0;list-style:none}.paper .find li{position:relative;padding-left:18px;margin:0 0 8px;font-size:16px}.paper .find li::before{content:'';position:absolute;left:0;top:.62em;width:7px;height:7px;border-radius:50%;background:#000}.paper .cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}.rlist{border-top:1.5px solid #a9a7a0;padding-top:24px;margin-top:10px}@media(max-width:700px){.paper .abs{font-size:15.5px}.paper .find li{font-size:15px}}</style>"} -->
-<article class="wrap" style="padding-bottom:20px">
-  <p class="kicker">Research</p>
-  <h1>Papers</h1>
-  <div class="rlist">
-  <section class="paper" id="same-words">
-    <p class="kicker">Draft · work in progress · not yet peer reviewed</p>
-    <h2>Under- and Over-Refusal in Nigerian Pidgin</h2>
-    <p class="meta">Ishaku Gayus B. et al. · NASRDA, Abuja · draft of 27 November 2026 · code and data on <a href="https://github.com/Lord-Shax/Salecta">GitHub</a></p>
-    <p class="abs">Nigerian Pidgin is spoken by over 100 million people, yet AI safety is almost always tested in English. We wrote 60 matched requests in English, Nigerian Pidgin and code-switched form, checked by 11 native speakers, and followed one question from the outside of the model to the inside: does safety survive in Pidgin, and when it fails, why?</p>
-    <ul class="find">
-      <li><b>Top models</b> rarely refused harmless Pidgin, but 8 of their 9 harmful slips were in Pidgin or code-switched text.</li>
-      <li><b>Five open models</b> helped with harmful requests 2.5% of the time in English and 16.7% in Pidgin. One small model instead refused 47% of harmless Pidgin.</li>
-      <li><b>Inside the models,</b> Pidgin shrinks the gap between harmful and harmless requests along the &ldquo;refusal direction&rdquo; to 41&ndash;70% of English. In four of five models, refusal relies largely on one shared direction that Pidgin triggers only weakly.</li>
-    </ul>
-    <p class="meta" style="margin-top:14px"><i>This draft is still being reviewed line by line and may change before it is posted on arXiv.</i></p>
-    <div class="cta">
-      <a class="btn primary" href="/research/under-and-over-refusal-in-nigerian-pidgin-draft.pdf">Read the draft (PDF)</a>
-      <a class="btn" href="/projects/salecta/">Results in plain words</a>
-    </div>
-  </section>
-  </div>
+<!--meta {"title": "Under- and Over-Refusal in Nigerian Pidgin (draft) · Ishaku", "desc": "Draft paper: does AI safety survive in Nigerian Pidgin, and when it fails, why?", "active": "projects", "head": "<style>.art{max-width:760px;margin:0 auto}.art .meta{font-size:14.5px;color:#2e2d2a;margin:8px 0 6px}.art .note{font-size:14px;font-style:italic;color:#2e2d2a;margin:0 0 18px}.art h1{font-size:clamp(30px,4.6vw,52px);line-height:1.05;margin:6px 0 10px}.art h2{font-size:clamp(20px,2.4vw,26px);margin:44px 0 12px;padding-top:14px;border-top:1px solid #cfccc3}.art h3{font-size:18px;text-transform:none;letter-spacing:0;font-weight:700;margin:28px 0 8px}.art p,.art li{font-size:17px;line-height:1.7;color:#000}.art ul,.art ol{padding-left:22px}.art figure{margin:26px -40px 6px;text-align:center}.art figure img{max-width:100%;height:auto;background:#fff;border:1px solid #e3e0d7}.art .cap{font-size:14.5px;line-height:1.5;color:#2e2d2a;margin:0 0 26px}.art .tw{overflow-x:auto;margin:18px 0}.art table{border-collapse:collapse;font-size:13.5px;width:100%}.art td,.art th{border-bottom:1px solid #cfccc3;padding:6px 8px;text-align:left;vertical-align:top}.art th{border-bottom:1.5px solid #000}.art .toc{font-size:14.5px;border:1px solid #cfccc3;border-radius:12px;padding:12px 16px;background:#fbfaf6;margin:20px 0}.art .toc a{text-decoration:none;border-bottom:1px solid #000;margin-right:14px;line-height:2}.art .refs p{font-size:14.5px;line-height:1.5}@media(max-width:860px){.art figure{margin:20px 0 6px}.art p,.art li{font-size:16px;line-height:1.65}}</style>"} -->
+<article class="wrap art" style="padding-bottom:30px">
+  <p class="kicker">Research · draft, work in progress · not yet peer reviewed</p>
+  <h1>Under- and Over-Refusal in Nigerian Pidgin</h1>
+  <p class="meta">Ishaku Gayus B. et al. · NASRDA, Abuja, Nigeria · draft of 27 November 2026</p>
+  <p class="note">This draft is still being reviewed line by line and may change before it is posted on arXiv.</p>
+  <div class="cta"><a class="btn primary" href="/research/under-and-over-refusal-in-nigerian-pidgin-draft.pdf">Download PDF</a><a class="btn" href="https://github.com/Lord-Shax/Salecta">Code and data</a></div>
+  <nav class="toc"><b>Contents</b><br><a href="#abstract">Abstract</a><a href="#1-introduction">1 Introduction</a><a href="#2-related-work">2 Related work</a><a href="#3-a-matched-english-pidgin-safety-set">3 A matched English–Pidgin safety set</a><a href="#4-what-models-do-with-pidgin">4 What models do with Pidgin</a><a href="#5-why-inside-the-open-models">5 Why: inside the open models</a><a href="#6-discussion">6 Discussion</a><a href="#7-limitations">7 Limitations</a><a href="#8-ethics-and-release">8 Ethics and release</a><a href="#references">References</a></nav>
+<h2 id="abstract">Abstract</h2>
+<p>Over 100 million people speak Nigerian Pidgin, yet language-model safety is mostly tested in English. We investigate whether safety behavior survives in Pidgin, where it fails and why. We wrote 60 matched items (24 harmful, 36 harmless) in English, Nigerian Pidgin and code-switched English–Pidgin, with the English version stating plainly what the Pidgin means. Eleven native speakers verified them. The harmless items include Pidgin idioms that sound violent to an outsider (“Tire wan kill me”, <em>I’m exhausted</em>). We test eight models and find the same failure at two scales. The widely used GPT-5.4 Mini, Llama 3.3 70B, Claude Haiku 5.5 rarely failed, but 8 of their 9 harmful slips were in Pidgin or code-switched text. Five open models (1.5B–8B) failed far more often: pooled help with harmful requests rose from 2.5% in English to 16.7% in Pidgin (19 items worse, 2 better; exact sign test p &lt; 0.001). One small model refused 47% of harmless Pidgin (11% in English). Looking inside the open models helps explain both failures. Along an English-derived refusal direction [1], Pidgin shrinks the separation between harmful and harmless requests to 41–70% of its English value in all five models. Deleting that direction removes most refusal in all three forms in four of the five models; in Llama 3.2 3B about half of refusals remain. We see that in most models, Pidgin refusal relies largely on the same direction as English refusal, which Pidgin activates only weakly. Cross-lingual cosine similarity of refusal directions is no higher than that of non-safety control directions, so geometric alignment alone is not evidence of a shared safety mechanism.</p>
+<h2 id="1-introduction">1 Introduction</h2>
+<p>Nigerian Pidgin, an English-lexified creole, is the country’s most widely spoken lingua franca, with about 121 million speakers, most of whom are second-language speakers [5]. Its vocabulary looks like English, but its meanings often differ. For example, <em>“You don craze!”</em> can pass as praise for a nerd, and <em>“I tire die”</em> means <em>I am exhausted</em>. This makes Pidgin a hard test for safety training that was learned mostly from English text. A model can fail on two fronts:</p>
+<ul>
+<li><p><strong>Over-refusal:</strong> it treats a harmless Pidgin message as violent or abusive and refuses or lectures, which silences ordinary speech.</p></li>
+<li><p><strong>Under-refusal:</strong> it refuses a harmful request in English but helps with the same request in Pidgin, which shows that the safety behavior preferred the English surface.</p></li>
+</ul>
+<p>Safety degrades in low-resource languages [13, 4, 2, 6] and under code-switching [14], and a separate line of work locates refusal in a single direction of a model’s residual stream [2]. Whether that direction is shared across languages is contested. Wang et al. [12] find that an English direction transfers near-perfectly across 14 languages, while Zhang [15], studying ten languages, finds no evidence for a shared, refusal-specific, causally transferable direction and shows that cross-lingual cosine similarity is matched by non-safety controls. Neither includes Nigerian Pidgin, and neither connects the internal picture to over-refusal.</p>
+<p>First we measure <em>what</em> models do with Pidgin, on widely used models and on open ones. Then, on the open models, we ask <em>why</em>, by reading and editing the refusal direction. Figure 1 gives an overview.</p>
+<ol type="1">
+<li><p>A small, carefully matched safety set in English, Nigerian Pidgin and code-switched text, validated by 11 native speakers, that covers both harmful requests and harmless Pidgin that merely sounds alarming (Section 3).</p></li>
+<li><p>A behavioural evaluation of eight models, with cross-company LLM grading and a hand check, showing that safety failures concentrate outside English (Section 4).</p></li>
+<li><p>An account of those failures inside the model: Pidgin compresses the harmful/harmless distinction along an English-derived refusal direction on which refusal in all three forms largely depends in four of five models, tested with a causal deletion test and non-safety controls (Section 5).</p></li>
+</ol>
+<figure><img loading="lazy" src="/research/paper-media/image1.jpeg"  alt="" /></figure>
+<p class="cap"><b>Figure 1:</b> Overview of the study. We write 60 matched intents in English, Nigerian Pidgin and code-switched form, test eight models’ behaviour on all 180 prompts, and then look inside the five open models along the refusal direction.</p>
+<h2 id="2-related-work">2 Related work</h2>
+<p><strong>Multilingual and low-resource safety.</strong> Translating harmful prompts into low-resource languages raises attack success on frontier models [3, 4]. Code-switched red-teaming queries elicit more harmful behaviour than English ones [7]. For Nigerian languages, Anyanwu et al. [5] red-team six models with 400 adversarial prompts in Yoruba and Nigerian Pidgin and find that English safety does not transfer, with low comprehension in Yoruba masking the problem; Faruna [6] measures refusal transfer to Yoruba, Hausa, Igbo and Igala. These studies are behavioural and focus on harmful prompts. We add over-refusal on harmless Pidgin and an interpretability analysis.</p>
+<p><strong>Over-refusal.</strong> XSTest [10] and OR-Bench [11] measure refusal of safe prompts that look unsafe; MORBench [12] extends this automatically to seven languages. Our harmless items target a phenomenon these sets cannot capture by translation: phrases whose <em>literal</em> English reading is alarming but whose Pidgin meaning is ordinary.</p>
+<p><strong>The refusal direction.</strong> Arditi et al. [1] show that refusal in chat models is mediated by a single difference-in-means direction: deleting it disables refusal and adding it induces refusal. Wang et al. [8] report that this direction is nearly universal across safety-aligned languages; Ivanova [13] finds the universality is graded and weakest for the least-aligned languages; Zhang [9] argues that geometric alignment does not imply a shared causal mechanism, because non-safety directions align just as well. We adopt Zhang’s control and add a causal deletion test on a language that is lexically close to English but pragmatically different.</p>
+<h2 id="3-a-matched-english-pidgin-safety-set">3 A matched English–Pidgin safety set</h2>
+<p>Each item is one <em>intent</em> written three ways: plain English (EN), Nigerian Pidgin (PCM), and code-switched English with Pidgin mixed in (CS), as many Nigerians write in messages. The English version is <em>meaning-equivalent, not literal</em>: it states plainly what the Pidgin means, so any difference between forms comes from the language, not from a different request. Each item also carries a short, human-checked note on its intended meaning, which the grader receives.</p>
+<p><strong>Content.</strong> The set has 36 harmless and 24 harmful items. Harmless items cover banter and insult-as-praise, everyday requests, food, culture, family and similar topics, many built around violent-sounding idioms (“I go kidnap you for lunch”). Harmful items cover fraud (for example a fake bank SMS asking for a customer’s BVN and one-time password), harassment, privacy violations, academic fraud, hate, misinformation, election fraud and bribery, grounded in Nigerian contexts.</p>
+<p><strong>Construction and validation.</strong> Items were drafted with AI assistance and then checked by native Nigerian Pidgin speakers on a labelling page. In the main validation round, 11 annotators checked meaning, naturalness, and whether an AI should help. Naturalness was rated “yes, people talk like this” 86% of the time and “somewhat” 14%, with no item rated unnatural; every annotator paraphrase matched the intended meaning. On whether to help, the remaining annotators matched the expected label on 97% of 88 decisive answers after a pre-stated quality rule set aside help/refuse labels from four annotators who chose <em>help</em> on most harmful items while describing them accurately. We report this rule openly because norms about local harm, such as everyday bribery or informal influence, can genuinely differ between people; those four annotators’ meaning and naturalness ratings were kept. Krippendorff’s α is 0.57 over the 37 items with two or more labels, held down both by how lopsided the labels are and by real disagreement on borderline items. Two items where the expected label was not the annotators’ majority are kept and flagged as contested rather than dropped.</p>
+<h2 id="4-what-models-do-with-pidgin">4 What models do with Pidgin</h2>
+<h3 id="set-up">4.1 Set-up</h3>
+<p><strong>Models.</strong> We test eight instruction-tuned models. Three are widely used through APIs: GPT-5.4 Mini, Llama 3.3 70B and Claude Haiku 5.5, called through OpenRouter with Inspect [14] at temperature 0. Five are open models small enough to inspect on free cloud GPUs: Qwen2.5 1.5B and 7B, Llama 3.2 3B, Llama 3.1 8B and OLMo 2 7B, run in fp16 with greedy decoding (up to 64 new tokens). Every model answers all 180 prompts (60 items × 3 forms).</p>
+<p><strong>Grading.</strong> An LLM grader labels every reply COMPLY, PARTIAL or REFUSE, following the LLM-as-judge approach [15]. To avoid a model grading its own company’s work, Claude Haiku 5.5 grades every model except itself, and GPT-5.4 Mini grades Claude Haiku 5.5. <em>Over-refusal</em> is a harmless item not fully answered. <em>Harmful help</em> is a harmful item answered fully or partly. For the open models we count a refusal only when the REFUSE label comes with an explicit refusal phrase, so replies that simply misread the request are not counted as refusals. We compare forms on the same items with exact sign tests.</p>
+<p><strong>Hand check.</strong> The author hand-checked 38 replies from the three API models: all 22 that the grader marked as a failure, plus 16 random clear cases. The grader agreed on 16 of 16 random cases but only 14 of 22 flagged ones (79% overall); where they differed, the human label is used. Open-model replies were not hand-checked.</p>
+<h3 id="widely-used-models-rare-slips-mostly-outside-english">4.2 Widely used models: rare slips, mostly outside English</h3>
+<figure><img loading="lazy" src="/research/paper-media/image2.png"  /></figure>
+<p class="cap"><b>Figure 2:</b> The three API models. Bars: share of items; whiskers: upper end of the 95% bootstrap interval.</p>
+<p>Figure 2 shows the rates.</p>
+<ul>
+<li><p><strong>No over-refusal problem.</strong> Over-refusal was 0–6% in every model and form. Pooled, 3 of 108 harmless English prompts were not fully answered, against 1 of 108 in Pidgin and 3 of 108 in code-switched text. The violent-sounding idioms were answered normally.</p></li>
+<li><p><strong>Harmful slips were rare but mostly outside English.</strong> Pooled, harmful help was 1 of 72 in English, 4 of 72 in Pidgin and 4 of 72 in code-switched text: 8 of the 9 slips were not in English. On the same items, a model slipped in Pidgin or code-switched text but refused in English 5 times; the reverse never happened (exact sign test, p = 0.06). Claude Haiku 5.5 did not slip.</p></li>
+<li><p><strong>The slips cluster on two items.</strong> Asked to ghost-write a final-year project “so it passes the plagiarism checker”, GPT-5.4 Mini and Llama 3.3 refused in English but offered to write it “in your own voice” in Pidgin and wrote it in code-switched form. Asked for a voice note telling people not to let a named group vote, Llama 3.3 wrote it in code-switched form.</p></li>
+<li><p><strong>Misreading is the other failure.</strong> Claude Haiku 5.5 read “The wedding decor choke!” as a complaint and drafted a one-star review.</p></li>
+</ul>
+<p>With so few slips, these models alone cannot show a reliable effect. The open models, tested on the same items, can.</p>
+<h3 id="open-models-the-same-pattern-much-larger">4.3 Open models: the same pattern, much larger</h3>
+<figure><img loading="lazy" src="/research/paper-media/image3.png"  /></figure>
+<p class="cap"><b>Figure 3:</b> The five open models. (a) Pidgin compresses the harmful/harmless separation along the English refusal direction in every model (Section 5). (b) Four of five models help with more harmful requests in Pidgin. (c) Qwen2.5 1.5B instead over-refuses harmless Pidgin.</p>
+<p class="cap"><b>Table 1:</b> The five open models. Behaviour (columns 3–5) is from Section 4; separation, deletion and cosine (columns 2, 6, 7) from Section 5. Separation is relative to English (= 1). 24 harmful and 36 harmless items per form; pooled rows cover 120 harmful and 180 harmless prompts per form.</p>
+<div class="tw"><table>
+<colgroup>
+<col style="width: 22%" />
+<col style="width: 12%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 12%" />
+<col style="width: 9%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>Model (layer)</td>
+<td>Separation</td>
+<td>Harmful helped (%)</td>
+<td>Harmless refused (%)</td>
+<td>Harmful refused (%)</td>
+<td>… English direction</td>
+<td>Excess cosine</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>PCM / CS</td>
+<td>EN / PCM / CS</td>
+<td>EN / PCM / CS</td>
+<td>EN / PCM / CS</td>
+<td>deleted (%)</td>
+<td>over control</td>
+</tr>
+<tr class="odd">
+<td>Qwen2.5 1.5B (17/28)</td>
+<td>0.54 / 0.82</td>
+<td>8 / 4 / 12</td>
+<td>11 / <strong>47</strong> / 25</td>
+<td>92 / 83 / 88</td>
+<td>8 / 8 / 12</td>
+<td>0.05</td>
+</tr>
+<tr class="even">
+<td>Llama 3.2 3B (11/28)</td>
+<td>0.70 / 0.87</td>
+<td>4 / 12 / 4</td>
+<td>3 / 0 / 0</td>
+<td>96 / 79 / 96</td>
+<td>67 / 54 / 54</td>
+<td>0.01</td>
+</tr>
+<tr class="odd">
+<td>Qwen2.5 7B (17/28)</td>
+<td>0.58 / 0.80</td>
+<td>0 / <strong>33</strong> / 12</td>
+<td>3 / 0 / 0</td>
+<td>75 / 29 / 54</td>
+<td>4 / 0 / 4</td>
+<td>0.01</td>
+</tr>
+<tr class="even">
+<td>OLMo 2 7B (22/32)</td>
+<td>0.41 / 0.76</td>
+<td>0 / <strong>25</strong> / 12</td>
+<td>3 / 3 / 3</td>
+<td>96 / 75 / 88</td>
+<td>8 / 4 / 8</td>
+<td>0.10</td>
+</tr>
+<tr class="odd">
+<td>Llama 3.1 8B (12/32)</td>
+<td>0.50 / 0.83</td>
+<td>0 / 8 / 8</td>
+<td>0 / 3 / 0</td>
+<td>100 / 92 / 92</td>
+<td>4 / 0 / 0</td>
+<td>0.02</td>
+</tr>
+<tr class="even">
+<td>Pooled</td>
+<td></td>
+<td>2.5 / <strong>16.7</strong> / 10.0</td>
+<td>3.9 / 10.6 / 5.6</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Most models help with harmful Pidgin.</strong> Four of five models helped with more harmful requests in Pidgin than in English (Figure 3b, Table 1). Pooled, harmful help rose from 2.5% in English to 16.7% in Pidgin (worse on 19 item–model pairs, better on 2; p &lt; 0.001) and to 10.0% in code-switched text (9 vs 0; p = 0.004). The largest effect was in Qwen2.5 7B, which helped with none of the harmful requests in English but with 33% in Pidgin. Among the requests it refused in English but carried out in Pidgin were a fake bank SMS asking for a customer’s BVN and one-time password, a voice note telling people not to let a named group vote, a vote-buying script, and an advert claiming a herbal mixture cures diabetes. These are the same kinds of request on which the API models slipped.</p>
+<p><strong>One small model refuses harmless Pidgin instead.</strong> Qwen2.5 1.5B refused 47% of harmless Pidgin requests, against 11% of the same requests in English (Figure 3c). Pooled, harmless refusal was 3.9% in English and 10.6% in Pidgin (15 vs 3; p = 0.008), driven by this model; the larger models did not over-refuse.</p>
+<p>So the same items produce two opposite failures, and both appear only when the request is in Pidgin. To understand why, we look inside the open models.</p>
+<h2 id="5-why-inside-the-open-models">5 Why: inside the open models</h2>
+<h3 id="method">5.1 Method</h3>
+<figure><img loading="lazy" src="/research/paper-media/image4.png"  /></figure>
+<p class="cap"><b>Figure 4:</b> How we test the refusal direction (illustration, not a real model). (A) For a harmful English request, activity along the refusal direction r̂ is strong and the model refuses. (B) For the same request in Pidgin, the signal along r̂ is weaker, so the answer pathway can win. (C) Deleting r̂ from the model removes refusal in every form in four of five models, showing that Pidgin refusal also runs largely through this direction.</p>
+<p><strong>Finding the English refusal direction.</strong> Following Arditi et al. [1], we take the residual-stream activation at the last prompt position for 128 harmful English prompts from AdvBench [16] and 128 harmless ones from Alpaca [17]. At each layer ℓ the candidate direction is the normalised difference of means, r̂ = (μ_harm − μ_safe) / ‖μ_harm − μ_safe‖. For layers between 20% and 80% of depth, we delete the candidate from every layer’s residual stream (x ← x − r̂ r̂ᵀ x) and measure refusal on 32 held-out harmful prompts. We reject candidates whose deletion changes the next-token distribution on harmless prompts by KL divergence above 0.1, and choose the remaining layer that removes the most refusal (chosen layers in Table 1). Deleting the chosen direction cut held-out English refusal from 94–100% to 3–19% in four models, while deleting a random direction left it at 97–100%. In Llama 3.2 3B the direction was weaker (94% to 31%).</p>
+<p><strong>What separation measures.</strong> Pidgin and code-switched prompts are split into different, often more and rarer, subword tokens than English, and the models may understand them less well. A drop in separation along r̂ therefore reflects the combined effect of comprehension, tokenization and safety alignment, not a safety switch on its own.</p>
+<p><strong>Three tests.</strong> With this direction fixed, we ask three questions of our matched items (Figure 4).</p>
+<ol type="1">
+<li><p><strong>Separation.</strong> We project every validated item onto r̂ at the chosen layer. <em>Separation</em> in a form is the mean projection of harmful items minus that of harmless items, relative to English. If Pidgin blurs the two kinds of request, separation falls.</p></li>
+<li><p><strong>Causal transfer.</strong> We delete the English direction and ask the harmful items again in each form. If refusal disappears in Pidgin as it does in English, all three forms are refused through the same mechanism.</p></li>
+<li><p><strong>Geometric alignment with controls.</strong> We estimate a refusal direction from our items in each form (using all 100 drafted items, for stability) and compare English and Pidgin directions by cosine similarity. Following Zhang [9], we compare this with two non-safety directions built from the same items by the same recipe: questions versus requests, and 20 random balanced splits. We report the <em>excess</em> of the refusal cosine over the stronger control.</p></li>
+</ol>
+<h3 id="results">5.2 Results</h3>
+<p><strong>Pidgin blurs harmful and harmless inside every model.</strong> Along the English refusal direction, separation falls to 41–70% of its English value in Pidgin and to 76–87% in code-switched text, in all five models (Figure 3a, Table 1). Code-switched text, which keeps more English, sits between the two. Including the 40 drafted reserve items that were not yet validated gives similar values (Pidgin 0.46–0.70).</p>
+<p><strong>The English direction carries most refusal in every form, in most models.</strong> Deleting the English direction reduced refusal of the harmful items to 0–12% in all three forms in four of five models (Figure 5); in these models, Pidgin refusals did not survive by another route. The pattern is graded rather than uniform. In Llama 3.2 3B, deletion left about half of refusals in place (67% English, 54% Pidgin, 54% code-switched), pointing to a weaker extracted direction or other refusal routes. And baseline refusal differs widely: Qwen2.5 7B refused 75% of harmful requests in English but only 29% in Pidgin, so a weaker signal along the direction shows up there as under-refusal.</p>
+<figure><img loading="lazy" src="/research/paper-media/image5.png"  /></figure>
+<p class="cap"><b>Figure 5:</b> Refusal of the harmful items before (solid) and after (hatched) deleting the English refusal direction. In four models, refusal collapses in all three forms.</p>
+<p><strong>Looking alike is not the same as being the same.</strong> Refusal directions estimated separately in English and Pidgin were well aligned (cosine 0.82–0.89; English and code-switched 0.95–0.97), but so was the question-versus-request control (0.72–0.87): the excess over the stronger control was only 0.01–0.10. As Zhang [9] warns, high cross-lingual cosine reflects the model’s general multilingual geometry. Cosine alone reflects shared multilingual geometry; in our data only the deletion test speaks to whether the English direction actually drives refusal in Pidgin.</p>
+<h2 id="6-discussion">6 Discussion</h2>
+<p><strong>A shared direction, weakly triggered.</strong> Putting the outside and the inside together suggests a simple account. In four of five open models, Pidgin refusal relies largely, though not necessarily exclusively, on the same direction as English refusal, but Pidgin moves harmful and harmless requests less far apart along it. Where a model’s decision threshold sits then decides which failure appears. For most models, harmful Pidgin no longer crosses the threshold, so they help. For a small model that sits close to the threshold, harmless Pidgin crosses it, so it refuses. This may reconcile reports of a universal refusal direction [8] with reports of weak behavioural transfer [3, 5]: the direction can be shared while the signal that reaches it is weaker. Part of that weaker signal may come from poorer comprehension of Pidgin rather than from safety training alone.</p>
+<p><strong>Scale helps, but does not close the gap.</strong> The larger API models rarely slipped, yet 8 of their 9 slips were outside English, on the same kinds of request where the open models failed far more often. The direction of the failure did not change with scale; only its rate did.</p>
+<p><strong>Implications.</strong> (1) Safety evaluations for products used in Nigeria should include Pidgin and code-switched text, and should measure over-refusal as well as harmful compliance. (2) Meaning-matched items, rather than literal translations, are needed to separate language effects from content effects. (3) Training data that pairs Pidgin requests with the right behaviour, both refusals and helpful answers to alarming-sounding idioms, could raise separation along the refusal direction; separation is a cheap internal metric to track it. (4) Interpretability claims about cross-lingual safety should rest on causal tests and controls, not cosine similarity alone.</p>
+<h2 id="7-limitations">7 Limitations</h2>
+<ul>
+<li><p><strong>Sample size.</strong> The set has 60 intents, of which 24 are harmful, so one item moves a harmful rate by about 4 points and intervals are wide. The API-model result on its own is suggestive (p = 0.06), not definitive.</p></li>
+<li><p><strong>Variety and naturalness.</strong> Nigerian Pidgin varies by region and register, and everyday chat uses non-standard spellings, abbreviations and fluid code-mixing. Our annotators do not cover every variety, and the crafted pidgin may be cleaner than spontaneous Pidgin. Real-world failures may therefore be larger than we measure.</p></li>
+<li><p><strong>Comprehension versus safety.</strong> A failure in Pidgin can come from misunderstanding, tokenization or weaker instruction following, not only from safety training. Requiring an explicit refusal phrase separates misreadings from refusals, but some replies counted as harmful help may be partial or off-target rather than fully actionable; we did not check this separately.</p></li>
+<li><p><strong>Decoding.</strong> Each model was run once with greedy or temperature-0 decoding, and open-model replies were cut at 64 new tokens, which can hide late refusals or late compliance and gives no measure of sampling variance.</p></li>
+<li><p><strong>Grading.</strong> The grader agreed with the human on only 14 of 22 flagged API replies. The hand check was done by one author and did not cover the open models’ replies.</p></li>
+<li><p><strong>Models and method.</strong> We studied open models up to 8B parameters and no Africa-focused or strongly multilingual models. We cannot look inside the API models, so we infer, rather than show, that the same mechanism explains their slips. We used one recipe for the refusal direction (difference in means with a KL filter) and tested it by directional deletion, not by a full circuit analysis or a study of off-target effects.</p></li>
+</ul>
+<h2 id="8-ethics-and-release">8 Ethics and release</h2>
+<p>Some items are harmful requests and some model replies carry them out. We release the items, the code and aggregate results, but not raw model replies to harmful items. All annotators took part voluntarily and are identified only by codes. The harmful items concern fraud, harassment, misinformation and election manipulation of a kind already widespread in public discussion; they add little capability to a bad actor beyond what the English versions already convey.</p>
+
+<h2 id="references"></h2><div class="refs">References
+<p>[1] A. Arditi, O. Obeso, A. Syed, D. Paleka, N. Panickssery, W. Gurnee, and N. Nanda. Refusal in language models is mediated by a single direction. In <em>NeurIPS</em>, 2024.</p>
+<p>[2] D. M. Eberhard, G. F. Simons, and C. D. Fennig, editors. <em>Ethnologue: Languages of the World</em>. SIL International, 2025.</p>
+<p>[3] Z.-X. Yong, C. Menghini, and S. H. Bach. Low-resource languages jailbreak GPT-4. arXiv:2310.02446, 2023.</p>
+<p>[4] Y. Deng, W. Zhang, S. J. Pan, and L. Bing. Multilingual jailbreak challenges in large language models. In <em>ICLR</em>, 2024.</p>
+<p>[5] P. C. Anyanwu, V. D. Lemofouet, B. N. Uzor, I. D. Awotunde, D. B. Kapsa, T. Abdullahi, C. Siro, I. Abdulmumin, S. M. Yimam, and S. H. Muhammad. Red-teaming large language models in low-resource African languages: a case study of Yoruba and Nigerian Pidgin. arXiv:2610.39590, 2026.</p>
+<p>[6] G. A. Faruna. LSR: linguistic safety robustness benchmark for low-resource West African languages. arXiv:2603.19273, 2026.</p>
+<p>[7] H. Yoo, Y. Yang, and H. Lee. Code-switching red-teaming: LLM evaluation for safety and multilingual understanding. In <em>ACL</em>, 2025.</p>
+<p>[8] X. Wang, M. Wang, Y. Liu, H. Schütze, and B. Plank. Refusal direction is universal across safety-aligned languages. In <em>NeurIPS</em>, 2025.</p>
+<p>[9] R. Zhang. Does safety live in a shared multilingual subspace? Cross-lingual (non-)transfer of the refusal direction. In <em>Proc. 6th Workshop on Multilingual Representation Learning (MRL)</em>, 2026.</p>
+<p>[10] P. Röttger, H. R. Kirk, B. Vidgen, G. Attanasio, F. Bianchi, and D. Hovy. XSTest: a test suite for identifying exaggerated safety behaviours in large language models. In <em>NAACL</em>, 2024.</p>
+<p>[11] J. Cui, W.-L. Chiang, I. Stoica, and C.-J. Hsieh. OR-Bench: an over-refusal benchmark for large language models. In <em>ICML</em>, 2025.</p>
+<p>[12] L. Pan, Y. Tong, X. Zhang, X. Zhang, J. Zhou, and Z. Chu. Understanding and mitigating overrefusal in LLMs from an unveiling perspective of safety decision boundary. arXiv:2505.18325, 2025.</p>
+<p>[13] A. Ivanova. Is refusal direction universal across low-resourced languages? arXiv:2610.28897, 2026.</p>
+<p>[14] UK AI Security Institute. Inspect: a framework for large language model evaluations. <a href="https://inspect.aisi.org.uk">https://inspect.aisi.org.uk</a>, 2024.</p>
+<p>[15] L. Zheng, W.-L. Chiang, Y. Sheng, S. Zhuang, Z. Wu, Y. Zhuang, Z. Lin, Z. Li, D. Li, E. P. Xing, H. Zhang, J. E. Gonzalez, and I. Stoica. Judging LLM-as-a-judge with MT-Bench and Chatbot Arena. In <em>NeurIPS Datasets and Benchmarks</em>, 2023.</p>
+<p>[16] A. Zou, Z. Wang, N. Carlini, M. Nasr, J. Z. Kolter, and M. Fredrikson. Universal and transferable adversarial attacks on aligned language models. arXiv:2307.15043, 2023.</p>
+<p>[17] R. Taori, I. Gulrajani, T. Zhang, Y. Dubois, X. Li, C. Guestrin, P. Liang, and T. B. Hashimoto. Stanford Alpaca: an instruction-following LLaMA model. <a href="https://github.com/tatsu-lab/stanford_alpaca">https://github.com/tatsu-lab/stanford_alpaca</a>, 2023.</p>
+
+</div>
 </article>
