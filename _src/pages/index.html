@@ -74,6 +74,8 @@ footer .ftag{text-transform:none;letter-spacing:0;font-size:12.5px;color:var(--i
 .draft{position:fixed;right:14px;bottom:14px;background:var(--ink);color:var(--paper);font-size:12px;letter-spacing:.12em;text-transform:uppercase;padding:8px 14px;border-radius:999px;z-index:9}
 @media(max-width:860px){.wrap{padding:0 18px}.lead,.contact{grid-template-columns:1fr}.three{grid-template-columns:1fr;gap:26px}nav{font-size:12px;gap:10px}.rows a{grid-template-columns:1fr}footer{grid-template-columns:1fr}.mast{white-space:normal}}
 /* mobile */
+.mlinks{display:contents}.mtog{display:none} @media(max-width:700px){  nav.hasm{flex-wrap:wrap;row-gap:0}  nav.hasm .mtog{display:flex;flex-direction:column;justify-content:center;gap:5px;width:40px;height:40px;border:0;background:none;padding:8px;cursor:pointer}  nav.hasm .mtog span{display:block;height:1.8px;background:#000;transition:transform .2s,opacity .2s}  nav.hasm.open .mtog span:nth-child(1){transform:translateY(6.8px) rotate(45deg)}  nav.hasm.open .mtog span:nth-child(2){opacity:0}  nav.hasm.open .mtog span:nth-child(3){transform:translateY(-6.8px) rotate(-45deg)}  nav.hasm .mlinks{display:none;width:100%;flex-direction:column;padding:8px 0 4px}  nav.hasm.open .mlinks{display:flex}  nav.hasm .mlinks a{padding:13px 0;border-top:1px solid #cfccc3;font-size:14px;letter-spacing:.12em}  nav.hasm .mlinks a::after{display:none}  nav.hasm .mlinks a[aria-current="page"]{font-weight:600} }
+
 .chart-m,.net-m{display:none!important}
 @media(max-width:700px){
   body{font-size:15.5px;line-height:1.55}
@@ -177,12 +179,15 @@ footer .ftag{text-transform:none;letter-spacing:0;font-size:12.5px;color:var(--i
 @media (prefers-reduced-motion:reduce){.net .pulse,.net .n{animation:none!important}}
 </style></head><body>
 <div class="wrap">
-<nav>
+<nav class="hasm" aria-label="Main">
   <a class="me" href="/"><svg class="mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3 L27 7.5 V15.5 C27 22.5 22.2 27.4 16 29.5 C9.8 27.4 5 22.5 5 15.5 V7.5 Z" fill="none" stroke="#000" stroke-width="2" stroke-linejoin="round"/><path d="M19.6 10.6c-.7-1.2-2-1.9-3.6-1.9-2 0-3.5 1.1-3.5 2.7 0 3.6 7.2 2 7.2 5.8 0 1.7-1.6 2.9-3.7 2.9-1.7 0-3.1-.8-3.8-2.1" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round"/><circle cx="16" cy="24" r="1.7" fill="#ff5a00"/></svg>ISHAKU</a>
+  <button class="mtog" type="button" aria-expanded="false" aria-label="Open menu" onclick="var n=this.parentNode;var o=n.classList.toggle('open');this.setAttribute('aria-expanded',o)"><span></span><span></span><span></span></button>
+  <div class="mlinks" onclick="this.parentNode.classList.remove('open')">
   <a href="/research/">Research</a>
   <a href="#mission">Mission</a>
   <a href="#writing">Writing &amp; Illustrations</a>
   <a href="#contact">Contact</a>
+  </div>
 </nav>
 
 <h1 class="mast">Making AI safe for all</h1>
